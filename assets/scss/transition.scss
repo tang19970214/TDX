@@ -1,0 +1,20 @@
+// form transition
+.fade-enter {
+  opacity: 0;
+  transform: translateY(50%);
+}
+
+.fade-enter-to,
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(50%);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.8s ease;
+}

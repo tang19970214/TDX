@@ -1,0 +1,65 @@
+import router from "./router.js";
+
+export default {
+  server: {
+    port: 8000, // default: 3000
+    host: '0.0.0.0' // default: localhost
+  },
+  router: {
+    // mode: "hash",
+    scrollBehavior: () => ({ y: 0 }),
+    extendRoutes(routes, resolve) {
+      return router;
+    }
+  },
+  // Global page headers: https://go.nuxtjs.dev/config-head
+  head: {
+    title: 'tdx',
+    htmlAttrs: {
+      lang: 'en'
+    },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '經濟部工業局委託數位經濟暨產業發展協會、台灣經濟研究院、資策會執行「數位轉型基盤建構先期推動計畫」，其中重要的工作為發展與推動企業的數位轉型量表- 台灣產業數位轉型量表- TDX，現階段已針對製造業(扣件、紡織)、服務業(餐飲)、資訊服務業進行量表設計。' }
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
+  },
+
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: [
+    // Load a Node.js module directly (here it's a Sass file)
+    // 'bulma',
+    // SCSS file in the project
+    '@/assets/scss/index.scss',
+    'element-ui/lib/theme-chalk/index.css'
+  ],
+
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: [
+    '~/plugins/element-ui/element-ui'
+  ],
+
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+  ],
+
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+    // https://go.nuxtjs.dev/axios
+    '@nuxtjs/axios',
+  ],
+
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {},
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+    vendor: ['element-ui']
+  }
+}

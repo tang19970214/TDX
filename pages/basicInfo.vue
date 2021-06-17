@@ -96,6 +96,18 @@ import PageTitle from "../components/PageTitle.vue";
 export default {
   components: { PageTitle },
   data() {
+    let checkYear = (rule, value, callback) => {
+      if (value) {
+        let regExpYear1 = /^[1]{1}[9]{1}[0-9]{2}$/;
+        let regExpYear2 = /^[2]{1}[0]{1}[0-2]{1}[0-9]{1}$/;
+        if (value.search(regExpYear1) == 0 || value.search(regExpYear2) == 0) {
+          return callback();
+        } else {
+          return callback(new Error("格式錯誤"));
+        }
+      }
+    };
+
     return {
       ruleForm: {
         a1: "",
@@ -107,22 +119,15 @@ export default {
       },
       a6_other: "",
       rules: {
-        a1: [{ required: true, message: "請輸入公司名稱", trigger: "blur" }],
-        a2: [{ required: true, message: "請輸入統一編號", trigger: "blur" }],
+        a1: [{ required: true, message: "請填寫", trigger: "blur" }],
+        a2: [{ required: true, message: "請填寫", trigger: "blur" }],
         a3: [
-          {
-            required: true,
-            message: "請輸入公司成立年份（西元）",
-            trigger: "blur",
-          },
+          { required: true, message: "請填寫", trigger: "blur" },
+          { validator: checkYear, trigger: "blur" },
         ],
-        a4: [
-          { required: true, message: "請選擇正式員工人數", trigger: "change" },
-        ],
-        a5: [{ required: true, message: "請選擇去年營收", trigger: "change" }],
-        a6: [
-          { required: true, message: "請選擇公司隸屬產業", trigger: "change" },
-        ],
+        a4: [{ required: true, message: "請選擇", trigger: "change" }],
+        a5: [{ required: true, message: "請選擇", trigger: "change" }],
+        a6: [{ required: true, message: "請選擇", trigger: "change" }],
       },
     };
   },
@@ -132,6 +137,7 @@ export default {
         .post("http://tdx.yummydesign.com.tw/api/UserReply/GetUserNo")
         .then((res) => {
           window.localStorage.setItem("userNo", res.data.result);
+          this.$store.dispatch("setFormInfo", { userNo: res.data.result });
         });
     },
     getA6(val) {
@@ -144,7 +150,9 @@ export default {
           if (this.ruleForm.a6 == "其他，請說明___________") {
             this.ruleForm.a6 = this.a6_other;
           }
-          this.$store.dispatch("setFormInfo", this.ruleForm);
+
+          let newObj = Object.assign(this.$store.state.formInfo, this.ruleForm);
+          this.$store.dispatch("setFormInfo", newObj);
           this.$router.push({ name: "digitalInvestment" });
         } else {
           this.$nextTick(() => {
@@ -169,7 +177,7 @@ export default {
     },
   },
   mounted() {
-    // this.getUserNo();
+    this.getUserNo();
     /* 重整時給提示 */
     window.onbeforeunload = (e) => {
       e.preventDefault();

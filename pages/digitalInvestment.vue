@@ -14,7 +14,7 @@
         <div class="form__question">
           <p class="form__question--no">7.</p>
           <el-form-item class="form__question--body" label="請問，貴公司投入數位轉型至今大約多久？" prop="b11">
-            <el-radio-group v-model="ruleForm.b11">
+            <el-radio-group v-model="ruleForm.b11" @change="getB11">
               <el-radio label="還在評估中"></el-radio>
               <el-radio label="剛開始，還未滿1年"></el-radio>
               <el-radio label="已開始，1~3年"></el-radio>
@@ -202,19 +202,29 @@ export default {
       b17_other: "",
       b18_other: "",
       rules: {
-        b11: [{ required: true, message: "", trigger: "change" }],
-        b12: [{ required: true, message: "", trigger: "change" }],
-        b13: [{ required: true, message: "", trigger: "change" }],
-        b14: [{ required: true, message: "", trigger: "change" }],
-        b15: [{ required: true, message: "", trigger: "change" }],
-        b16: [{ required: true, message: "", trigger: "change" }],
-        b17: [{ required: true, message: "", trigger: "change" }],
-        b18: [{ required: true, message: "", trigger: "change" }],
-        b19: [{ required: true, message: "", trigger: "change" }],
+        b11: [{ required: true, message: "請選擇", trigger: "change" }],
+        b12: [{ required: true, message: "請選擇", trigger: "change" }],
+        b13: [{ required: true, message: "請選擇", trigger: "change" }],
+        b14: [{ required: true, message: "請選擇", trigger: "change" }],
+        b15: [{ required: true, message: "請選擇", trigger: "change" }],
+        b16: [{ required: true, message: "請選擇", trigger: "change" }],
+        b17: [{ required: true, message: "請選擇", trigger: "change" }],
+        b18: [{ required: true, message: "請選擇", trigger: "change" }],
+        b19: [{ required: true, message: "請選擇", trigger: "change" }],
       },
     };
   },
   methods: {
+    getB11(ans) {
+      if (ans == "還在評估中") {
+        this.ruleForm.b12 = "";
+        this.ruleForm.b13 = "";
+        this.ruleForm.b14 = "";
+        this.ruleForm.b15 = "";
+        this.ruleForm.b16 = "";
+        this.ruleForm.b17 = "";
+      }
+    },
     enter() {
       this.$refs["form"].validate((valid) => {
         if (valid) {
@@ -231,7 +241,6 @@ export default {
           //   checkbox的'其他' 還沒做
 
           let newObj = Object.assign(this.$store.state.formInfo, this.ruleForm);
-
           this.$store.dispatch("setFormInfo", newObj);
           this.$router.push({ name: "digitalMaturity" });
         } else {

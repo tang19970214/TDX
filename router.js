@@ -19,5 +19,20 @@ export default [{
     name: "digitalMaturity",
     path: "/digitalMaturity",
     component: path.resolve(__dirname, "pages/digitalMaturity.vue")
+  },
+  {
+    name: "digitalPerformancePage",
+    path: "/digitalPerformancePage",
+    component: path.resolve(__dirname, "pages/digitalPerformancePage.vue")
+  },
+  {
+    name: "contactPage",
+    path: "/contactPage",
+    component: path.resolve(__dirname, "pages/contactPage.vue")
+  },
+  {
+    name: "finishPage",
+    path: "/finishPage",
+    component: path.resolve(__dirname, "pages/finishPage.vue")
   }
 ];

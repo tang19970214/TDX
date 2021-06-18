@@ -156,11 +156,13 @@ export default {
           this.$router.push({ name: "digitalInvestment" });
         } else {
           this.$nextTick(() => {
-            let isError = document.getElementsByClassName("is-error");
+            let isError = document.querySelectorAll(".is-error");
             isError.forEach((el) => {
               /* 每次都先將所有錯誤移除，再新增 */
               el.classList.remove("bg-error");
               el.classList.add("bg-error");
+              el.childNodes[1].childNodes[0].classList.remove("focusRing");
+              el.childNodes[1].childNodes[0].classList.add("focusRing");
             });
 
             isError[0].scrollIntoView({

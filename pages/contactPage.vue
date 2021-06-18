@@ -136,6 +136,8 @@ export default {
             isError.forEach((el) => {
               el.classList.remove("bg-error");
               el.classList.add("bg-error");
+              el.childNodes[1].childNodes[0].classList.remove("focusRing");
+              el.childNodes[1].childNodes[0].classList.add("focusRing");
             });
 
             isError[0].scrollIntoView({

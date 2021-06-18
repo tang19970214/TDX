@@ -4,6 +4,12 @@
   background: #ffe9e9;
 }
 
+.focusRing {
+  input:focus {
+    box-shadow: 0 0 0 0.2rem rgb(248, 202, 202) !important;
+  }
+}
+
 // 表單樣式
 .form {
   &__question {
@@ -71,15 +77,6 @@
         border: 1px solid #1e3a8a;
         margin-top: 1px;
         box-shadow: 0 0 0 0.2rem rgb(219, 234, 254);
-        /* 判斷focus ring的顏色 */
-        // $borderColor: #1e3a8a;
-        // @mixin border-color {
-        //   @if $borderColor {
-        //     box-shadow: 0 0 0 0.2rem rgb(219, 234, 254);
-        //   } @else {
-        //     box-shadow: 0 0 0 0.2rem rgb(248, 202, 202);
-        //   }
-        // }
       }
 
       .errMessage {

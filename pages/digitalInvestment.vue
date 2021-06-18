@@ -247,16 +247,14 @@ export default {
           this.$nextTick(() => {
             let isError = document.getElementsByClassName("is-error");
             isError.forEach((el) => {
-              /* 每次都先將所有錯誤移除，再新增 */
               el.classList.remove("bg-error");
               el.classList.add("bg-error");
+              el.childNodes[1].childNodes[0].classList.remove("focusRing");
+              el.childNodes[1].childNodes[0].classList.add("focusRing");
             });
 
             isError[0].scrollIntoView({
-              // 滾動至第一個錯誤
-              // 可切換值：start,center,end，nearest，當前顯示在視圖區域中間
               block: "center",
-              // 可切換值：auto、instant,smooth，目前是緩動動畫
               behavior: "smooth",
             });
           });

@@ -127,7 +127,6 @@ export default {
               this.$store.state.formInfo
             )
             .then((res) => {
-              console.log(res);
               this.$router.push({ name: "finishPage" });
             });
         } else {

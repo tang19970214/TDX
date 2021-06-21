@@ -297,7 +297,6 @@ export default {
     finish() {
       this.$refs["form"].validate((valid) => {
         if (valid) {
-          console.log(this.ruleForm);
           let newObj = Object.assign(this.$store.state.formInfo, this.ruleForm);
           this.$store.dispatch("setFormInfo", newObj);
           this.$router.push({ name: "contactPage" });

@@ -6,13 +6,6 @@
       </el-tooltip>
     </div>
     <div class="chartCloud__body">
-      <!-- <vue-word-cloud :words="words" :color="setColor()" font-family="Baloo Bhaijaan">
-        <template slot-scope="{text, weight, word}">
-          <div :title="weight" style="cursor: pointer;" @click="onWordClick(text, weight, word)">
-            {{ text }}
-          </div>
-        </template>
-      </vue-word-cloud> -->
       <vue-word-cloud :words="words" :color="setColor()" :spacing="1" font-family="Roboto" />
     </div>
   </div>
@@ -48,11 +41,6 @@ export default {
             : "#92C0FF";
         };
       };
-    },
-  },
-  methods: {
-    onWordClick(text, weight, word) {
-      console.log(text, weight, word);
     },
   },
 };

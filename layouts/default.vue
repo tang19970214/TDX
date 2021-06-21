@@ -107,7 +107,9 @@ export default {
     },
   },
   mounted() {
-    this.$router.push("/");
+    if (this.$route.name !== "finishPage") {
+      this.$router.push("/");
+    }
   },
 };
 </script>

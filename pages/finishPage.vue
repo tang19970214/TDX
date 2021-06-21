@@ -54,6 +54,7 @@ import ChartBar from "../components/finishPage/ChartBar.vue";
 import ChartGroupC from "../components/finishPage/ChartGroupC.vue";
 
 import chartList_textile from "../static/chartList_textile.json";
+import chartList_metal from "../static/chartList_metal.json";
 
 export default {
   components: {
@@ -107,18 +108,15 @@ export default {
         const b12Ans = this.$store.state.formInfo.b12;
         this.groupBList[0].ans = this.$store.state.formInfo.b11 - 1;
         this.groupBList[1].ans =
-          b11Ans == 1 ? "" : this.$store.state.formInfo.b12 - 1;
+          b11Ans == 1 ? null : this.$store.state.formInfo.b12 - 1;
 
-        this.groupBList[2].ans =
-          b12Ans == 1 ? "" : this.$store.state.formInfo.b13 - 1;
-        this.groupBList[3].ans =
-          b12Ans == 1 ? "" : this.$store.state.formInfo.b14 - 1;
-        this.groupBList[4].ans =
-          b12Ans == 1 ? "" : this.$store.state.formInfo.b15 - 1;
-        this.groupBList[5].ans =
-          b12Ans == 1 ? "" : this.$store.state.formInfo.b16 - 1;
-        this.groupBList[6].ans =
-          b12Ans == 1 ? "" : this.$store.state.formInfo.b17 - 1;
+        if (!!this.groupBList[1].ans) {
+          this.groupBList[2].ans = this.$store.state.formInfo.b13 - 1;
+          this.groupBList[3].ans = this.$store.state.formInfo.b14 - 1;
+          this.groupBList[4].ans = this.$store.state.formInfo.b15 - 1;
+          this.groupBList[5].ans = this.$store.state.formInfo.b16 - 1;
+          this.groupBList[6].ans = this.$store.state.formInfo.b17 - 1;
+        }
         this.groupBList[7].ans = this.$store.state.formInfo.b18;
         this.groupBList[8].ans = this.$store.state.formInfo.b19;
       }

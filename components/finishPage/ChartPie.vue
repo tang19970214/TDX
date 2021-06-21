@@ -2,7 +2,7 @@
   <div class="chartPie">
     <div class="chartPie__header">
       <el-tooltip effect="dark" :content="title" placement="top">
-        <label>{{title}}</label>
+        <label>{{title}}{{ans}}</label>
       </el-tooltip>
     </div>
     <div class="chartPie__body" id="chartPie">
@@ -47,9 +47,7 @@ export default {
           chart: {
             events: {
               animationEnd: function (ctx, event) {
-                if (!!vm.ans) {
-                  ctx.toggleDataPointSelection(vm.ans);
-                }
+                ctx.toggleDataPointSelection(vm.ans);
               },
             },
           },

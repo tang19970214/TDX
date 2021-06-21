@@ -6,6 +6,7 @@ export default {
     host: '0.0.0.0' // default: localhost
   },
   router: {
+    // base: "/form/",
     // mode: "hash",
     scrollBehavior: () => ({ y: 0 }),
     extendRoutes(routes, resolve) {
@@ -39,9 +40,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/element-ui/element-ui',
-    { src: '~/plugins/apexchart/apexchart.js', mode: 'client' },
-    { src:'~/plugins/wordCloud/vuewordcloud.js', ssr:false },
+    { src: '~/plugins/element-ui/element-ui', mode: 'client', ssr:false },
+    { src: '~/plugins/apexchart/apexchart.js', mode: 'client', ssr:false },
+    { src:'~/plugins/wordCloud/vuewordcloud.js', mode: 'client', ssr:false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -62,6 +63,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    vendor: ['element-ui']
+    vendor: ['element-ui'],
+    publicPath: "http://tdx.yummydesign.com.tw/"
   }
 }

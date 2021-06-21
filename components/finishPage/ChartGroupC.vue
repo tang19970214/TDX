@@ -11,6 +11,7 @@
       </div>
 
       <div class="chartGroupC__content">
+        <!-- 說明欄 -->
         <div class="chartGroupC__content--toolBox">
           <div class="toolList">
             <div class="icon">
@@ -32,19 +33,27 @@
           </div>
         </div>
 
+        <!-- 題目與答案 -->
         <div class="chartGroupC__content--chart" v-for="item in data" :key="item.id">
           <div class="title">{{item.title}}</div>
           <div class="ans" v-for="items in item.ans" :key="items" @click="showAns(item, items)"></div>
+          <!--  -->
           <div class="border">
-            <div class="border__line" v-for="line in 6" :key="line"></div>
+            <div class="border__line" v-for="line in 6" :key="line" @click="showAns(item, line)"></div>
           </div>
         </div>
+
+        <!-- 產業平均線 -->
+        <div class="chartGroupC__content--lineAvg" v-for="(item, idx) in data" :key="idx" :style="{'margin-left': setDistance(item.avg) + 'px', 'top': setTop(idx) + 'px'}">
+        </div>
+        <!-- 產業高標線 -->
+        <div class="chartGroupC__content--lineMax" v-for="(item, idx) in data" :key="idx" :style="{'margin-left': setDistance(item.max) + 'px', 'top': setTop(idx) + 'px'}"></div>
       </div>
     </div>
 
     <!-- dialog -->
     <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" width="90%" :append-to-body="true">
-      <div class="chartGroupC__dialog" :class="{'chartGroupC__dialog--yourAns': getAns[1].id == item.id}" v-for="item in getAns" :key="item.id">
+      <div class="chartGroupC__dialog" :class="{'chartGroupC__dialog--yourAns': chooseAns == item.id}" v-for="item in getAns" :key="item.id">
         <label>Stage {{item.id}}</label>
         <label>{{item.ans}}</label>
       </div>
@@ -67,22 +76,111 @@ export default {
     return {
       dialogVisible: false,
       dialogTitle: "",
+      chooseAns: "",
       getAns: [],
     };
   },
+  computed: {
+    setDistance() {
+      return (ans) => {
+        return ans * 100;
+      };
+    },
+    setTop() {
+      return (i) => {
+        let setScreenWidth = document.body.clientWidth;
+        if (i == 0) {
+          return setScreenWidth > 1280 ? 30 : setScreenWidth > 540 ? 42 : 69;
+        } else if (i == 1) {
+          return setScreenWidth > 1280 ? 115 : setScreenWidth > 540 ? 155 : 220;
+        } else if (i == 2) {
+          return setScreenWidth > 1280 ? 200 : setScreenWidth > 540 ? 278 : 383;
+        } else if (i == 3) {
+          return setScreenWidth > 1280 ? 285 : setScreenWidth > 540 ? 403 : 560;
+        } else if (i == 4) {
+          return setScreenWidth > 1280 ? 370 : setScreenWidth > 540 ? 500 : 698;
+        } else if (i == 5) {
+          return setScreenWidth > 1280 ? 455 : setScreenWidth > 540 ? 598 : 835;
+        } else if (i == 6) {
+          return setScreenWidth > 1280
+            ? 552
+            : setScreenWidth > 540
+            ? 722
+            : 1013;
+        } else if (i == 7) {
+          return setScreenWidth > 1280
+            ? 649
+            : setScreenWidth > 540
+            ? 848
+            : 1190;
+        } else if (i == 8) {
+          return setScreenWidth > 1280
+            ? 734
+            : setScreenWidth > 540
+            ? 972
+            : 1355;
+        } else if (i == 9) {
+          return setScreenWidth > 1280
+            ? 819
+            : setScreenWidth > 540
+            ? 1097
+            : 1520;
+        } else if (i == 10) {
+          return setScreenWidth > 1280
+            ? 894
+            : setScreenWidth > 540
+            ? 1195
+            : 1655;
+        } else if (i == 11) {
+          return setScreenWidth > 1280
+            ? 969
+            : setScreenWidth > 540
+            ? 1293
+            : 1780;
+        } else if (i == 12) {
+          return setScreenWidth > 1280
+            ? 1082
+            : setScreenWidth > 540
+            ? 1443
+            : 1985;
+        } else if (i == 13) {
+          return setScreenWidth > 1280
+            ? 1183
+            : setScreenWidth > 540
+            ? 1582
+            : 2176;
+        } else if (i == 14) {
+          return setScreenWidth > 1280
+            ? 1260
+            : setScreenWidth > 540
+            ? 1665
+            : 2285;
+        } else if (i == 15) {
+          return setScreenWidth > 1280
+            ? 1345
+            : setScreenWidth > 540
+            ? 1763
+            : 2410;
+        }
+      };
+    },
+  },
   methods: {
     showAns(item, ans) {
-      this.getAns = [];
-      this.dialogTitle = item.title;
-      let getQus = this.$store.state.groupC[item.id];
-      if (ans == 1) {
-        this.getAns.push(getQus[ans - 1]);
-      } else {
-        this.getAns.push(getQus[ans - 2], getQus[ans - 1]);
-      }
+      if (ans <= 5) {
+        this.chooseAns = item.ans;
+        this.getAns = [];
+        this.dialogTitle = item.title;
+        let getQus = this.$store.state.groupC[item.id];
+        if (ans == 1) {
+          this.getAns.push(getQus[ans - 1]);
+        } else {
+          this.getAns.push(getQus[ans - 2], getQus[ans - 1]);
+        }
 
-      /* open */
-      this.dialogVisible = true;
+        /* open */
+        this.dialogVisible = true;
+      }
     },
   },
 };
@@ -168,16 +266,6 @@ export default {
             height: 12px;
             background: rgb(249, 73, 75);
             border-radius: 50%;
-
-            &::after {
-              content: "";
-              position: absolute;
-              top: 50%;
-              left: -4px;
-              width: 20px;
-              height: 1px;
-              background: rgb(249, 73, 75);
-            }
           }
 
           &__max {
@@ -186,16 +274,6 @@ export default {
             height: 12px;
             background: rgb(108, 99, 255);
             border-radius: 50%;
-
-            &::after {
-              content: "";
-              position: absolute;
-              top: 50%;
-              left: -4px;
-              width: 20px;
-              height: 1px;
-              background: rgb(108, 99, 255);
-            }
           }
         }
 
@@ -282,6 +360,42 @@ export default {
           height: 100%;
           border-left: 1px solid rgb(176, 216, 238);
         }
+      }
+    }
+
+    &--lineAvg {
+      position: absolute;
+      left: 245px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgb(249, 73, 75);
+      z-index: 50;
+
+      @media (min-width: 540px) {
+        left: 345px;
+      }
+
+      @media (min-width: 1280px) {
+        left: 545px;
+      }
+    }
+
+    &--lineMax {
+      position: absolute;
+      left: 245px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgb(108, 99, 255);
+      z-index: 50;
+
+      @media (min-width: 540px) {
+        left: 345px;
+      }
+
+      @media (min-width: 1280px) {
+        left: 545px;
       }
     }
   }

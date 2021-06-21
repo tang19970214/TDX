@@ -6,7 +6,9 @@
       </el-tooltip>
     </div>
     <div class="chartPie__body" id="chartPie">
-      <apexchart type="pie" :width="getChartWidth()" height="250" :labels="labels" :options="getChartLabel(labels)" :series="series"></apexchart>
+      <client-only>
+        <apexchart type="pie" :width="getChartWidth()" height="250" :labels="labels" :options="getChartLabel(labels)" :series="series"></apexchart>
+      </client-only>
     </div>
   </div>
 </template>
@@ -26,6 +28,10 @@ export default {
       type: Array,
       required: true,
     },
+    ans: {
+      type: Number,
+      required: true,
+    },
   },
   computed: {
     getChartWidth() {
@@ -36,8 +42,27 @@ export default {
     },
     getChartLabel() {
       return (arr) => {
+        const vm = this;
         let newArr = {
+          chart: {
+            events: {
+              animationEnd: function (ctx, event) {
+                if (!!vm.ans) {
+                  ctx.toggleDataPointSelection(vm.ans);
+                }
+              },
+            },
+          },
           labels: arr,
+          colors: [
+            "#7D9DDE",
+            "#E98068",
+            "#FFBE5C",
+            "#66BC6B",
+            "#990099",
+            "#E91E63",
+            "#546E7A",
+          ],
           responsive: [
             {
               breakpoint: 480,

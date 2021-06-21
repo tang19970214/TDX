@@ -6,13 +6,14 @@
       </el-tooltip>
     </div>
     <div class="chartCloud__body">
-      <vue-word-cloud :words="words" :color="setColor()" font-family="Baloo Bhaijaan">
+      <!-- <vue-word-cloud :words="words" :color="setColor()" font-family="Baloo Bhaijaan">
         <template slot-scope="{text, weight, word}">
           <div :title="weight" style="cursor: pointer;" @click="onWordClick(text, weight, word)">
             {{ text }}
           </div>
         </template>
-      </vue-word-cloud>
+      </vue-word-cloud> -->
+      <vue-word-cloud :words="words" :color="setColor()" :spacing="1" font-family="Roboto" />
     </div>
   </div>
 </template>
@@ -20,10 +21,6 @@
 <script>
 export default {
   props: {
-    group: {
-      type: String,
-      required: true,
-    },
     title: {
       type: String,
       required: true,
@@ -32,18 +29,24 @@ export default {
       type: Array,
       required: true,
     },
-  },
-  data() {
-    return {
-      myColors: ["#1f77b4"],
-    };
+    ans: {
+      type: Array,
+      required: true,
+    },
   },
   computed: {
     setColor() {
       return () => {
-        // B, C, D 先判斷題組，再判斷所選答案
-        return ([text, weight]) =>
-          weight > 20 ? "#7E81FF" : weight > 10 ? "#8AA8FF" : "#92C0FF";
+        const vm = this;
+        return ([text, weight]) => {
+          return vm.ans.includes(text)
+            ? "red"
+            : weight > 20
+            ? "#7E81FF"
+            : weight > 10
+            ? "#8AA8FF"
+            : "#92C0FF";
+        };
       };
     },
   },
@@ -81,7 +84,9 @@ export default {
 
   &__body {
     width: 100%;
-    height: 210px;
+    height: 250px;
+    padding: 0 0.8rem;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -6,7 +6,9 @@
       </el-tooltip>
     </div>
     <div class="chartBar__body" id="chartBar">
-      <apexchart type="bar" :width="getChartWidth()" height="240" :options="getChartLabel(labels)" :series="series"></apexchart>
+      <client-only>
+        <apexchart type="bar" :width="getChartWidth()" height="240" :options="getChartLabel(labels)" :series="series"></apexchart>
+      </client-only>
     </div>
   </div>
 </template>
@@ -26,6 +28,9 @@ export default {
       type: Array,
       required: true,
     },
+    ans: {
+      type: Array,
+    },
   },
   computed: {
     getChartWidth() {
@@ -36,7 +41,17 @@ export default {
     },
     getChartLabel() {
       return (arr) => {
+        const vm = this;
         let newArr = {
+          colors: [
+            function ({ value, seriesIndex, dataPointIndex, w }) {
+              if (!!vm.ans) {
+                return vm.ans.includes(dataPointIndex) ? "#F00" : "#26A0FC";
+              } else {
+                return "#26A0FC";
+              }
+            },
+          ],
           plotOptions: {
             bar: {
               borderRadius: 4,

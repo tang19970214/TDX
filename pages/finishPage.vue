@@ -3,13 +3,21 @@
     <div class="finishPage__header">
       <img src="@/assets/images/finishPage.svg" alt="">
 
-      <div class="finishPage__header--tab">
+      <div class="finishPage__header--tab" v-if="getIndustry()">
         <strong :class="{'active': item.id == defaultTab}" v-for="item in tabList" :key="item.id" @click="defaultTab = item.id">{{item.title}}</strong>
       </div>
 
       <div class="finishPage__header--subTitle">
         <strong v-if="getIndustry()">針對外部流程分為供應商互動、與客戶的互動</strong>
-        <strong v-else>{{$store.state.explanationNote.thankPage}}</strong>
+        <div v-else>
+          <div class="successSend">
+            <svg width="29" height="27" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+              <path d="M25.1814 4.57018C24.5642 3.95273 23.8315 3.46292 23.025 3.12874C22.2184 2.79456 21.354 2.62256 20.481 2.62256C19.608 2.62256 18.7435 2.79456 17.937 3.12874C17.1305 3.46292 16.3977 3.95273 15.7806 4.57018L14.4997 5.85101L13.2189 4.57018C11.9723 3.32355 10.2815 2.6232 8.51849 2.6232C6.75549 2.6232 5.0647 3.32355 3.81807 4.57018C2.57144 5.81681 1.87109 7.5076 1.87109 9.2706C1.87109 11.0336 2.57144 12.7244 3.81807 13.971L5.0989 15.2518L14.4997 24.6527L23.9006 15.2518L25.1814 13.971C25.7989 13.3539 26.2887 12.6211 26.6228 11.8146C26.957 11.0081 27.129 10.1436 27.129 9.2706C27.129 8.39759 26.957 7.53314 26.6228 6.72663C26.2887 5.92011 25.7989 5.18734 25.1814 4.57018V4.57018Z" stroke="#36598C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <strong>成功送出</strong>
+          </div>
+          <label>{{$store.state.explanationNote.thankPage}}</label>
+        </div>
       </div>
     </div>
 
@@ -17,8 +25,8 @@
       <!-- 數位投入 B -->
       <el-row v-if="defaultTab == 1">
         <el-col :span="24" :md="12" v-for="item in groupBList" :key="item.id">
-          <ChartPie :title="item.title" :labels="item.labels" :series="item.series" v-if="item.type == 'pie'" />
-          <ChartCloud group="b" :title="item.title" :words="item.words" v-if="item.type == 'cloud'" />
+          <ChartPie :title="item.title" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'pie'" />
+          <ChartCloud :title="item.title" :words="item.words" :ans="item.ans" v-if="item.type == 'cloud'" />
         </el-col>
       </el-row>
       <!-- 數位成熟度 C -->
@@ -30,8 +38,8 @@
       <!-- 數位成效 D -->
       <el-row v-if="defaultTab == 3">
         <el-col :span="24" :md="12" v-for="item in groupDList" :key="item.id">
-          <ChartBar :title="item.title" :labels="item.labels" :series="item.series" v-if="item.type == 'bar'" />
-          <ChartPie :title="item.title" :labels="item.labels" :series="item.series" v-if="item.type == 'pie'" />
+          <ChartPie :title="item.title" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'pie'" />
+          <ChartBar :title="item.title" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'bar'" />
         </el-col>
       </el-row>
     </div>
@@ -85,13 +93,36 @@ export default {
   },
   methods: {
     getChartList() {
-      if (
-        this.$store.state.formInfo.a6 == "紡織業" ||
-        this.$store.state.formInfo.a6 == "扣件及金屬製品製造業"
-      ) {
+      if (this.$store.state.formInfo.a6 == "紡織業") {
         this.groupBList = chartList_textile.groupB;
         this.groupCList = chartList_textile.groupC;
         this.groupDList = chartList_textile.groupD;
+      } else if (this.$store.state.formInfo.a6 == "扣件及金屬製品製造業") {
+        this.groupBList = chartList_metal.groupB;
+        this.groupCList = chartList_metal.groupC;
+        this.groupDList = chartList_metal.groupD;
+      }
+      if (this.groupBList.length > 0) {
+        const b11Ans = this.$store.state.formInfo.b11;
+        const b12Ans = this.$store.state.formInfo.b12;
+        this.groupBList[0].ans = this.$store.state.formInfo.b11 - 1;
+        this.groupBList[1].ans =
+          b11Ans == 1 ? "" : this.$store.state.formInfo.b12 - 1;
+
+        this.groupBList[2].ans =
+          b12Ans == 1 ? "" : this.$store.state.formInfo.b13 - 1;
+        this.groupBList[3].ans =
+          b12Ans == 1 ? "" : this.$store.state.formInfo.b14 - 1;
+        this.groupBList[4].ans =
+          b12Ans == 1 ? "" : this.$store.state.formInfo.b15 - 1;
+        this.groupBList[5].ans =
+          b12Ans == 1 ? "" : this.$store.state.formInfo.b16 - 1;
+        this.groupBList[6].ans =
+          b12Ans == 1 ? "" : this.$store.state.formInfo.b17 - 1;
+        this.groupBList[7].ans = this.$store.state.formInfo.b18;
+        this.groupBList[8].ans = this.$store.state.formInfo.b19;
+      }
+      if (this.groupCList.length > 0) {
         this.groupCList[0].ans = this.$store.state.formInfo.cA11;
         this.groupCList[1].ans = this.$store.state.formInfo.cA12;
         this.groupCList[2].ans = this.$store.state.formInfo.cA13;
@@ -108,6 +139,29 @@ export default {
         this.groupCList[13].ans = this.$store.state.formInfo.cC21;
         this.groupCList[14].ans = this.$store.state.formInfo.cC22;
         this.groupCList[15].ans = this.$store.state.formInfo.cC23;
+      }
+      if (this.groupDList.length > 0) {
+        const d2Ans = this.$store.state.formInfo.d2;
+        this.groupDList[1].ans = this.$store.state.formInfo.d2 - 1;
+        this.groupDList[2].ans =
+          d2Ans == 3 ? "" : this.$store.state.formInfo.d3 - 1;
+        this.groupDList[3].ans =
+          d2Ans == 3 ? "" : this.$store.state.formInfo.d4 - 1;
+        this.groupDList[5].ans =
+          d2Ans == 3 ? "" : this.$store.state.formInfo.d6 - 1;
+        this.groupDList[6].ans =
+          d2Ans == 3 ? "" : this.$store.state.formInfo.d7 - 1;
+        this.groupDList[7].ans =
+          d2Ans == 3 ? "" : this.$store.state.formInfo.d8 - 1;
+        this.groupDList[8].ans =
+          d2Ans == 3 ? "" : this.$store.state.formInfo.d9 - 1;
+        this.groupDList[9].ans =
+          d2Ans == 3 ? "" : this.$store.state.formInfo.d10 - 1;
+        this.groupDList[10].ans =
+          d2Ans == 3 ? "" : this.$store.state.formInfo.d11 - 1;
+        // 複選
+        this.groupDList[0].ans = this.$store.state.formInfo.d1;
+        this.groupDList[4].ans = this.$store.state.formInfo.d5;
       }
     },
   },
@@ -183,6 +237,31 @@ export default {
       line-height: 1.2;
       white-space: pre-wrap;
       overflow-wrap: break-word;
+
+      .successSend {
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        strong {
+          margin: 24px 0px 16px;
+          line-height: 1.2;
+          white-space: pre-wrap;
+          overflow-wrap: break-word;
+          color: rgb(54, 89, 140);
+          font-size: 36px;
+        }
+      }
+
+      label {
+        letter-spacing: 1px;
+        line-height: 1.8;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        font-size: 14px;
+        color: rgb(82, 101, 151);
+        font-weight: 700;
+      }
     }
   }
 }

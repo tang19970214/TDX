@@ -123,7 +123,7 @@ export default {
           this.$store.dispatch("setFormInfo", newObj);
           this.$axios
             .post(
-              "http://tdx.yummydesign.com.tw/api/UserReply/Add",
+              "http://tdx.yummydesign.com.tw/sys/api/UserReply/Add",
               this.$store.state.formInfo
             )
             .then((res) => {

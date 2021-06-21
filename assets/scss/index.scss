@@ -281,6 +281,17 @@
               color: white;
             }
           }
+
+          .el-checkbox {
+            &__inner {
+              border: 0;
+              background-color: rgb(1, 114, 203);
+            }
+
+            &__label {
+              color: white;
+            }
+          }
         }
 
         .el-radio {
@@ -299,6 +310,36 @@
             font-size: 18px;
             font-weight: 700;
             line-height: 1.2;
+            color: #5899c8;
+          }
+        }
+
+        .el-checkbox {
+          width: 100%;
+
+          &__input {
+            min-width: 20px;
+            max-width: 20px;
+            min-height: 20px;
+            max-height: 20px;
+          }
+
+          &__inner {
+            width: 20px;
+            height: 20px;
+
+            &::after {
+              width: 50%;
+              height: 50%;
+              transform: rotate(45deg) scaleY(1.5);
+            }
+          }
+
+          &__label {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+            white-space: pre-wrap;
             color: #5899c8;
           }
         }

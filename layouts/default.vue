@@ -107,9 +107,13 @@ export default {
     },
   },
   mounted() {
-    if (this.$route.name !== "finishPage") {
-      this.$router.push("/");
-    }
+    this.$router.push("/");
+    this.$nextTick(() => {
+      //禁用右鍵
+      document.oncontextmenu = new Function("event.returnValue=false");
+      // 禁用選擇
+      document.onselectstart = new Function("event.returnValue=false");
+    });
   },
 };
 </script>

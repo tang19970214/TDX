@@ -2,7 +2,7 @@
   <div class="chartPie">
     <div class="chartPie__header">
       <el-tooltip effect="dark" :content="title" placement="top">
-        <label>{{title}}{{ans}}</label>
+        <label>{{title}}</label>
       </el-tooltip>
     </div>
     <div class="chartPie__body" id="chartPie">
@@ -30,7 +30,6 @@ export default {
     },
     ans: {
       type: Number,
-      required: true,
     },
   },
   computed: {
@@ -47,6 +46,7 @@ export default {
           chart: {
             events: {
               animationEnd: function (ctx, event) {
+                console.log(ctx, event);
                 ctx.toggleDataPointSelection(vm.ans);
               },
             },
@@ -76,9 +76,6 @@ export default {
       };
     },
   },
-  mounted() {
-    //   s.attr("data:pieClicked","true");
-  },
 };
 </script>
 
@@ -92,6 +89,7 @@ export default {
 
   &__header {
     width: 100%;
+    height: 55px;
     padding: 4px 16px;
     box-sizing: border-box;
     background: rgb(88, 153, 200);
@@ -101,8 +99,10 @@ export default {
       width: 100%;
       display: inline-block;
       overflow: hidden;
+      -webkit-line-clamp: 2;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
     }
   }
 

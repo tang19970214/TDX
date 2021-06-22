@@ -106,7 +106,7 @@
           </el-form-item>
         </div>
 
-        <!-- 37-1 d6 -->
+        <!-- 37 d6 -->
         <div class="form__question" v-if="!!ruleForm.d2 && ruleForm.d2 !== 3">
           <p class="form__question--no">37.</p>
           <el-form-item class="form__question--body" label="請問貴公司在開始推動數位轉型之後到2020年底，因為數位轉型所帶來的主要成效指標改善情形？ - (1)營收成長比例" prop="d6">
@@ -122,9 +122,9 @@
           </el-form-item>
         </div>
 
-        <!-- 37-2 d7 -->
+        <!-- 38 d7 -->
         <div class="form__question" v-if="!!ruleForm.d2 && ruleForm.d2 !== 3">
-          <p class="form__question--no">37.</p>
+          <p class="form__question--no">38.</p>
           <el-form-item class="form__question--body" label="請問貴公司在開始推動數位轉型之後到2020年底，因為數位轉型所帶來的主要成效指標改善情形？ - (2)營運成本降低比例" prop="d7">
             <el-radio-group v-model="ruleForm.d7">
               <el-radio :label="1">沒有或不到5%</el-radio>
@@ -138,9 +138,9 @@
           </el-form-item>
         </div>
 
-        <!-- 37-3 d8 -->
+        <!-- 39 d8 -->
         <div class="form__question" v-if="!!ruleForm.d2 && ruleForm.d2 !== 3">
-          <p class="form__question--no">37.</p>
+          <p class="form__question--no">39.</p>
           <el-form-item class="form__question--body" label="之後到2020年底，因為數位轉型所帶來的主要成效指標改善情形？ - (3)資產利用率提升比例" prop="d8">
             <el-radio-group v-model="ruleForm.d8">
               <el-radio :label="1">沒有或不到5%</el-radio>
@@ -154,9 +154,9 @@
           </el-form-item>
         </div>
 
-        <!-- 38-1 d9 -->
+        <!-- 40 d9 -->
         <div class="form__question" v-if="!!ruleForm.d2 && ruleForm.d2 !== 3">
-          <p class="form__question--no">38.</p>
+          <p class="form__question--no">40.</p>
           <el-form-item class="form__question--body" label="請問貴公司預期數位轉型，對2021年主要成效指標改善之影響？ - (1)營收成長比例" prop="d9">
             <el-radio-group v-model="ruleForm.d9">
               <el-radio :label="1">沒有或不到5%</el-radio>
@@ -170,9 +170,9 @@
           </el-form-item>
         </div>
 
-        <!-- 38-2 d10 -->
+        <!-- 41 d10 -->
         <div class="form__question" v-if="!!ruleForm.d2 && ruleForm.d2 !== 3">
-          <p class="form__question--no">38.</p>
+          <p class="form__question--no">41.</p>
           <el-form-item class="form__question--body" label="請問貴公司預期數位轉型，對2021年主要成效指標改善之影響？ - (2)營運成本降低比例" prop="d10">
             <el-radio-group v-model="ruleForm.d10">
               <el-radio :label="1">沒有或不到5%</el-radio>
@@ -186,9 +186,9 @@
           </el-form-item>
         </div>
 
-        <!-- 38-3 d11 -->
+        <!-- 42 d11 -->
         <div class="form__question" v-if="!!ruleForm.d2 && ruleForm.d2 !== 3">
-          <p class="form__question--no">38.</p>
+          <p class="form__question--no">42.</p>
           <el-form-item class="form__question--body" label="請問貴公司預期數位轉型，對2021年主要成效指標改善之影響？ - (3)資產利用率提升比例" prop="d11">
             <el-radio-group v-model="ruleForm.d11">
               <el-radio :label="1">沒有或不到5%</el-radio>

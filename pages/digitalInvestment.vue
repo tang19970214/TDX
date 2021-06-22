@@ -248,7 +248,6 @@ export default {
     enter() {
       this.$refs["form"].validate((valid) => {
         if (valid) {
-          /* 將選項'其他' 賦予至該選項上 */
           if (this.ruleForm.b15 == "20人以上，大約_____人") {
             this.ruleForm.b15 = this.b15_other;
           }
@@ -261,7 +260,6 @@ export default {
           if (!!this.b18_other) {
             this.ruleForm.b18.push(this.b18_other);
           }
-          //   checkbox的'其他' 還沒做
 
           let newObj = Object.assign(this.$store.state.formInfo, this.ruleForm);
           this.$store.dispatch("setFormInfo", newObj);

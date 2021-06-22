@@ -69,9 +69,6 @@ export default {
       };
     },
   },
-  mounted() {
-    //   s.attr("data:pieClicked","true");
-  },
 };
 </script>
 
@@ -85,6 +82,7 @@ export default {
 
   &__header {
     width: 100%;
+    height: 55px;
     padding: 4px 16px;
     box-sizing: border-box;
     background: rgb(88, 153, 200);
@@ -94,8 +92,10 @@ export default {
       width: 100%;
       display: inline-block;
       overflow: hidden;
+      -webkit-line-clamp: 2;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
     }
   }
 
@@ -106,10 +106,6 @@ export default {
     align-items: center;
     justify-content: center;
     background: white;
-
-    // @media (min-width: 600px) {
-    //   height: 350px;
-    // }
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="chartGroupC">
-    <div style="min-width: 1050px">
+    <div style="min-width: 900px">
       <div class="chartGroupC__header">
         <div class="chartGroupC__header--title">
           <label>指標</label>
@@ -35,19 +35,19 @@
 
         <!-- 題目與答案 -->
         <div class="chartGroupC__content--chart" v-for="item in data" :key="item.id">
-          <div class="title">{{item.title}}</div>
+          <el-tooltip effect="dark" :content="item.title" placement="top-start">
+            <div class="title">{{item.shortTitle}}</div>
+          </el-tooltip>
           <div class="ans" v-for="items in item.ans" :key="items" @click="showAns(item, items)"></div>
+          <!-- 產業平均線 -->
+          <div class="lineAvg" :style="{'margin-left': (item.avg * 101) + 'px'}"></div>
+          <!-- 產業高標線 -->
+          <div class="lineMax" :style="{'margin-left': (item.max * 101) + 'px'}"></div>
           <!--  -->
           <div class="border">
             <div class="border__line" v-for="line in 6" :key="line" @click="showAns(item, line)"></div>
           </div>
         </div>
-
-        <!-- 產業平均線 -->
-        <div class="chartGroupC__content--lineAvg" v-for="(item, idx) in data" :key="idx" :style="{'margin-left': setDistance(item.avg) + 'px', 'top': setTop(idx) + 'px'}">
-        </div>
-        <!-- 產業高標線 -->
-        <div class="chartGroupC__content--lineMax" v-for="(item, idx) in data" :key="idx" :style="{'margin-left': setDistance(item.max) + 'px', 'top': setTop(idx) + 'px'}"></div>
       </div>
     </div>
 
@@ -203,20 +203,10 @@ export default {
     align-items: center;
 
     &--title {
-      min-width: 200px;
-      max-width: 200px;
+      min-width: 170px;
+      max-width: 170px;
       text-align: center;
       margin-right: 50px;
-
-      @media (min-width: 540px) {
-        min-width: 300px;
-        max-width: 300px;
-      }
-
-      @media (min-width: 1280px) {
-        min-width: 500px;
-        max-width: 500px;
-      }
     }
 
     &--ans {
@@ -301,25 +291,18 @@ export default {
       }
 
       .title {
-        min-width: 200px;
-        max-width: 200px;
-        margin-right: 50px;
+        min-width: 170px;
+        max-width: 170px;
+        height: 50px;
         padding: 8px;
+        display: flex;
+        align-items: center;
+        margin-right: 50px;
         box-sizing: border-box;
         background: rgb(88, 153, 200);
         color: white;
         font-size: 20px;
         font-weight: bold;
-
-        @media (min-width: 540px) {
-          min-width: 300px;
-          max-width: 300px;
-        }
-
-        @media (min-width: 1280px) {
-          min-width: 500px;
-          max-width: 500px;
-        }
       }
 
       .ans {
@@ -337,22 +320,34 @@ export default {
         }
       }
 
+      .lineAvg {
+        position: absolute;
+        left: 215px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgb(249, 73, 75);
+        z-index: 50;
+      }
+
+      .lineMax {
+        position: absolute;
+        left: 215px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgb(108, 99, 255);
+        z-index: 50;
+      }
+
       .border {
         position: absolute;
         height: 100%;
         top: 0;
         left: 0;
-        margin-left: 250px;
+        margin-left: 220px;
         display: flex;
         align-items: center;
-
-        @media (min-width: 540px) {
-          margin-left: 350px;
-        }
-
-        @media (min-width: 1280px) {
-          margin-left: 550px;
-        }
 
         &__line {
           min-width: 100px;
@@ -360,42 +355,6 @@ export default {
           height: 100%;
           border-left: 1px solid rgb(176, 216, 238);
         }
-      }
-    }
-
-    &--lineAvg {
-      position: absolute;
-      left: 245px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgb(249, 73, 75);
-      z-index: 50;
-
-      @media (min-width: 540px) {
-        left: 345px;
-      }
-
-      @media (min-width: 1280px) {
-        left: 545px;
-      }
-    }
-
-    &--lineMax {
-      position: absolute;
-      left: 245px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgb(108, 99, 255);
-      z-index: 50;
-
-      @media (min-width: 540px) {
-        left: 345px;
-      }
-
-      @media (min-width: 1280px) {
-        left: 545px;
       }
     }
   }

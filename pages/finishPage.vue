@@ -70,7 +70,7 @@ export default {
       groupCList: [],
       groupDList: [],
       // =========
-      defaultTab: 2,
+      defaultTab: 1,
       tabList: [
         { id: 1, title: "數位投入" },
         { id: 2, title: "數位成熟度" },

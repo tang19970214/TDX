@@ -7,7 +7,7 @@
     </div>
     <div class="chartPie__body" id="chartPie">
       <client-only>
-        <apexchart type="pie" :width="getChartWidth()" height="250" :labels="labels" :options="getChartLabel(labels)" :series="series"></apexchart>
+        <apexchart type="pie" :width="getChartWidth()" height="350" :labels="labels" :options="getChartLabel(labels)" :series="series"></apexchart>
       </client-only>
     </div>
   </div>
@@ -43,6 +43,10 @@ export default {
       return (arr) => {
         const vm = this;
         let newArr = {
+          pie: {
+            size: 200,
+            // distributed: true,
+          },
           chart: {
             events: {
               animationEnd: function (ctx, event) {
@@ -108,7 +112,7 @@ export default {
 
   &__body {
     width: 100%;
-    height: 250px;
+    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;

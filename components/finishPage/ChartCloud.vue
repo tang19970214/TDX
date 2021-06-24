@@ -6,7 +6,7 @@
       </el-tooltip>
     </div>
     <div class="chartCloud__body">
-      <vue-word-cloud :words="words" :color="setColor()" :spacing="1" font-family="Roboto" />
+      <vue-word-cloud :words="words" :color="setColor()" :font-size-ratio="5" :spacing="1" font-family="Roboto" />
     </div>
   </div>
 </template>
@@ -75,8 +75,8 @@ export default {
 
   &__body {
     width: 100%;
-    height: 250px;
-    padding: 0 0.8rem;
+    height: 350px;
+    padding: 0 4rem;
     box-sizing: border-box;
     display: flex;
     align-items: center;

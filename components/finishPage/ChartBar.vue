@@ -7,7 +7,7 @@
     </div>
     <div class="chartBar__body" id="chartBar">
       <client-only>
-        <apexchart type="bar" :width="getChartWidth()" height="240" :options="getChartLabel(labels)" :series="series"></apexchart>
+        <apexchart type="bar" :width="getChartWidth()" height="340" :options="getChartLabel(labels)" :series="series"></apexchart>
       </client-only>
     </div>
   </div>
@@ -101,7 +101,7 @@ export default {
 
   &__body {
     width: 100%;
-    height: 250px;
+    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;

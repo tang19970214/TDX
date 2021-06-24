@@ -15,7 +15,7 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'tdx',
+    title: '台灣產業數位轉型量表TDX',
     htmlAttrs: {
       lang: 'en'
     },

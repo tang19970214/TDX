@@ -180,7 +180,7 @@ export default {
     width: 100%;
     background: white;
     border-radius: 8px;
-    padding: 16px 24px;
+    padding: 8px;
     box-sizing: border-box;
     box-shadow: rgb(54 89 140 / 24%) 0px 4px 12px;
 

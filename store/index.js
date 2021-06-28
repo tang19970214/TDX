@@ -23,6 +23,7 @@ const store = () => new Vuex.Store({
       thankPage: "目前平台填答成果分析報告下載的功能仍在建制中， \n我們將在4月開始，以email方式，提供貴公司數位轉型分析報告。"
     },
     formInfo: {},
+    chartInfo: {},
     groupC: {
       16: [{
         id: 1,
@@ -289,6 +290,9 @@ const store = () => new Vuex.Store({
     GETFORMINFO(state, payload) {
       state.formInfo = payload;
     },
+    GETCHARTINFO(state, payload) {
+      state.chartInfo = payload;
+    },
   },
   actions: {
     setExplanationNote(state, payload) {
@@ -296,6 +300,9 @@ const store = () => new Vuex.Store({
     },
     setFormInfo(state, payload) {
       state.commit("GETFORMINFO", payload)
+    },
+    setChartInfo(state, payload) {
+      state.commit("GETCHARTINFO", payload)
     }
   }
 })

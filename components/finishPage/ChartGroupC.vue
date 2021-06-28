@@ -40,9 +40,13 @@
           </el-tooltip>
           <div class="ans" v-for="items in item.ans" :key="items" @click="showAns(item, items)"></div>
           <!-- 產業平均線 -->
-          <div class="lineAvg" :style="{'margin-left': (item.avg * 101) + 'px'}"></div>
+          <el-tooltip effect="dark" :content="String(item.avg)" placement="top">
+            <div class="lineAvg" :style="{'margin-left': (item.avg * 101) + 'px'}"></div>
+          </el-tooltip>
           <!-- 產業高標線 -->
-          <div class="lineMax" :style="{'margin-left': (item.max * 101) + 'px'}"></div>
+          <el-tooltip effect="dark" :content="String(item.max)" placement="top">
+            <div class="lineMax" :style="{'margin-left': (item.max * 101) + 'px'}"></div>
+          </el-tooltip>
           <!--  -->
           <div class="border">
             <div class="border__line" v-for="line in 6" :key="line" @click="showAns(item, line)"></div>
@@ -52,10 +56,24 @@
     </div>
 
     <!-- dialog -->
-    <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" width="90%" :append-to-body="true">
-      <div class="chartGroupC__dialog" :class="{'chartGroupC__dialog--yourAns': chooseAns == item.id}" v-for="item in getAns" :key="item.id">
-        <label>Stage {{item.id}}</label>
-        <label>{{item.ans}}</label>
+    <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" width="90%" :append-to-body="true" v-if="getAns.length > 0">
+      <div class="chartGroupC__dialog" :class="{'chartGroupC__dialog--yourAns': chooseAns == getAns[0].id}">
+        <label>Stage {{getAns[0].id}}</label>
+        <label>{{getAns[0].text}}</label>
+      </div>
+
+      <div class="chartGroupC__progress">
+        <img src="@/assets/images/stagearrow.png" alt="升級所需條件" width="40px" height="70px" @click="openProgress = !openProgress">
+        <div class="chartGroupC__progress--content">
+          <!-- 升級條件 -->
+          <div class="progress" v-if="openProgress">
+            <strong>{{getAns[0].desc}}</strong>
+          </div>
+          <div class="chartGroupC__dialog" :class="{'chartGroupC__dialog--yourAns': chooseAns == getAns[1].id}" v-if="getAns.length > 1">
+            <label>Stage {{getAns[1].id}}</label>
+            <label>{{getAns[1].text}}</label>
+          </div>
+        </div>
       </div>
       <span slot="footer">
         <el-button type="danger" @click="dialogVisible = false" plain>關閉</el-button>
@@ -71,6 +89,10 @@ export default {
       type: Array,
       required: true,
     },
+    groupCApi: {
+      type: Array,
+      required: true,
+    },
   },
   data() {
     return {
@@ -78,6 +100,7 @@ export default {
       dialogTitle: "",
       chooseAns: "",
       getAns: [],
+      openProgress: false,
     };
   },
   computed: {
@@ -167,6 +190,22 @@ export default {
   },
   methods: {
     showAns(item, ans) {
+      let getAllAns = this.groupCApi.filter((res) => res.id == item.qus)[0]
+        ?.ans;
+      // console.log(getAllAns, ans, getAllAns[ans - 1]);
+      this.chooseAns = item.ans;
+      this.getAns = [];
+      this.dialogTitle = item.title;
+      if (ans == 5) {
+        this.getAns.push(getAllAns[ans - 1]);
+      } else {
+        this.getAns.push(getAllAns[ans - 1], getAllAns[ans]);
+      }
+      console.log("getAns", this.getAns);
+      // console.log(this.groupCApi);
+      /* open */
+      this.dialogVisible = true;
+      return;
       if (ans <= 5) {
         this.chooseAns = item.ans;
         this.getAns = [];
@@ -362,7 +401,7 @@ export default {
   &__dialog {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 
     &:first-child {
       padding-bottom: 16px;
@@ -380,6 +419,28 @@ export default {
 
     &--yourAns {
       font-weight: bold;
+    }
+  }
+
+  &__progress {
+    width: 100%;
+    display: flex;
+
+    img {
+      margin-right: 16px;
+      cursor: pointer;
+    }
+
+    &--content {
+      width: 100%;
+      padding-top: 20px;
+
+      .progress {
+        width: 100%;
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+      }
     }
   }
 }

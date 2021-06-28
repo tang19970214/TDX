@@ -194,6 +194,7 @@ export default {
 .basicInfo {
   position: relative;
   width: 100%;
+  max-width: 976px;
   min-height: 100vh;
   box-sizing: border-box;
   padding: 16px;

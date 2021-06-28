@@ -50,7 +50,6 @@ export default {
           chart: {
             events: {
               animationEnd: function (ctx, event) {
-                console.log(ctx, event);
                 ctx.toggleDataPointSelection(vm.ans);
               },
             },
@@ -75,6 +74,13 @@ export default {
               },
             },
           ],
+          // states: {
+          //   hover: {
+          //     filter: {
+          //       type: "none",
+          //     },
+          //   },
+          // },
         };
         return newArr;
       };
@@ -93,7 +99,6 @@ export default {
 
   &__header {
     width: 100%;
-    height: 55px;
     padding: 4px 16px;
     box-sizing: border-box;
     background: rgb(88, 153, 200);
@@ -102,11 +107,6 @@ export default {
     label {
       width: 100%;
       display: inline-block;
-      overflow: hidden;
-      -webkit-line-clamp: 2;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
     }
   }
 

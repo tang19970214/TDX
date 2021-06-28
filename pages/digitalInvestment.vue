@@ -15,111 +15,111 @@
           <p class="form__question--no">7.</p>
           <el-form-item class="form__question--body" label="請問，貴公司投入數位轉型至今大約多久？" prop="b11">
             <el-radio-group v-model="ruleForm.b11" @change="getB11">
-              <el-radio :label="1">還在評估中</el-radio>
-              <el-radio :label="2">剛開始，還未滿1年</el-radio>
-              <el-radio :label="3">已開始，1~3年</el-radio>
-              <el-radio :label="4">超過3年</el-radio>
+              <el-radio label="1-還在評估中">還在評估中</el-radio>
+              <el-radio label="2-剛開始，還未滿1年">剛開始，還未滿1年</el-radio>
+              <el-radio label="3-已開始，1~3年">已開始，1~3年</el-radio>
+              <el-radio label="4-超過3年">超過3年</el-radio>
             </el-radio-group>
           </el-form-item>
         </div>
 
         <!-- 8 b12 -->
-        <div class="form__question" v-if="!!ruleForm.b11 && ruleForm.b11 !== 1">
+        <div class="form__question" v-if="!!ruleForm.b11 && ruleForm.b11 !== '1-還在評估中'">
           <p class="form__question--no">8.</p>
           <el-form-item class="form__question--body" label="請問，貴公司在去(2020)年推動數位轉型的投資經費? (包括人事、系統開發或委外等相關費用)" prop="b11">
             <el-radio-group v-model="ruleForm.b12">
-              <el-radio :label="1">沒有投入經費</el-radio>
-              <el-radio :label="2">不到100萬</el-radio>
-              <el-radio :label="3">100萬(含)以上，不到500萬</el-radio>
-              <el-radio :label="4">500萬(含)以上，不到1,000萬</el-radio>
-              <el-radio :label="5">1,000萬(含)以上，不到5,000萬</el-radio>
-              <el-radio :label="6">5,000萬(含)以上</el-radio>
-              <el-radio :label="7">不知道/拒答</el-radio>
+              <el-radio label="1-沒有投入經費">沒有投入經費</el-radio>
+              <el-radio label="2-不到100萬">不到100萬</el-radio>
+              <el-radio label="3-100萬(含)以上，不到500萬">100萬(含)以上，不到500萬</el-radio>
+              <el-radio label="4-500萬(含)以上，不到1,000萬">500萬(含)以上，不到1,000萬</el-radio>
+              <el-radio label="5-1,000萬(含)以上，不到5,000萬">1,000萬(含)以上，不到5,000萬</el-radio>
+              <el-radio label="6-5,000萬(含)以上">5,000萬(含)以上</el-radio>
+              <el-radio label="7-不知道/拒答">不知道/拒答</el-radio>
             </el-radio-group>
           </el-form-item>
         </div>
 
         <!-- 9 b13 -->
-        <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== 1">
+        <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== '1-沒有投入經費'">
           <p class="form__question--no">9.</p>
           <el-form-item class="form__question--body" label="承上題，貴公司在去(2020)年推動數位轉型的經費佔整體營收的比例為何？" prop="b13">
             <el-radio-group v-model="ruleForm.b13">
-              <el-radio :label="1">不到1%</el-radio>
-              <el-radio :label="2">1%(含)以上，不到3%</el-radio>
-              <el-radio :label="3">3%(含)以上，不到5%</el-radio>
-              <el-radio :label="4">5%(含)以上，不到10%</el-radio>
-              <el-radio :label="5">10%(含)以上</el-radio>
-              <el-radio :label="6">不知道/拒答</el-radio>
+              <el-radio label="1-不到1%">不到1%</el-radio>
+              <el-radio label="2-1%(含)以上，不到3%">1%(含)以上，不到3%</el-radio>
+              <el-radio label="3-3%(含)以上，不到5%">3%(含)以上，不到5%</el-radio>
+              <el-radio label="4-5%(含)以上，不到10%">5%(含)以上，不到10%</el-radio>
+              <el-radio label="5-10%(含)以上">10%(含)以上</el-radio>
+              <el-radio label="6-不知道/拒答">不知道/拒答</el-radio>
             </el-radio-group>
           </el-form-item>
         </div>
 
         <!-- 10 b14 -->
-        <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== 1">
+        <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== '1-沒有投入經費'">
           <p class="form__question--no">10.</p>
           <el-form-item class="form__question--body" label="請問，貴公司預計今(2021)年投入推動數位轉型的預算?(包括人事、系統開發或委外等相關費用)" prop="b14">
             <el-radio-group v-model="ruleForm.b14">
-              <el-radio :label="1">沒有規劃</el-radio>
-              <el-radio :label="2">不到100萬</el-radio>
-              <el-radio :label="3">100萬(含)以上，不到500萬</el-radio>
-              <el-radio :label="4">500萬(含)以上，不到1,000萬</el-radio>
-              <el-radio :label="5">1,000萬(含)以上，不到5,000萬</el-radio>
-              <el-radio :label="6">5,000萬(含)以上</el-radio>
-              <el-radio :label="7">不知道/拒答</el-radio>
+              <el-radio label="1-沒有規劃">沒有規劃</el-radio>
+              <el-radio label="2-不到100萬">不到100萬</el-radio>
+              <el-radio label="3-100萬(含)以上，不到500萬">100萬(含)以上，不到500萬</el-radio>
+              <el-radio label="4-500萬(含)以上，不到1,000萬">500萬(含)以上，不到1,000萬</el-radio>
+              <el-radio label="5-1,000萬(含)以上，不到5,000萬">1,000萬(含)以上，不到5,000萬</el-radio>
+              <el-radio label="6-5,000萬(含)以上">5,000萬(含)以上</el-radio>
+              <el-radio label="7-不知道/拒答">不知道/拒答</el-radio>
             </el-radio-group>
           </el-form-item>
         </div>
 
-        <div class="digitallnvestment__form--subTitle" v-if="!!ruleForm.b12 && ruleForm.b12 !== 1">
+        <div class="digitallnvestment__form--subTitle" v-if="!!ruleForm.b12 && ruleForm.b12 !== '1-沒有投入經費'">
           <strong>{{$store.state.explanationNote.groupBNote3}}</strong>
         </div>
         <!-- 11 b15 -->
-        <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== 1">
+        <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== '1-沒有投入經費'">
           <p class="form__question--no">11.</p>
           <el-form-item class="form__question--body" label="請問，貴公司2020年實際參與推動數位轉型的專職人員有幾位？" prop="b15">
             <el-radio-group v-model="ruleForm.b15">
-              <el-radio :label="1">沒有專職人員</el-radio>
-              <el-radio :label="2">1～2人</el-radio>
-              <el-radio :label="3">3～5人</el-radio>
-              <el-radio :label="4">6～10人</el-radio>
-              <el-radio :label="5">11～20人</el-radio>
+              <el-radio label="1-沒有專職人員">沒有專職人員</el-radio>
+              <el-radio label="2-1～2人">1～2人</el-radio>
+              <el-radio label="3-3～5人">3～5人</el-radio>
+              <el-radio label="4-6～10人">6～10人</el-radio>
+              <el-radio label="5-11～20人">11～20人</el-radio>
             </el-radio-group>
-            <div class="form__question--ansOther" :class="{'active': ruleForm.b15 == 6 || !!b15_other}">
-              <el-radio :label="6" v-model="ruleForm.b15" :class="{'is-foces is-checked': !!b15_other}">20人以上，大約_____人</el-radio>
-              <el-input v-model="b15_other" type="number" placeholder="填入數字" :disabled="ruleForm.b15 !== 6"></el-input>
+            <div class="form__question--ansOther" :class="{'active': ruleForm.b15 == '6-20人以上，大約_____人' || !!b15_other}">
+              <el-radio label="6-20人以上，大約_____人" v-model="ruleForm.b15" :class="{'is-foces is-checked': !!b15_other}">20人以上，大約_____人</el-radio>
+              <el-input v-model="b15_other" type="number" placeholder="填入數字" :disabled="ruleForm.b15 !== '6-20人以上，大約_____人'"></el-input>
             </div>
           </el-form-item>
         </div>
 
         <!-- 12 b16 -->
-        <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== 1">
+        <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== '1-沒有投入經費'">
           <p class="form__question--no">12.</p>
           <el-form-item class="form__question--body" label="請問，貴公司目前(2021年)投入多少員工(專職)於數位轉型？" prop="b16">
             <el-radio-group v-model="ruleForm.b16">
-              <el-radio :label="1">沒有專職人員</el-radio>
-              <el-radio :label="2">1～2人</el-radio>
-              <el-radio :label="3">3～5人</el-radio>
-              <el-radio :label="4">6～10人</el-radio>
-              <el-radio :label="5">11～20人</el-radio>
+              <el-radio label="1-沒有專職人員">沒有專職人員</el-radio>
+              <el-radio label="2-1～2人">1～2人</el-radio>
+              <el-radio label="3-3～5人">3～5人</el-radio>
+              <el-radio label="4-6～10人">6～10人</el-radio>
+              <el-radio label="5-11～20人">11～20人</el-radio>
             </el-radio-group>
-            <div class="form__question--ansOther" :class="{'active': ruleForm.b16 == 6 || !!b16_other}">
-              <el-radio :label="6" v-model="ruleForm.b16" :class="{'is-foces is-checked': !!b16_other}">20人以上，大約_____人</el-radio>
-              <el-input v-model="b16_other" type="number" placeholder="填入數字" :disabled="ruleForm.b16 !== 6"></el-input>
+            <div class="form__question--ansOther" :class="{'active': ruleForm.b16 == '6-20人以上，大約_____人' || !!b16_other}">
+              <el-radio label="6-20人以上，大約_____人" v-model="ruleForm.b16" :class="{'is-foces is-checked': !!b16_other}">20人以上，大約_____人</el-radio>
+              <el-input v-model="b16_other" type="number" placeholder="填入數字" :disabled="ruleForm.b16 !== '6-20人以上，大約_____人'"></el-input>
             </div>
           </el-form-item>
         </div>
 
         <!-- 13 b17 -->
-        <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== 1">
+        <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== '1-沒有投入經費'">
           <p class="form__question--no">13.</p>
           <el-form-item class="form__question--body" label="請問，貴公司目前(2021年)是否有聘請外部顧問或專家，協助推動數位轉型？" prop="b17">
             <el-radio-group v-model="ruleForm.b17">
-              <el-radio :label="1">沒有，也沒有規劃聘請外部顧問</el-radio>
-              <el-radio :label="2">沒有，但已規劃聘請外部顧問</el-radio>
+              <el-radio label="1-沒有，也沒有規劃聘請外部顧問">沒有，也沒有規劃聘請外部顧問</el-radio>
+              <el-radio label="2-沒有，但已規劃聘請外部顧問">沒有，但已規劃聘請外部顧問</el-radio>
             </el-radio-group>
-            <div class="form__question--ansOther" :class="{'active': ruleForm.b17 == 3 || !!b17_other}">
-              <el-radio :label="3" v-model="ruleForm.b17" :class="{'is-foces is-checked': !!b17_other}">有，大約_____人</el-radio>
-              <el-input v-model="b17_other" type="number" placeholder="填入數字" :disabled="ruleForm.b17 !== 3"></el-input>
+            <div class="form__question--ansOther" :class="{'active': ruleForm.b17 == '3-有，大約_____人' || !!b17_other}">
+              <el-radio label="3-有，大約_____人" v-model="ruleForm.b17" :class="{'is-foces is-checked': !!b17_other}">有，大約_____人</el-radio>
+              <el-input v-model="b17_other" type="number" placeholder="填入數字" :disabled="ruleForm.b17 !== '3-有，大約_____人'"></el-input>
             </div>
           </el-form-item>
         </div>
@@ -129,17 +129,17 @@
           <p class="form__question--no">14.</p>
           <el-form-item class="form__question--body" label="請問，貴公司目前已經投入/導入哪些數位或資訊系統？(複選題)" prop="b18">
             <el-checkbox-group v-model="ruleForm.b18">
-              <el-checkbox label="MES(Manufacturing Execution System，製造執行系統)"></el-checkbox>
-              <el-checkbox label="CAD(Computer Aided Design，電腦輔助設計)"></el-checkbox>
-              <el-checkbox label="CAM(Computer Aided Manufacturing，電腦輔助製造)"></el-checkbox>
-              <el-checkbox label="CAE(Computer Aided Engineering，電腦輔助工程)"></el-checkbox>
-              <el-checkbox label="ERP(Enterprise Resource Planning，企業資源管理)"></el-checkbox>
-              <el-checkbox label="CRM(Customer Relationship Management，客戶關係管理)"></el-checkbox>
-              <el-checkbox label="PDM(Product Data Management，產品資料管理)"></el-checkbox>
-              <el-checkbox label="PLM(Product Life Management，產品生命週期管理)"></el-checkbox>
-              <el-checkbox label="SCM(Supply Chain Management，供應鏈管理)"></el-checkbox>
-              <el-checkbox label="自動品管檢測系統"></el-checkbox>
-              <el-checkbox label="以上皆無"></el-checkbox>
+              <el-checkbox label="MES製造執行系統">MES(Manufacturing Execution System，製造執行系統)</el-checkbox>
+              <el-checkbox label="CAD電腦輔助設計">CAD(Computer Aided Design，電腦輔助設計)</el-checkbox>
+              <el-checkbox label="CAM電腦輔助製造">CAM(Computer Aided Manufacturing，電腦輔助製造)</el-checkbox>
+              <el-checkbox label="CAE電腦輔助工程">CAE(Computer Aided Engineering，電腦輔助工程)</el-checkbox>
+              <el-checkbox label="ERP企業資源管理">ERP(Enterprise Resource Planning，企業資源管理)</el-checkbox>
+              <el-checkbox label="CRM客戶關係管理">CRM(Customer Relationship Management，客戶關係管理)</el-checkbox>
+              <el-checkbox label="PDM產品資料管理">PDM(Product Data Management，產品資料管理)</el-checkbox>
+              <el-checkbox label="PLM產品生命週期管理">PLM(Product Life Management，產品生命週期管理)</el-checkbox>
+              <el-checkbox label="SCM供應鏈管理">SCM(Supply Chain Management，供應鏈管理)</el-checkbox>
+              <el-checkbox label="自動品管檢測系統">自動品管檢測系統</el-checkbox>
+              <el-checkbox label="以上皆無">以上皆無</el-checkbox>
             </el-checkbox-group>
             <div class="form__question--ansOther" :class="{'active': !checkB18Disable()}">
               <el-checkbox v-model="ruleForm.b18" label="其他，請說明___________"></el-checkbox>
@@ -236,7 +236,7 @@ export default {
   },
   methods: {
     getB11(ans) {
-      if (ans == 1) {
+      if (ans == "1-還在評估中") {
         this.ruleForm.b12 = "";
         this.ruleForm.b13 = "";
         this.ruleForm.b14 = "";
@@ -257,11 +257,37 @@ export default {
           if (this.ruleForm.b17 == "有，大約_____人") {
             this.ruleForm.b17 = this.b17_other;
           }
-          if (!!this.b18_other) {
-            this.ruleForm.b18.push(this.b18_other);
-          }
+          // if (!!this.b18_other) {
+          //   this.ruleForm.b18.push(this.b18_other);
+          // }
 
-          let newObj = Object.assign(this.$store.state.formInfo, this.ruleForm);
+          /* 篩出兩種格式存vuex及資料庫 */
+          const chartObj = {
+            b11: Number(this.ruleForm.b11.split("-")[0]),
+            b12: Number(this.ruleForm.b12.split("-")[0]) || "",
+            b13: Number(this.ruleForm.b13.split("-")[0]) || "",
+            b14: Number(this.ruleForm.b14.split("-")[0]) || "",
+            b15: Number(this.ruleForm.b15.split("-")[0]) || "",
+            b16: Number(this.ruleForm.b16.split("-")[0]) || "",
+            b17: Number(this.ruleForm.b17.split("-")[0]) || "",
+            b18: this.ruleForm.b18,
+            b19: this.ruleForm.b19,
+          };
+          this.$store.dispatch("setChartInfo", chartObj);
+
+          const dbObj = {
+            b11: this.ruleForm.b11.split("-")[1],
+            b12: this.ruleForm.b12.split("-")[1] || "",
+            b13: this.ruleForm.b13.split("-")[1] || "",
+            b14: this.ruleForm.b14.split("-")[1] || "",
+            b15: this.ruleForm.b15.split("-")[1] || "",
+            b16: this.ruleForm.b16.split("-")[1] || "",
+            b17: this.ruleForm.b17.split("-")[1] || "",
+            b18: this.ruleForm.b18,
+            b19: this.ruleForm.b19,
+          };
+
+          let newObj = Object.assign(this.$store.state.formInfo, dbObj);
           this.$store.dispatch("setFormInfo", newObj);
           this.$router.push({ name: "digitalMaturity" });
         } else {
@@ -291,6 +317,7 @@ export default {
 .digitallnvestment {
   position: relative;
   width: 100%;
+  max-width: 976px;
   min-height: 100vh;
   box-sizing: border-box;
   padding: 16px;

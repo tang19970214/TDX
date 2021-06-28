@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <div>
+    <div class="wallpaper">
       <div class="wallpaper__left">
         <svg width="162" height="259" viewBox="0 0 162 259" fill="none" xmlns="http://www.w3.org/2000/svg" class="leftpoints">
           <ellipse cx="152.852" cy="7.79768" rx="7.79768" ry="8.43356" transform="rotate(90 152.852 7.79768)" fill="#B0D8EE"></ellipse>
@@ -107,7 +107,9 @@ export default {
     },
   },
   mounted() {
-    this.$router.push("/");
+    if (this.$route.name !== "finishPage") {
+      this.$router.push("/");
+    }
     this.$nextTick(() => {
       //禁用右鍵
       document.oncontextmenu = new Function("event.returnValue=false");
@@ -129,6 +131,9 @@ body {
 }
 
 .wallpaper {
+  display: flex;
+  justify-content: center;
+
   &__left {
     position: absolute;
     left: -20px;

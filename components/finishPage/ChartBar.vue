@@ -7,7 +7,7 @@
     </div>
     <div class="chartBar__body" id="chartBar">
       <client-only>
-        <apexchart type="bar" :width="getChartWidth()" height="340" :options="getChartLabel(labels)" :series="series"></apexchart>
+        <apexchart type="bar" :width="getChartWidth()" height="390" :options="getChartLabel(labels)" :series="series"></apexchart>
       </client-only>
     </div>
   </div>
@@ -35,7 +35,8 @@ export default {
   computed: {
     getChartWidth() {
       return () => {
-        let getWidth = document.getElementById("chartBar")?.clientWidth || 450;
+        let getWidth =
+          document.getElementById("chartBar")?.clientWidth - 10 || 450;
         return getWidth;
       };
     },
@@ -56,6 +57,7 @@ export default {
             bar: {
               borderRadius: 4,
               horizontal: true,
+              barHeight: "60%",
             },
           },
           dataLabels: {
@@ -82,7 +84,6 @@ export default {
 
   &__header {
     width: 100%;
-    height: 55px;
     padding: 4px 16px;
     box-sizing: border-box;
     background: rgb(88, 153, 200);
@@ -91,17 +92,12 @@ export default {
     label {
       width: 100%;
       display: inline-block;
-      overflow: hidden;
-      -webkit-line-clamp: 2;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
     }
   }
 
   &__body {
     width: 100%;
-    height: 350px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;

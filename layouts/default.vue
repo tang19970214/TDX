@@ -107,9 +107,7 @@ export default {
     },
   },
   mounted() {
-    if (this.$route.name !== "finishPage") {
-      this.$router.push("/");
-    }
+    this.$router.push("/");
     this.$nextTick(() => {
       //禁用右鍵
       document.oncontextmenu = new Function("event.returnValue=false");

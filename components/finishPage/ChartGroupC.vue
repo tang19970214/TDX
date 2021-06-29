@@ -192,7 +192,6 @@ export default {
     showAns(item, ans) {
       let getAllAns = this.groupCApi.filter((res) => res.id == item.qus)[0]
         ?.ans;
-      // console.log(getAllAns, ans, getAllAns[ans - 1]);
       this.chooseAns = item.ans;
       this.getAns = [];
       this.dialogTitle = item.title;
@@ -201,25 +200,8 @@ export default {
       } else {
         this.getAns.push(getAllAns[ans - 1], getAllAns[ans]);
       }
-      console.log("getAns", this.getAns);
-      // console.log(this.groupCApi);
       /* open */
       this.dialogVisible = true;
-      return;
-      if (ans <= 5) {
-        this.chooseAns = item.ans;
-        this.getAns = [];
-        this.dialogTitle = item.title;
-        let getQus = this.$store.state.groupC[item.id];
-        if (ans == 1) {
-          this.getAns.push(getQus[ans - 1]);
-        } else {
-          this.getAns.push(getQus[ans - 2], getQus[ans - 1]);
-        }
-
-        /* open */
-        this.dialogVisible = true;
-      }
     },
   },
 };

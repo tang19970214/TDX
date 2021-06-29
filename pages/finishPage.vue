@@ -100,7 +100,6 @@ export default {
         });
     },
     getChartList() {
-      console.log(chartList_textile.groupC);
       this.groupCList = chartList_textile.groupC;
       this.groupCList.forEach((res, idx) => {
         res.qus = this.groupCApi[idx].id;

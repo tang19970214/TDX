@@ -367,6 +367,11 @@
 .el-dialog {
   border-radius: 8px !important;
   margin: 0 !important;
+  width: 90% !important;
+
+  @media (min-width: 768px) {
+    width: 65% !important;
+  }
 
   &__wrapper {
     display: flex;
@@ -388,5 +393,13 @@
   &__title {
     font-weight: bold;
     color: white !important;
+  }
+}
+
+.el-tooltip__popper {
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    max-width: 60%;
   }
 }

@@ -56,18 +56,23 @@
     </div>
 
     <!-- dialog -->
-    <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" width="90%" :append-to-body="true" v-if="getAns.length > 0">
+    <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" :append-to-body="true" v-if="getAns.length > 0">
       <div class="chartGroupC__dialog" :class="{'chartGroupC__dialog--yourAns': chooseAns == getAns[0].id}">
         <label>Stage {{getAns[0].id}}</label>
         <label>{{getAns[0].text}}</label>
       </div>
 
       <div class="chartGroupC__progress">
-        <img src="@/assets/images/stagearrow.png" alt="升級所需條件" width="40px" height="70px" @click="openProgress = !openProgress">
+        <img src="@/assets/images/stagearrow.png" alt="升級所需條件" width="40px" height="70px" @click="openProgress = !openProgress" v-if="getAns.length > 1">
         <div class="chartGroupC__progress--content">
           <!-- 升級條件 -->
           <div class="progress" v-if="openProgress">
-            <strong>{{getAns[0].desc}}</strong>
+            <div class="progress__flex" v-if="getAns[0].desc.split('\n')">
+              <strong v-for="(t, i) in getAns[0].desc.split('\n')" :key="i">{{t}}</strong>
+            </div>
+            <div v-else>
+              <strong>{{getAns[0].desc}}</strong>
+            </div>
           </div>
           <div class="chartGroupC__dialog" :class="{'chartGroupC__dialog--yourAns': chooseAns == getAns[1].id}" v-if="getAns.length > 1">
             <label>Stage {{getAns[1].id}}</label>
@@ -76,7 +81,7 @@
         </div>
       </div>
       <span slot="footer">
-        <el-button type="danger" @click="dialogVisible = false" plain>關閉</el-button>
+        <el-button type="danger" @click="closeDialog()" plain>關閉</el-button>
       </span>
     </el-dialog>
   </div>
@@ -195,13 +200,17 @@ export default {
       this.chooseAns = item.ans;
       this.getAns = [];
       this.dialogTitle = item.title;
-      if (ans == 5) {
+      if (ans == 1) {
         this.getAns.push(getAllAns[ans - 1]);
       } else {
-        this.getAns.push(getAllAns[ans - 1], getAllAns[ans]);
+        this.getAns.push(getAllAns[ans - 2], getAllAns[ans - 1]);
       }
       /* open */
       this.dialogVisible = true;
+    },
+    closeDialog() {
+      this.dialogVisible = false;
+      this.openProgress = false;
     },
   },
 };
@@ -422,6 +431,12 @@ export default {
         font-size: 16px;
         letter-spacing: 2px;
         margin-bottom: 20px;
+
+        &__flex {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
       }
     }
   }

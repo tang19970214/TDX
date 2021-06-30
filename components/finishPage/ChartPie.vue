@@ -42,6 +42,15 @@ export default {
     getChartLabel() {
       return (arr) => {
         const vm = this;
+        let setColor = [
+          "#007BDF",
+          "#008CFF",
+          "#2DA0F8",
+          "#4DADFB",
+          "#6DB9F8",
+          "#91CBFB",
+          "#A9D4F7",
+        ];
         let newArr = {
           pie: {
             size: 200,
@@ -54,16 +63,16 @@ export default {
               },
             },
           },
-          labels: arr,
           colors: [
-            "#7D9DDE",
-            "#E98068",
-            "#FFBE5C",
-            "#66BC6B",
-            "#990099",
-            "#E91E63",
-            "#546E7A",
+            function ({ value, seriesIndex }) {
+              if (!!vm.ans) {
+                return vm.ans == seriesIndex ? "#F00" : setColor[seriesIndex];
+              } else {
+                return setColor[seriesIndex];
+              }
+            },
           ],
+          labels: arr,
           responsive: [
             {
               breakpoint: 480,
@@ -74,13 +83,6 @@ export default {
               },
             },
           ],
-          // states: {
-          //   hover: {
-          //     filter: {
-          //       type: "none",
-          //     },
-          //   },
-          // },
         };
         return newArr;
       };

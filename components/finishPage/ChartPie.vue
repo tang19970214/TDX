@@ -65,8 +65,8 @@ export default {
           },
           colors: [
             function ({ value, seriesIndex }) {
-              if (!!vm.ans) {
-                return vm.ans == seriesIndex ? "#F00" : setColor[seriesIndex];
+              if (vm.ans == seriesIndex) {
+                return "#F00";
               } else {
                 return setColor[seriesIndex];
               }

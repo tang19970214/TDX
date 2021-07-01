@@ -101,12 +101,6 @@ export default {
         });
     },
     getChartList() {
-      this.groupCList = chartList_textile.groupC;
-      this.groupCList.forEach((res, idx) => {
-        res.qus = this.groupCApi[idx].id;
-        res.title = this.groupCApi[idx].note;
-        res.shortTitle = this.groupCApi[idx].shortQue;
-      });
       if (this.$store.state.formInfo.a6 == "紡織業") {
         this.groupBList = chartList_textile.groupB;
         this.groupCList = chartList_textile.groupC;
@@ -116,6 +110,13 @@ export default {
         this.groupCList = chartList_metal.groupC;
         this.groupDList = chartList_metal.groupD;
       }
+
+      this.groupCList.forEach((res, idx) => {
+        res.qus = this.groupCApi[idx].id;
+        res.title = this.groupCApi[idx].que;
+        res.shortTitle = this.groupCApi[idx].shortQue;
+      });
+
       if (this.groupBList.length > 0) {
         const b11Ans = this.$store.state.chartInfo.b11;
         const b12Ans = this.$store.state.chartInfo.b12;

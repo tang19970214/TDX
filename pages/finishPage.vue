@@ -23,7 +23,8 @@
       <el-row v-if="defaultTab == 1">
         <el-col :span="24" v-for="item in groupBList" :key="item.id">
           <ChartPie :title="item.title" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'pie'" />
-          <ChartCloud :title="item.title" :words="item.words" :ans="item.ans" v-if="item.type == 'cloud'" />
+          <ChartBar :title="item.title" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'bar'" />
+          <!-- <ChartCloud :title="item.title" :words="item.words" :ans="item.ans" v-if="item.type == 'cloud'" /> -->
         </el-col>
       </el-row>
       <!-- 數位成熟度 C -->
@@ -103,8 +104,8 @@ export default {
       this.groupCList = chartList_textile.groupC;
       this.groupCList.forEach((res, idx) => {
         res.qus = this.groupCApi[idx].id;
-        res.title = res.id + "." + this.groupCApi[idx].note;
-        res.shortTitle = res.id + "." + this.groupCApi[idx].shortQue;
+        res.title = this.groupCApi[idx].note;
+        res.shortTitle = this.groupCApi[idx].shortQue;
       });
       if (this.$store.state.formInfo.a6 == "紡織業") {
         this.groupBList = chartList_textile.groupB;

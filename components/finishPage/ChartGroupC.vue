@@ -233,8 +233,8 @@ export default {
     align-items: center;
 
     &--title {
-      min-width: 170px;
-      max-width: 170px;
+      min-width: 150px;
+      max-width: 150px;
       text-align: center;
       margin-right: 50px;
     }
@@ -321,8 +321,8 @@ export default {
       }
 
       .title {
-        min-width: 170px;
-        max-width: 170px;
+        min-width: 150px;
+        max-width: 150px;
         height: 50px;
         padding: 8px;
         display: flex;
@@ -352,7 +352,7 @@ export default {
 
       .lineAvg {
         position: absolute;
-        left: 215px;
+        left: 195px;
         width: 10px;
         height: 10px;
         border-radius: 50%;
@@ -362,7 +362,7 @@ export default {
 
       .lineMax {
         position: absolute;
-        left: 215px;
+        left: 195px;
         width: 10px;
         height: 10px;
         border-radius: 50%;
@@ -375,7 +375,7 @@ export default {
         height: 100%;
         top: 0;
         left: 0;
-        margin-left: 220px;
+        margin-left: 200px;
         display: flex;
         align-items: center;
 

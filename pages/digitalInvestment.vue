@@ -73,62 +73,62 @@
         <div class="digitallnvestment__form--subTitle" v-if="!!ruleForm.b12 && ruleForm.b12 !== '1-沒有投入經費'">
           <strong>{{$store.state.explanationNote.groupBNote3}}</strong>
         </div>
-        <!-- 11 b15 -->
+        <!-- 11 b21 -->
         <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== '1-沒有投入經費'">
           <p class="form__question--no">11.</p>
-          <el-form-item class="form__question--body" label="請問，貴公司2020年實際參與推動數位轉型的專職人員有幾位？" prop="b15">
-            <el-radio-group v-model="ruleForm.b15">
+          <el-form-item class="form__question--body" label="請問，貴公司2020年實際參與推動數位轉型的專職人員有幾位？" prop="b21">
+            <el-radio-group v-model="ruleForm.b21">
               <el-radio label="1-沒有專職人員">沒有專職人員</el-radio>
               <el-radio label="2-1～2人">1～2人</el-radio>
               <el-radio label="3-3～5人">3～5人</el-radio>
               <el-radio label="4-6～10人">6～10人</el-radio>
               <el-radio label="5-11～20人">11～20人</el-radio>
             </el-radio-group>
-            <div class="form__question--ansOther" :class="{'active': ruleForm.b15 == '6-20人以上，大約_____人' || !!b15_other}">
-              <el-radio label="6-20人以上，大約_____人" v-model="ruleForm.b15" :class="{'is-foces is-checked': !!b15_other}">20人以上，大約_____人</el-radio>
-              <el-input v-model="b15_other" type="number" placeholder="填入數字" :disabled="ruleForm.b15 !== '6-20人以上，大約_____人'"></el-input>
+            <div class="form__question--ansOther" :class="{'active': ruleForm.b21 == '6-20人以上，大約_____人' || !!b21_other}">
+              <el-radio label="6-20人以上，大約_____人" v-model="ruleForm.b21" :class="{'is-foces is-checked': !!b21_other}">20人以上，大約_____人</el-radio>
+              <el-input v-model="b21_other" type="number" placeholder="填入數字" :disabled="ruleForm.b21 !== '6-20人以上，大約_____人'"></el-input>
             </div>
           </el-form-item>
         </div>
 
-        <!-- 12 b16 -->
+        <!-- 12 b22 -->
         <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== '1-沒有投入經費'">
           <p class="form__question--no">12.</p>
-          <el-form-item class="form__question--body" label="請問，貴公司目前(2021年)投入多少員工(專職)於數位轉型？" prop="b16">
-            <el-radio-group v-model="ruleForm.b16">
+          <el-form-item class="form__question--body" label="請問，貴公司目前(2021年)投入多少員工(專職)於數位轉型？" prop="b22">
+            <el-radio-group v-model="ruleForm.b22">
               <el-radio label="1-沒有專職人員">沒有專職人員</el-radio>
               <el-radio label="2-1～2人">1～2人</el-radio>
               <el-radio label="3-3～5人">3～5人</el-radio>
               <el-radio label="4-6～10人">6～10人</el-radio>
               <el-radio label="5-11～20人">11～20人</el-radio>
             </el-radio-group>
-            <div class="form__question--ansOther" :class="{'active': ruleForm.b16 == '6-20人以上，大約_____人' || !!b16_other}">
-              <el-radio label="6-20人以上，大約_____人" v-model="ruleForm.b16" :class="{'is-foces is-checked': !!b16_other}">20人以上，大約_____人</el-radio>
-              <el-input v-model="b16_other" type="number" placeholder="填入數字" :disabled="ruleForm.b16 !== '6-20人以上，大約_____人'"></el-input>
+            <div class="form__question--ansOther" :class="{'active': ruleForm.b22 == '6-20人以上，大約_____人' || !!b22_other}">
+              <el-radio label="6-20人以上，大約_____人" v-model="ruleForm.b22" :class="{'is-foces is-checked': !!b22_other}">20人以上，大約_____人</el-radio>
+              <el-input v-model="b22_other" type="number" placeholder="填入數字" :disabled="ruleForm.b22 !== '6-20人以上，大約_____人'"></el-input>
             </div>
           </el-form-item>
         </div>
 
-        <!-- 13 b17 -->
+        <!-- 13 b23 -->
         <div class="form__question" v-if="!!ruleForm.b12 && ruleForm.b12 !== '1-沒有投入經費'">
           <p class="form__question--no">13.</p>
-          <el-form-item class="form__question--body" label="請問，貴公司目前(2021年)是否有聘請外部顧問或專家，協助推動數位轉型？" prop="b17">
-            <el-radio-group v-model="ruleForm.b17">
+          <el-form-item class="form__question--body" label="請問，貴公司目前(2021年)是否有聘請外部顧問或專家，協助推動數位轉型？" prop="b23">
+            <el-radio-group v-model="ruleForm.b23">
               <el-radio label="1-沒有，也沒有規劃聘請外部顧問">沒有，也沒有規劃聘請外部顧問</el-radio>
               <el-radio label="2-沒有，但已規劃聘請外部顧問">沒有，但已規劃聘請外部顧問</el-radio>
             </el-radio-group>
-            <div class="form__question--ansOther" :class="{'active': ruleForm.b17 == '3-有，大約_____人' || !!b17_other}">
-              <el-radio label="3-有，大約_____人" v-model="ruleForm.b17" :class="{'is-foces is-checked': !!b17_other}">有，大約_____人</el-radio>
-              <el-input v-model="b17_other" type="number" placeholder="填入數字" :disabled="ruleForm.b17 !== '3-有，大約_____人'"></el-input>
+            <div class="form__question--ansOther" :class="{'active': ruleForm.b23 == '3-有，大約_____人' || !!b23_other}">
+              <el-radio label="3-有，大約_____人" v-model="ruleForm.b23" :class="{'is-foces is-checked': !!b23_other}">有，大約_____人</el-radio>
+              <el-input v-model="b23_other" type="number" placeholder="填入數字" :disabled="ruleForm.b23 !== '3-有，大約_____人'"></el-input>
             </div>
           </el-form-item>
         </div>
 
-        <!-- 14 b18 -->
+        <!-- 14 b24 -->
         <div class="form__question" v-if="!!ruleForm.b11">
           <p class="form__question--no">14.</p>
-          <el-form-item class="form__question--body" label="請問，貴公司目前已經投入/導入哪些數位或資訊系統？(複選題)" prop="b18">
-            <el-checkbox-group v-model="ruleForm.b18">
+          <el-form-item class="form__question--body" label="請問，貴公司目前已經投入/導入哪些數位或資訊系統？(複選題)" prop="b24">
+            <el-checkbox-group v-model="ruleForm.b24">
               <el-checkbox label="1-MES製造執行系統">MES(Manufacturing Execution System，製造執行系統)</el-checkbox>
               <el-checkbox label="2-CAD電腦輔助設計">CAD(Computer Aided Design，電腦輔助設計)</el-checkbox>
               <el-checkbox label="3-CAM電腦輔助製造">CAM(Computer Aided Manufacturing，電腦輔助製造)</el-checkbox>
@@ -141,18 +141,18 @@
               <el-checkbox label="10-自動品管檢測系統">自動品管檢測系統</el-checkbox>
               <el-checkbox label="11-以上皆無">以上皆無</el-checkbox>
             </el-checkbox-group>
-            <div class="form__question--ansOther" :class="{'active': !checkB18Disable()}">
-              <el-checkbox v-model="ruleForm.b18" label="其他，請說明___________"></el-checkbox>
-              <el-input v-model="b18_other" :disabled="checkB18Disable()"></el-input>
+            <div class="form__question--ansOther" :class="{'active': !checkB24Disable()}">
+              <el-checkbox v-model="ruleForm.b24" label="其他，請說明___________"></el-checkbox>
+              <el-input v-model="b24_other" :disabled="checkB24Disable()"></el-input>
             </div>
           </el-form-item>
         </div>
 
-        <!-- 15 b19 -->
+        <!-- 15 b25 -->
         <div class="form__question" v-if="!!ruleForm.b11">
           <p class="form__question--no">15.</p>
-          <el-form-item class="form__question--body" label="請問，對於下列各項創新興數位科技應用趨勢，貴公司是否已有投入資源或人力？" prop="b19">
-            <el-checkbox-group v-model="ruleForm.b19">
+          <el-form-item class="form__question--body" label="請問，對於下列各項創新興數位科技應用趨勢，貴公司是否已有投入資源或人力？" prop="b25">
+            <el-checkbox-group v-model="ruleForm.b25">
               <el-checkbox label="1-數位雙生(Digital twin)">數位雙生(Digital twin)</el-checkbox>
               <el-checkbox label="2-人工智慧(Artificial Intelligence)">人工智慧(Artificial Intelligence)</el-checkbox>
               <el-checkbox label="3-物聯網/機聯網">物聯網/機聯網</el-checkbox>
@@ -194,31 +194,31 @@ export default {
         b12: "",
         b13: "",
         b14: "",
-        b15: "",
-        b16: "",
-        b17: "",
-        b18: [],
-        b19: [],
+        b21: "",
+        b22: "",
+        b23: "",
+        b24: [],
+        b25: [],
       },
-      b15_other: "",
-      b16_other: "",
-      b17_other: "",
-      b18_other: "",
+      b21_other: "",
+      b22_other: "",
+      b23_other: "",
+      b24_other: "",
       rules: {
         b11: [{ required: true, message: "請選擇", trigger: "change" }],
         b12: [{ required: true, message: "請選擇", trigger: "change" }],
         b13: [{ required: true, message: "請選擇", trigger: "change" }],
         b14: [{ required: true, message: "請選擇", trigger: "change" }],
-        b15: [{ required: true, message: "請選擇", trigger: "change" }],
-        b16: [{ required: true, message: "請選擇", trigger: "change" }],
-        b17: [{ required: true, message: "請選擇", trigger: "change" }],
-        b18: [{ required: true, message: "請選擇", trigger: "change" }],
-        b19: [{ required: true, message: "請選擇", trigger: "change" }],
+        b21: [{ required: true, message: "請選擇", trigger: "change" }],
+        b22: [{ required: true, message: "請選擇", trigger: "change" }],
+        b23: [{ required: true, message: "請選擇", trigger: "change" }],
+        b24: [{ required: true, message: "請選擇", trigger: "change" }],
+        b25: [{ required: true, message: "請選擇", trigger: "change" }],
       },
     };
   },
   computed: {
-    checkB18Disable() {
+    checkB24Disable() {
       return () => {
         if (this.ruleForm.b18.length > 0) {
           let getOtherAns = this.ruleForm.b18.filter(
@@ -240,22 +240,22 @@ export default {
         this.ruleForm.b12 = "";
         this.ruleForm.b13 = "";
         this.ruleForm.b14 = "";
-        this.ruleForm.b15 = "";
-        this.ruleForm.b16 = "";
-        this.ruleForm.b17 = "";
+        this.ruleForm.b21 = "";
+        this.ruleForm.b22 = "";
+        this.ruleForm.b23 = "";
       }
     },
     enter() {
       this.$refs["form"].validate((valid) => {
         if (valid) {
-          if (this.ruleForm.b15 == "20人以上，大約_____人") {
-            this.ruleForm.b15 = this.b15_other;
+          if (this.ruleForm.b21 == "20人以上，大約_____人") {
+            this.ruleForm.b21 = this.b21_other;
           }
-          if (this.ruleForm.b16 == "20人以上，大約_____人") {
-            this.ruleForm.b16 = this.b16_other;
+          if (this.ruleForm.b22 == "20人以上，大約_____人") {
+            this.ruleForm.b22 = this.b22_other;
           }
-          if (this.ruleForm.b17 == "有，大約_____人") {
-            this.ruleForm.b17 = this.b17_other;
+          if (this.ruleForm.b23 == "有，大約_____人") {
+            this.ruleForm.b23 = this.b23_other;
           }
 
           const chartObj = {
@@ -263,11 +263,11 @@ export default {
             b12: Number(this.ruleForm.b12.split("-")[0]) || "",
             b13: Number(this.ruleForm.b13.split("-")[0]) || "",
             b14: Number(this.ruleForm.b14.split("-")[0]) || "",
-            b15: Number(this.ruleForm.b15.split("-")[0]) || "",
-            b16: Number(this.ruleForm.b16.split("-")[0]) || "",
-            b17: Number(this.ruleForm.b17.split("-")[0]) || "",
-            b18: this.ruleForm.b18.map((it) => Number(it.split("-")[0])),
-            b19: this.ruleForm.b19.map((it) => Number(it.split("-")[0])),
+            b21: Number(this.ruleForm.b21.split("-")[0]) || "",
+            b22: Number(this.ruleForm.b22.split("-")[0]) || "",
+            b23: Number(this.ruleForm.b23.split("-")[0]) || "",
+            b24: this.ruleForm.b24.map((it) => Number(it.split("-")[0])),
+            b25: this.ruleForm.b25.map((it) => Number(it.split("-")[0])),
           };
           this.$store.dispatch("setChartInfo", chartObj);
 
@@ -276,11 +276,11 @@ export default {
             b12: this.ruleForm.b12.split("-")[1] || "",
             b13: this.ruleForm.b13.split("-")[1] || "",
             b14: this.ruleForm.b14.split("-")[1] || "",
-            b15: this.ruleForm.b15.split("-")[1] || "",
-            b16: this.ruleForm.b16.split("-")[1] || "",
-            b17: this.ruleForm.b17.split("-")[1] || "",
-            b18: this.ruleForm.b18,
-            b19: this.ruleForm.b19,
+            b21: this.ruleForm.b21.split("-")[1] || "",
+            b22: this.ruleForm.b22.split("-")[1] || "",
+            b23: this.ruleForm.b23.split("-")[1] || "",
+            b24: this.ruleForm.b24,
+            b25: this.ruleForm.b25,
           };
 
           let newObj = Object.assign(this.$store.state.formInfo, dbObj);

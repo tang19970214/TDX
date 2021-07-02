@@ -67,12 +67,13 @@
         <div class="chartGroupC__progress--content">
           <!-- 升級條件 -->
           <div class="progress" v-if="openProgress">
-            <div class="progress__flex" v-if="getAns[0].desc.split('\n')">
+            <div v-html="getAns[0].desc"></div>
+            <!-- <div class="progress__flex" v-if="getAns[0].desc.split('\n')">
               <strong v-for="(t, i) in getAns[0].desc.split('\n')" :key="i">{{t}}</strong>
             </div>
             <div v-else>
               <strong>{{getAns[0].desc}}</strong>
-            </div>
+            </div> -->
           </div>
           <div class="chartGroupC__dialog" :class="{'chartGroupC__dialog--yourAns': chooseAns == getAns[1].id}" v-if="getAns.length > 1">
             <label>Stage {{getAns[1].id}}</label>

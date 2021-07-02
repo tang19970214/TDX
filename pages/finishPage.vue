@@ -127,12 +127,12 @@ export default {
         if (!!this.groupBList[1].ans) {
           this.groupBList[2].ans = this.$store.state.chartInfo.b13 - 1;
           this.groupBList[3].ans = this.$store.state.chartInfo.b14 - 1;
-          this.groupBList[4].ans = this.$store.state.chartInfo.b15 - 1;
-          this.groupBList[5].ans = this.$store.state.chartInfo.b16 - 1;
-          this.groupBList[6].ans = this.$store.state.chartInfo.b17 - 1;
+          this.groupBList[4].ans = this.$store.state.chartInfo.b21 - 1;
+          this.groupBList[5].ans = this.$store.state.chartInfo.b22 - 1;
+          this.groupBList[6].ans = this.$store.state.chartInfo.b23 - 1;
         }
-        this.groupBList[7].ans = this.$store.state.chartInfo.b18;
-        this.groupBList[8].ans = this.$store.state.chartInfo.b19;
+        this.groupBList[7].ans = this.$store.state.chartInfo.b24;
+        this.groupBList[8].ans = this.$store.state.chartInfo.b25;
       }
       if (this.groupCList.length > 0) {
         this.groupCList[0].ans = this.$store.state.chartInfo.cA11;

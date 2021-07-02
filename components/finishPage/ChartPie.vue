@@ -59,13 +59,15 @@ export default {
           chart: {
             events: {
               animationEnd: function (ctx, event) {
-                ctx.toggleDataPointSelection(vm.ans);
+                if (vm.ans !== 0) {
+                  ctx.toggleDataPointSelection(vm.ans - 1);
+                }
               },
             },
           },
           colors: [
             function ({ value, seriesIndex }) {
-              if (vm.ans == seriesIndex) {
+              if (vm.ans !== 0 && vm.ans - 1 == seriesIndex) {
                 return "#F00";
               } else {
                 return setColor[seriesIndex];

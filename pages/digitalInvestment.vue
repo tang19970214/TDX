@@ -27,7 +27,7 @@
         <div class="form__question" v-if="!!ruleForm.b11 && ruleForm.b11 !== '1-還在評估中'">
           <p class="form__question--no">8.</p>
           <el-form-item class="form__question--body" label="請問，貴公司在去(2020)年推動數位轉型的投資經費? (包括人事、系統開發或委外等相關費用)" prop="b11">
-            <el-radio-group v-model="ruleForm.b12">
+            <el-radio-group v-model="ruleForm.b12" @change="getB12">
               <el-radio label="1-沒有投入經費">沒有投入經費</el-radio>
               <el-radio label="2-不到100萬">不到100萬</el-radio>
               <el-radio label="3-100萬(含)以上，不到500萬">100萬(含)以上，不到500萬</el-radio>
@@ -129,20 +129,20 @@
           <p class="form__question--no">14.</p>
           <el-form-item class="form__question--body" label="請問，貴公司目前已經投入/導入哪些數位或資訊系統？(複選題)" prop="b24">
             <el-checkbox-group v-model="ruleForm.b24">
-              <el-checkbox label="1-MES製造執行系統">MES(Manufacturing Execution System，製造執行系統)</el-checkbox>
-              <el-checkbox label="2-CAD電腦輔助設計">CAD(Computer Aided Design，電腦輔助設計)</el-checkbox>
-              <el-checkbox label="3-CAM電腦輔助製造">CAM(Computer Aided Manufacturing，電腦輔助製造)</el-checkbox>
-              <el-checkbox label="4-CAE電腦輔助工程">CAE(Computer Aided Engineering，電腦輔助工程)</el-checkbox>
-              <el-checkbox label="5-ERP企業資源管理">ERP(Enterprise Resource Planning，企業資源管理)</el-checkbox>
-              <el-checkbox label="6-CRM客戶關係管理">CRM(Customer Relationship Management，客戶關係管理)</el-checkbox>
-              <el-checkbox label="7-PDM產品資料管理">PDM(Product Data Management，產品資料管理)</el-checkbox>
+              <el-checkbox label="1-ERP企業資源管理">ERP(Enterprise Resource Planning，企業資源管理)</el-checkbox>
+              <el-checkbox label="2-MES製造執行系統">MES(Manufacturing Execution System，製造執行系統)</el-checkbox>
+              <el-checkbox label="3-PDM產品資料管理">PDM(Product Data Management，產品資料管理)</el-checkbox>
+              <el-checkbox label="4-CRM客戶關係管理">CRM(Customer Relationship Management，客戶關係管理)</el-checkbox>
+              <el-checkbox label="5-SCM供應鏈管理">SCM(Supply Chain Management，供應鏈管理)</el-checkbox>
+              <el-checkbox label="6-CAD電腦輔助設計">CAD(Computer Aided Design，電腦輔助設計)</el-checkbox>
+              <el-checkbox label="7-CAM電腦輔助製造">CAM(Computer Aided Manufacturing，電腦輔助製造)</el-checkbox>
               <el-checkbox label="8-PLM產品生命週期管理">PLM(Product Life Management，產品生命週期管理)</el-checkbox>
-              <el-checkbox label="9-SCM供應鏈管理">SCM(Supply Chain Management，供應鏈管理)</el-checkbox>
-              <el-checkbox label="10-自動品管檢測系統">自動品管檢測系統</el-checkbox>
+              <el-checkbox label="9-自動品管檢測系統">自動品管檢測系統</el-checkbox>
+              <el-checkbox label="10-CAE電腦輔助工程">CAE(Computer Aided Engineering，電腦輔助工程)</el-checkbox>
               <el-checkbox label="11-以上皆無">以上皆無</el-checkbox>
             </el-checkbox-group>
             <div class="form__question--ansOther" :class="{'active': !checkB24Disable()}">
-              <el-checkbox v-model="ruleForm.b24" label="其他，請說明___________"></el-checkbox>
+              <el-checkbox v-model="ruleForm.b24" label="12-其他，請說明___________">其他</el-checkbox>
               <el-input v-model="b24_other" :disabled="checkB24Disable()"></el-input>
             </div>
           </el-form-item>
@@ -153,17 +153,17 @@
           <p class="form__question--no">15.</p>
           <el-form-item class="form__question--body" label="請問，對於下列各項創新興數位科技應用趨勢，貴公司是否已有投入資源或人力？" prop="b25">
             <el-checkbox-group v-model="ruleForm.b25">
-              <el-checkbox label="1-數位雙生(Digital twin)">數位雙生(Digital twin)</el-checkbox>
-              <el-checkbox label="2-人工智慧(Artificial Intelligence)">人工智慧(Artificial Intelligence)</el-checkbox>
-              <el-checkbox label="3-物聯網/機聯網">物聯網/機聯網</el-checkbox>
-              <el-checkbox label="4-電子商務">電子商務</el-checkbox>
-              <el-checkbox label="5-行動裝置服務">行動裝置服務</el-checkbox>
-              <el-checkbox label="6-網路/資料安全">網路/資料安全</el-checkbox>
-              <el-checkbox label="7-大數據分析(Big data)">大數據分析(Big data)</el-checkbox>
-              <el-checkbox label="8-雲端技術">雲端技術</el-checkbox>
-              <el-checkbox label="9-社群行銷">社群行銷</el-checkbox>
-              <el-checkbox label="10-區塊鏈">區塊鏈</el-checkbox>
-              <el-checkbox label="11-邊緣運算">邊緣運算</el-checkbox>
+              <el-checkbox label="1-網路/資料安全">網路/資料安全</el-checkbox>
+              <el-checkbox label="2-電子商務">電子商務</el-checkbox>
+              <el-checkbox label="3-雲端技術">雲端技術</el-checkbox>
+              <el-checkbox label="4-大數據分析(Big data)">大數據分析(Big data)</el-checkbox>
+              <el-checkbox label="5-物聯網/機聯網">物聯網/機聯網</el-checkbox>
+              <el-checkbox label="6-社群行銷">社群行銷</el-checkbox>
+              <el-checkbox label="7-行動裝置服務">行動裝置服務</el-checkbox>
+              <el-checkbox label="8-人工智慧(Artificial Intelligence)">人工智慧(Artificial Intelligence)</el-checkbox>
+              <el-checkbox label="9-區塊鏈">區塊鏈</el-checkbox>
+              <el-checkbox label="10-邊緣運算">邊緣運算</el-checkbox>
+              <el-checkbox label="11-數位雙生(Digital twin)">數位雙生(Digital twin)</el-checkbox>
               <el-checkbox label="12-以上皆無">以上皆無</el-checkbox>
             </el-checkbox-group>
           </el-form-item>
@@ -220,12 +220,12 @@ export default {
   computed: {
     checkB24Disable() {
       return () => {
-        if (this.ruleForm.b18.length > 0) {
-          let getOtherAns = this.ruleForm.b18.filter(
-            (txt) => txt == "其他，請說明___________"
+        if (this.ruleForm.b24.length > 0) {
+          let getOtherAns = this.ruleForm.b24.filter(
+            (txt) => txt == "12-其他，請說明___________"
           );
           if (getOtherAns == 0) {
-            this.b18_other = "";
+            this.b24_other = "";
           }
           return getOtherAns?.length > 0 ? false : true;
         } else {
@@ -238,6 +238,15 @@ export default {
     getB11(ans) {
       if (ans == "1-還在評估中") {
         this.ruleForm.b12 = "";
+        this.ruleForm.b13 = "";
+        this.ruleForm.b14 = "";
+        this.ruleForm.b21 = "";
+        this.ruleForm.b22 = "";
+        this.ruleForm.b23 = "";
+      }
+    },
+    getB12(ans) {
+      if (ans == "1-沒有投入經費") {
         this.ruleForm.b13 = "";
         this.ruleForm.b14 = "";
         this.ruleForm.b21 = "";
@@ -279,8 +288,8 @@ export default {
             b21: this.ruleForm.b21.split("-")[1] || "",
             b22: this.ruleForm.b22.split("-")[1] || "",
             b23: this.ruleForm.b23.split("-")[1] || "",
-            b24: this.ruleForm.b24,
-            b25: this.ruleForm.b25,
+            b24: this.ruleForm.b24.map((it) => it.split("-")[1]),
+            b25: this.ruleForm.b25.map((it) => it.split("-")[1]),
           };
 
           let newObj = Object.assign(this.$store.state.formInfo, dbObj);

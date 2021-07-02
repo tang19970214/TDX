@@ -120,19 +120,23 @@ export default {
       if (this.groupBList.length > 0) {
         const b11Ans = this.$store.state.chartInfo.b11;
         const b12Ans = this.$store.state.chartInfo.b12;
-        this.groupBList[0].ans = this.$store.state.chartInfo.b11 - 1;
+        this.groupBList[0].ans = this.$store.state.chartInfo.b11;
         this.groupBList[1].ans =
-          b11Ans == 1 ? null : this.$store.state.chartInfo.b12 - 1;
+          b11Ans == 1 ? 0 : this.$store.state.chartInfo.b12;
 
         if (!!this.groupBList[1].ans) {
-          this.groupBList[2].ans = this.$store.state.chartInfo.b13 - 1;
-          this.groupBList[3].ans = this.$store.state.chartInfo.b14 - 1;
-          this.groupBList[4].ans = this.$store.state.chartInfo.b21 - 1;
-          this.groupBList[5].ans = this.$store.state.chartInfo.b22 - 1;
-          this.groupBList[6].ans = this.$store.state.chartInfo.b23 - 1;
+          this.groupBList[2].ans = this.$store.state.chartInfo.b13 || 0;
+          this.groupBList[3].ans = this.$store.state.chartInfo.b14 || 0;
+          this.groupBList[4].ans = this.$store.state.chartInfo.b21 || 0;
+          this.groupBList[5].ans = this.$store.state.chartInfo.b22 || 0;
+          this.groupBList[6].ans = this.$store.state.chartInfo.b23 || 0;
         }
-        this.groupBList[7].ans = this.$store.state.chartInfo.b24;
-        this.groupBList[8].ans = this.$store.state.chartInfo.b25;
+        this.groupBList[7].ans = this.$store.state.chartInfo.b24?.map(
+          (i) => i - 1
+        );
+        this.groupBList[8].ans = this.$store.state.chartInfo.b25?.map(
+          (i) => i - 1
+        );
       }
       if (this.groupCList.length > 0) {
         this.groupCList[0].ans = this.$store.state.chartInfo.cA11;
@@ -154,17 +158,17 @@ export default {
       }
       if (this.groupDList.length > 0) {
         const d2Ans = this.$store.state.chartInfo.d2;
-        this.groupDList[1].ans = this.$store.state.chartInfo.d2 - 1;
+        this.groupDList[1].ans = this.$store.state.chartInfo.d2;
         this.groupDList[2].ans =
-          d2Ans == 3 ? "" : this.$store.state.chartInfo.d3 - 1;
+          d2Ans == 3 ? 0 : this.$store.state.chartInfo.d3;
         this.groupDList[3].ans =
-          d2Ans == 3 ? "" : this.$store.state.chartInfo.d4 - 1;
+          d2Ans == 3 ? 0 : this.$store.state.chartInfo.d4;
         this.groupDList[5].ans =
-          d2Ans == 3 ? "" : this.$store.state.chartInfo.d6 - 1;
+          d2Ans == 3 ? 0 : this.$store.state.chartInfo.d6;
         this.groupDList[6].ans =
-          d2Ans == 3 ? "" : this.$store.state.chartInfo.d7 - 1;
+          d2Ans == 3 ? 0 : this.$store.state.chartInfo.d7;
         this.groupDList[7].ans =
-          d2Ans == 3 ? "" : this.$store.state.chartInfo.d8 - 1;
+          d2Ans == 3 ? 0 : this.$store.state.chartInfo.d8;
         // 複選
         this.groupDList[0].ans = this.$store.state.chartInfo.d1;
         this.groupDList[4].ans = this.$store.state.chartInfo.d5;

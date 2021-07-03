@@ -170,8 +170,12 @@ export default {
         this.groupDList[7].ans =
           d2Ans == 3 ? 0 : this.$store.state.chartInfo.d8;
         // 複選
-        this.groupDList[0].ans = this.$store.state.chartInfo.d1;
-        this.groupDList[4].ans = this.$store.state.chartInfo.d5;
+        this.groupDList[0].ans = this.$store.state.chartInfo.d1?.map(
+          (i) => i - 1
+        );
+        this.groupDList[4].ans = this.$store.state.chartInfo.d5?.map(
+          (i) => i - 1
+        );
       }
     },
   },

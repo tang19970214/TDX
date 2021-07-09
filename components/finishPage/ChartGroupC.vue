@@ -5,8 +5,8 @@
         <div class="chartGroupC__header--title">
           <label>指標</label>
         </div>
-        <div class="chartGroupC__header--ans" v-for="item in 6" :key="item">
-          <label>{{item - 1}}</label>
+        <div class="chartGroupC__header--ans" v-for="item in 5" :key="item">
+          <label>{{item}}</label>
         </div>
       </div>
 
@@ -201,10 +201,10 @@ export default {
       this.chooseAns = item.ans;
       this.getAns = [];
       this.dialogTitle = item.title;
-      if (ans == 1) {
+      if (ans == 5) {
         this.getAns.push(getAllAns[ans - 1]);
       } else {
-        this.getAns.push(getAllAns[ans - 2], getAllAns[ans - 1]);
+        this.getAns.push(getAllAns[ans - 1], getAllAns[ans]);
       }
       /* open */
       this.dialogVisible = true;
@@ -237,7 +237,7 @@ export default {
       min-width: 150px;
       max-width: 150px;
       text-align: center;
-      margin-right: 50px;
+      margin-right: 98px;
     }
 
     &--ans {

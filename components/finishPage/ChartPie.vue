@@ -74,6 +74,13 @@ export default {
               }
             },
           ],
+          dataLabels: {
+            enabled: true,
+            style: {
+              fontSize: "16px",
+              fontFamily: "Comic Sans MS",
+            },
+          },
           labels: arr,
           responsive: [
             {

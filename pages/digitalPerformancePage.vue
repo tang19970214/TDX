@@ -12,21 +12,21 @@
           <el-form-item class="form__question--body" label="請問，貴公司推動數位轉型的主要目標為何？(請選最重要的1-3個，複選)" prop="d1">
             <div class="introduceText">請選擇 1 ~ 3 個選項</div>
             <el-checkbox-group v-model="ruleForm.d1" :max="3">
-              <el-checkbox label="1-提升品質/降低不良率">提升品質/降低不良率</el-checkbox>
-              <el-checkbox label="2-提升生產效率">提升生產效率</el-checkbox>
+              <el-checkbox label="1-提升生產效率">提升生產效率</el-checkbox>
+              <el-checkbox label="2-提升品質/降低不良率">提升品質/降低不良率</el-checkbox>
               <el-checkbox label="3-降低庫存">降低庫存</el-checkbox>
               <el-checkbox label="4-縮短交期">縮短交期</el-checkbox>
-              <el-checkbox label="5-強化資訊安全">強化資訊安全</el-checkbox>
-              <el-checkbox label="6-降低人力需求">降低人力需求</el-checkbox>
+              <el-checkbox label="5-降低人力需求">降低人力需求</el-checkbox>
+              <el-checkbox label="6-強化資訊安全">強化資訊安全</el-checkbox>
               <el-checkbox label="7-交期準時">交期準時</el-checkbox>
               <el-checkbox label="8-提升產品毛利">提升產品毛利</el-checkbox>
-              <el-checkbox label="9-提升設備稼動率/可動率">提升設備稼動率/可動率</el-checkbox>
-              <el-checkbox label="10-更瞭解客戶的行為模式與需求">更瞭解客戶的行為模式與需求</el-checkbox>
-              <el-checkbox label="11-改善齊料率">改善齊料率</el-checkbox>
-              <el-checkbox label="12-產品或服務創新">產品或服務創新</el-checkbox>
-              <el-checkbox label="13-強化銷售能力">強化銷售能力</el-checkbox>
-              <el-checkbox label="14-縮短研發新產品時間">縮短研發新產品時間</el-checkbox>
-              <el-checkbox label="15-目前尚未設定目標">目前尚未設定目標</el-checkbox>
+              <el-checkbox label="9-目前尚未設定目標">目前尚未設定目標</el-checkbox>
+              <el-checkbox label="10-提升設備稼動率/可動率">提升設備稼動率/可動率</el-checkbox>
+              <el-checkbox label="11-更瞭解客戶的行為模式與需求">更瞭解客戶的行為模式與需求</el-checkbox>
+              <el-checkbox label="12-改善齊料率">改善齊料率</el-checkbox>
+              <el-checkbox label="13-產品或服務創新">產品或服務創新</el-checkbox>
+              <el-checkbox label="14-強化銷售能力">強化銷售能力</el-checkbox>
+              <el-checkbox label="15-縮短研發新產品時間">縮短研發新產品時間</el-checkbox>
             </el-checkbox-group>
             <div class="form__question--ansOther" :class="{'active': !checkD1Disable()}">
               <el-checkbox v-model="ruleForm.d1" label="16-其他">其他</el-checkbox>
@@ -85,19 +85,19 @@
             <el-checkbox-group v-model="ruleForm.d5">
               <el-checkbox label="1-提升生產效率">提升生產效率</el-checkbox>
               <el-checkbox label="2-提升品質/降低不良率">提升品質/降低不良率</el-checkbox>
-              <el-checkbox label="3-縮短交期">縮短交期</el-checkbox>
-              <el-checkbox label="4-降低人力需求">降低人力需求</el-checkbox>
+              <el-checkbox label="3-降低人力需求">降低人力需求</el-checkbox>
+              <el-checkbox label="4-縮短交期">縮短交期</el-checkbox>
               <el-checkbox label="5-降低庫存">降低庫存</el-checkbox>
               <el-checkbox label="6-強化資訊安全">強化資訊安全</el-checkbox>
               <el-checkbox label="7-交期準時">交期準時</el-checkbox>
-              <el-checkbox label="8-提升產品毛利">提升產品毛利</el-checkbox>
-              <el-checkbox label="9-提升設備稼動率/可動率">提升設備稼動率/可動率</el-checkbox>
+              <el-checkbox label="8-提升設備稼動率/可動率">提升設備稼動率/可動率</el-checkbox>
+              <el-checkbox label="9-提升產品毛利">提升產品毛利</el-checkbox>
               <el-checkbox label="10-改善齊料率">改善齊料率</el-checkbox>
               <el-checkbox label="11-強化銷售能力">強化銷售能力</el-checkbox>
               <el-checkbox label="12-更瞭解客戶的行為模式與需求">更瞭解客戶的行為模式與需求</el-checkbox>
-              <el-checkbox label="13-縮短研發新產品時間">縮短研發新產品時間</el-checkbox>
-              <el-checkbox label="14-產品或服務創新">產品或服務創新</el-checkbox>
-              <el-checkbox label="15-尚未實際產生效益">尚未實際產生效益</el-checkbox>
+              <el-checkbox label="13-產品或服務創新">產品或服務創新</el-checkbox>
+              <el-checkbox label="14-尚未實際產生效益">尚未實際產生效益</el-checkbox>
+              <el-checkbox label="15-縮短研發新產品時間">縮短研發新產品時間</el-checkbox>
             </el-checkbox-group>
             <div class="form__question--ansOther" :class="{'active': !checkD5Disable()}">
               <el-checkbox v-model="ruleForm.d5" label="16-其他">其他</el-checkbox>

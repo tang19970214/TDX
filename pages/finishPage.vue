@@ -16,6 +16,14 @@
         </div>
         <label>{{$store.state.explanationNote.thankPage}}</label>
       </div>
+
+      <div class="finishPage__header--subTitle" v-else>
+        <label v-if="defaultTab == 1">圖表中，各題結果的數字是透過前期調查所取得資料。<br>紅色圖例代表您這次選擇的選項，若在圖中沒有紅色，代表這個選項在整體調查樣本中還沒有被選取。</label>
+
+        <label v-if="defaultTab == 2">點選分數長條圖中的每個級距，可以看到每個等級分別代表什麼喔！<br>另外點選裡面的箭頭還可以看到自己可以如何前往下一個階段。</label>
+
+        <label v-if="defaultTab == 3">圖表中，各題結果的數字是透過前期調查所取得資料。<br>紅色圖例代表您這次選擇的選項，若在圖中沒有紅色，代表這個選項在整體調查樣本中還沒有被選取。</label>
+      </div>
     </div>
 
     <div v-if="getIndustry()">

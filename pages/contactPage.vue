@@ -48,7 +48,7 @@
         <div class="form__question">
           <p class="form__question--no">5.</p>
           <el-form-item class="form__question--body" label="聯絡電話" prop="e5">
-            <el-input type="number" v-model="ruleForm.e5" placeholder="0212345678"></el-input>
+            <el-input type="number" v-model="ruleForm.e5" placeholder="範例:0923148590"></el-input>
           </el-form-item>
         </div>
 

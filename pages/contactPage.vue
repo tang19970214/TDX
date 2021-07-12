@@ -45,7 +45,7 @@
         </div>
 
         <!-- 5 e5 -->
-        <div class="form__question">
+        <div class="form__question haveSubTitle">
           <p class="form__question--no">5.</p>
           <el-form-item class="form__question--body" label="聯絡電話" prop="e5">
             <el-input type="number" v-model="ruleForm.e5" placeholder="範例:0923148590"></el-input>
@@ -184,6 +184,23 @@ export default {
     padding: 8px;
     box-sizing: border-box;
     box-shadow: rgb(54 89 140 / 24%) 0px 4px 12px;
+
+    .haveSubTitle {
+      .el-form-item__label {
+        position: relative;
+
+        &::after {
+          content: "（範例:0923148590）";
+          position: absolute;
+          top: 0;
+          left: 0;
+          margin-left: 110px;
+          color: red;
+          font-size: 14px;
+          white-space: nowrap;
+        }
+      }
+    }
 
     &--btn {
       width: 100%;

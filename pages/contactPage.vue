@@ -48,7 +48,7 @@
         <div class="form__question haveSubTitle">
           <p class="form__question--no">5.</p>
           <el-form-item class="form__question--body" label="聯絡電話" prop="e5">
-            <el-input type="number" v-model="ruleForm.e5" placeholder="範例:0923148590"></el-input>
+            <el-input type="number" v-model="ruleForm.e5" placeholder="範例:0912345678"></el-input>
           </el-form-item>
         </div>
 
@@ -190,7 +190,7 @@ export default {
         position: relative;
 
         &::after {
-          content: "（範例:0923148590）";
+          content: "（範例:0912345678）";
           position: absolute;
           top: 0;
           left: 0;

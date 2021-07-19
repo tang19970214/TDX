@@ -2,7 +2,7 @@
   <div class="chartBar">
     <div class="chartBar__header">
       <el-tooltip effect="dark" :content="title" placement="top">
-        <label>{{title}}</label>
+        <label>{{shortTitle}}</label>
       </el-tooltip>
     </div>
     <div class="chartBar__body" id="chartBar">
@@ -17,6 +17,10 @@
 export default {
   props: {
     title: {
+      type: String,
+      required: true,
+    },
+    shortTitle: {
       type: String,
       required: true,
     },

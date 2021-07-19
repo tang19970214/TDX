@@ -2,7 +2,7 @@
   <div class="chartPie">
     <div class="chartPie__header">
       <el-tooltip effect="dark" :content="title" placement="top">
-        <label>{{title}}</label>
+        <label>{{shortTitle}}</label>
       </el-tooltip>
     </div>
     <div class="chartPie__body" id="chartPie">
@@ -17,6 +17,10 @@
 export default {
   props: {
     title: {
+      type: String,
+      required: true,
+    },
+    shortTitle: {
       type: String,
       required: true,
     },
@@ -75,6 +79,7 @@ export default {
             },
           ],
           dataLabels: {
+            // offset: 50,
             enabled: true,
             style: {
               fontSize: "16px",

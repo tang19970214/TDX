@@ -30,8 +30,8 @@
       <!-- 數位投入 B -->
       <el-row v-if="defaultTab == 1">
         <el-col :span="24" v-for="item in groupBList" :key="item.id">
-          <ChartPie :title="item.title" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'pie'" />
-          <ChartBar :title="item.title" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'bar'" />
+          <ChartPie :title="item.title" :shortTitle="item.shortTitle" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'pie'" />
+          <ChartBar :title="item.title" :shortTitle="item.shortTitle" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'bar'" />
           <!-- <ChartCloud :title="item.title" :words="item.words" :ans="item.ans" v-if="item.type == 'cloud'" /> -->
         </el-col>
       </el-row>
@@ -44,8 +44,8 @@
       <!-- 數位成效 D -->
       <el-row v-if="defaultTab == 3">
         <el-col :span="24" v-for="item in groupDList" :key="item.id">
-          <ChartPie :title="item.title" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'pie'" />
-          <ChartBar :title="item.title" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'bar'" />
+          <ChartPie :title="item.title" :shortTitle="item.shortTitle" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'pie'" />
+          <ChartBar :title="item.title" :shortTitle="item.shortTitle" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'bar'" />
         </el-col>
       </el-row>
     </div>

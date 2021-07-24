@@ -182,6 +182,9 @@
 import PageTitle from "../components/PageTitle.vue";
 
 export default {
+  head: {
+    title: "數位投入 - 台灣產業數位轉型量表TDX",
+  },
   components: { PageTitle },
   data() {
     return {

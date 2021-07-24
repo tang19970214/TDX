@@ -1,7 +1,7 @@
 <template>
   <div class="finishPage">
     <div class="finishPage__header">
-      <img src="@/assets/images/finishPage.svg" alt="">
+      <img src="@/assets/images/finishPage.svg" alt="完成">
 
       <div class="finishPage__header--tab" v-if="getIndustry()">
         <strong :class="{'active': item.id == defaultTab}" v-for="item in tabList" :key="item.id" @click="defaultTab = item.id">{{item.title}}</strong>
@@ -63,6 +63,9 @@ import chartList_textile from "../static/chartList_textile.json";
 import chartList_metal from "../static/chartList_metal.json";
 
 export default {
+  head: {
+    title: "分析結果 - 台灣產業數位轉型量表TDX",
+  },
   components: {
     PageTitle,
     ChartPie,

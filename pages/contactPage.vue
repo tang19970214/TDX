@@ -73,6 +73,9 @@
 import PageTitle from "../components/PageTitle.vue";
 
 export default {
+  head: {
+    title: "受訪者基本資料 - 台灣產業數位轉型量表TDX",
+  },
   components: { PageTitle },
   data() {
     let checkEmail = (rule, value, callback) => {

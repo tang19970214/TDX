@@ -4,7 +4,7 @@
       <div class="indexPage__title">
         <div class="indexPage__title--imgAndTxt">
           <!-- image -->
-          <img class="img" src="@/assets/images/home-icon.svg" alt="" width="340px">
+          <img class="img" src="@/assets/images/home-icon.svg" alt="台灣產業數位轉型量表" width="340px">
           <!-- title -->
           <div class="title">
             <p class="title__text">台灣產業</p>

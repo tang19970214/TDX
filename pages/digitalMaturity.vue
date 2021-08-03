@@ -407,7 +407,7 @@ export default {
   methods: {
     getList() {
       this.$axios
-        .get("http://tdx.yummydesign.com.tw/sys/api/QuestionGroupC/Load")
+        .get("https://dtrl.tw/sys/api/QuestionGroupC/Load")
         .then((res) => {
           this.groupCList = res.data.data;
         });

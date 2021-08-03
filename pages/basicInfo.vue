@@ -137,7 +137,7 @@ export default {
   methods: {
     getUserNo() {
       this.$axios
-        .post("http://tdx.yummydesign.com.tw/sys/api/UserReply/GetUserNo")
+        .post("https://dtrl.tw/sys/api/UserReply/GetUserNo")
         .then((res) => {
           window.localStorage.setItem("userNo", res.data.result);
           this.$store.dispatch("setFormInfo", { userNo: res.data.result });

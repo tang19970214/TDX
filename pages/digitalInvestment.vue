@@ -26,15 +26,16 @@
         <!-- 8 b12 -->
         <div class="form__question" v-if="!!ruleForm.b11 && ruleForm.b11 !== '1-還在評估中'">
           <p class="form__question--no">8.</p>
-          <el-form-item class="form__question--body" label="請問，貴公司在去(2020)年推動數位轉型的投資經費? (包括人事、系統開發或委外等相關費用)" prop="b11">
+          <el-form-item class="form__question--body" label="請問，貴公司在去(2020)年投入數位化/數位轉型的經費為何？ (包括人事、系統開發或委外等相關費用)" prop="b11">
             <el-radio-group v-model="ruleForm.b12" @change="getB12">
               <el-radio label="1-沒有投入經費">沒有投入經費</el-radio>
-              <el-radio label="2-不到100萬">不到100萬</el-radio>
-              <el-radio label="3-100萬(含)以上，不到500萬">100萬(含)以上，不到500萬</el-radio>
-              <el-radio label="4-500萬(含)以上，不到1,000萬">500萬(含)以上，不到1,000萬</el-radio>
-              <el-radio label="5-1,000萬(含)以上，不到5,000萬">1,000萬(含)以上，不到5,000萬</el-radio>
-              <el-radio label="6-5,000萬(含)以上">5,000萬(含)以上</el-radio>
-              <el-radio label="7-不知道/拒答">不知道/拒答</el-radio>
+              <el-radio label="2-不到50萬">不到50萬</el-radio>
+              <el-radio label="3-50萬以上，不到100萬">50萬以上，不到100萬</el-radio>
+              <el-radio label="4-100萬以上，不到300萬">100萬以上，不到300萬</el-radio>
+              <el-radio label="5-300萬以上，不到500萬">300萬以上，不到500萬</el-radio>
+              <el-radio label="6-500萬以上，不到1,000萬">500萬以上，不到1,000萬</el-radio>
+              <el-radio label="7-1,000萬以上">1,000萬以上</el-radio>
+              <el-radio label="8-不知道/拒答">不知道/拒答</el-radio>
             </el-radio-group>
           </el-form-item>
         </div>
@@ -59,13 +60,14 @@
           <p class="form__question--no">10.</p>
           <el-form-item class="form__question--body" label="請問，貴公司預計今(2021)年投入推動數位轉型的預算?(包括人事、系統開發或委外等相關費用)" prop="b14">
             <el-radio-group v-model="ruleForm.b14">
-              <el-radio label="1-沒有規劃">沒有規劃</el-radio>
-              <el-radio label="2-不到100萬">不到100萬</el-radio>
-              <el-radio label="3-100萬(含)以上，不到500萬">100萬(含)以上，不到500萬</el-radio>
-              <el-radio label="4-500萬(含)以上，不到1,000萬">500萬(含)以上，不到1,000萬</el-radio>
-              <el-radio label="5-1,000萬(含)以上，不到5,000萬">1,000萬(含)以上，不到5,000萬</el-radio>
-              <el-radio label="6-5,000萬(含)以上">5,000萬(含)以上</el-radio>
-              <el-radio label="7-不知道/拒答">不知道/拒答</el-radio>
+              <el-radio label="1-沒有投入經費">沒有投入經費</el-radio>
+              <el-radio label="2-不到50萬">不到50萬</el-radio>
+              <el-radio label="3-50萬以上，不到100萬">50萬以上，不到100萬</el-radio>
+              <el-radio label="4-100萬以上，不到300萬">100萬以上，不到300萬</el-radio>
+              <el-radio label="5-300萬以上，不到500萬">300萬以上，不到500萬</el-radio>
+              <el-radio label="6-500萬以上，不到1,000萬">500萬以上，不到1,000萬</el-radio>
+              <el-radio label="7-1,000萬以上">1,000萬以上</el-radio>
+              <el-radio label="8-不知道/拒答">不知道/拒答</el-radio>
             </el-radio-group>
           </el-form-item>
         </div>
@@ -127,43 +129,66 @@
         <!-- 14 b24 -->
         <div class="form__question" v-if="!!ruleForm.b11">
           <p class="form__question--no">14.</p>
-          <el-form-item class="form__question--body" label="請問，貴公司目前已經投入/導入哪些數位或資訊系統？(複選題)" prop="b24">
+          <el-form-item class="form__question--body" label="請問，貴公司有導入或使用以下哪些數位系統或工具？(複選題)" prop="b24">
             <el-checkbox-group v-model="ruleForm.b24">
-              <el-checkbox label="1-ERP企業資源管理">ERP(Enterprise Resource Planning，企業資源管理)</el-checkbox>
-              <el-checkbox label="2-MES製造執行系統">MES(Manufacturing Execution System，製造執行系統)</el-checkbox>
-              <el-checkbox label="3-PDM產品資料管理">PDM(Product Data Management，產品資料管理)</el-checkbox>
-              <el-checkbox label="4-CRM客戶關係管理">CRM(Customer Relationship Management，客戶關係管理)</el-checkbox>
-              <el-checkbox label="5-SCM供應鏈管理">SCM(Supply Chain Management，供應鏈管理)</el-checkbox>
-              <el-checkbox label="6-PLM產品生命週期管理">PLM(Product Life Management，產品生命週期管理)</el-checkbox>
-              <el-checkbox label="7-CAD電腦輔助設計">CAD(Computer Aided Design，電腦輔助設計)</el-checkbox>
-              <el-checkbox label="8-CAM電腦輔助製造">CAM(Computer Aided Manufacturing，電腦輔助製造)</el-checkbox>
-              <el-checkbox label="9-自動品管檢測系統">自動品管檢測系統</el-checkbox>
-              <el-checkbox label="10-CAE電腦輔助工程">CAE(Computer Aided Engineering，電腦輔助工程)</el-checkbox>
-              <el-checkbox label="12-以上皆無">以上皆無</el-checkbox>
+              <el-checkbox label="1-企業資源規劃(ERP)">企業資源規劃(ERP)</el-checkbox>
+              <el-checkbox label="2-製造執行(MES)系統">製造執行(MES)系統</el-checkbox>
+              <el-checkbox label="3-供應鏈管理(SCM)">供應鏈管理(SCM)</el-checkbox>
+              <el-checkbox label="4-知識管理(KM)">知識管理(KM)</el-checkbox>
+              <el-checkbox label="5-顧客關係管理(CRM)">顧客關係管理(CRM)</el-checkbox>
+              <el-checkbox label="6-人力資源或發展管理(HRM&HDM)">人力資源或發展管理(HRM&HDM)</el-checkbox>
+              <el-checkbox label="7-財務或會計軟體工具">財務或會計軟體工具</el-checkbox>
+              <el-checkbox label="8-銷售站點(POS)系統">銷售站點(POS)系統</el-checkbox>
+              <el-checkbox label="9-電腦輔助製造(Computer Aided Manufacturing, CAM)">電腦輔助製造(Computer Aided Manufacturing, CAM)</el-checkbox>
+              <el-checkbox label="10-電腦輔助設計(Computer Aided Design, CAD)">CAE(Computer Aided Engineering，電腦輔助工程)</el-checkbox>
+              <el-checkbox label="11-產品資料管理(Product Data Management, PDM)">產品資料管理(Product Data Management, PDM)</el-checkbox>
+              <el-checkbox label="12-產品生命週期管理 (Product Life Management, PLM)">產品生命週期管理 (Product Life Management, PLM)</el-checkbox>
+              <el-checkbox label="13-生產排程系統(APS)">生產排程系統(APS)</el-checkbox>
+              <el-checkbox label="14-品管檢測系統">品管檢測系統</el-checkbox>
+              <el-checkbox label="15-軟體開發工具/平台/生命週期管理">軟體開發工具/平台/生命週期管理</el-checkbox>
+              <el-checkbox label="16-視訊或遠距會議平台">視訊或遠距會議平台</el-checkbox>
+              <el-checkbox label="17-雲端託管網站、系統平台或IT環境">雲端託管網站、系統平台或IT環境</el-checkbox>
+              <el-checkbox label="18-雲端主機租用，如AWS、AZURE、GCP">雲端主機租用，如AWS、AZURE、GCP</el-checkbox>
+              <el-checkbox label="19-租用實體IDC(Internet Data Center)機房">租用實體IDC(Internet Data Center)機房</el-checkbox>
+              <el-checkbox label="20-雲端文書處理、檔案儲存或內容管理應用，如office 365、Google雲端">雲端文書處理、檔案儲存或內容管理應用，如office 365、Google雲端</el-checkbox>
             </el-checkbox-group>
             <div class="form__question--ansOther" :class="{'active': !checkB24Disable()}">
-              <el-checkbox v-model="ruleForm.b24" label="11-其他，請說明___________">其他</el-checkbox>
+              <el-checkbox v-model="ruleForm.b24" label="21-其他，請說明___________">其他</el-checkbox>
               <el-input v-model="b24_other" :disabled="checkB24Disable()"></el-input>
             </div>
+          </el-form-item>
+        </div>
+
+        <!-- 14.1 q14 -->
+        <div class="form__question" v-if="!!ruleForm.b11">
+          <p class="form__question--no">14.1.</p>
+          <el-form-item class="form__question--body" label="上述提到已經使用的數位系統或工具中，有哪些採用了雲端的版本?(填入代號即可)" prop="q14">
+            <el-input type="textarea" :rows="5" v-model="ruleForm.q14">
+            </el-input>
           </el-form-item>
         </div>
 
         <!-- 15 b25 -->
         <div class="form__question" v-if="!!ruleForm.b11">
           <p class="form__question--no">15.</p>
-          <el-form-item class="form__question--body" label="請問，對於下列各項創新興數位科技應用趨勢，貴公司是否已有投入資源或人力？" prop="b25">
+          <el-form-item class="form__question--body" label="請問，貴公司已開始使用以下哪項新興技術/應用？" prop="b25">
             <el-checkbox-group v-model="ruleForm.b25">
-              <el-checkbox label="1-網路/資料安全">網路/資料安全</el-checkbox>
-              <el-checkbox label="2-大數據分析(Big data)">大數據分析(Big data)</el-checkbox>
-              <el-checkbox label="3-電子商務">電子商務</el-checkbox>
-              <el-checkbox label="4-雲端技術">雲端技術</el-checkbox>
-              <el-checkbox label="5-物聯網/機聯網">物聯網/機聯網</el-checkbox>
-              <el-checkbox label="6-社群行銷">社群行銷</el-checkbox>
-              <el-checkbox label="7-行動裝置服務">行動裝置服務</el-checkbox>
-              <el-checkbox label="9-人工智慧(Artificial Intelligence)">人工智慧(Artificial Intelligence)</el-checkbox>
-              <el-checkbox label="10-區塊鏈">區塊鏈</el-checkbox>
-              <el-checkbox label="11-邊緣運算">邊緣運算</el-checkbox>
-              <el-checkbox label="12-數位雙生(Digital twin)">數位雙生(Digital twin)</el-checkbox>
+              <!-- <el-checkbox label="1-網路/資料安全">網路/資料安全</el-checkbox> -->
+              <!-- <el-checkbox label="3-電子商務">電子商務</el-checkbox>
+              <el-checkbox label="4-雲端技術">雲端技術</el-checkbox> -->
+              <!-- <el-checkbox label="6-社群行銷">社群行銷</el-checkbox> -->
+              <!-- <el-checkbox label="7-行動裝置服務">行動裝置服務</el-checkbox> -->
+              <el-checkbox label="1-大數據分析(Big data)">大數據分析(Big data)</el-checkbox>
+              <el-checkbox label="2-物聯網/機聯網">物聯網/機聯網</el-checkbox>
+              <el-checkbox label="3-人工智慧(Artificial Intelligence)">人工智慧(Artificial Intelligence)</el-checkbox>
+              <el-checkbox label="4-區塊鏈">區塊鏈</el-checkbox>
+              <el-checkbox label="5-邊緣運算">邊緣運算</el-checkbox>
+              <el-checkbox label="6-數位雙生(Digital twin)">數位雙生(Digital twin)</el-checkbox>
+              <el-checkbox label="7-物聯網/機聯網">物聯網/機聯網</el-checkbox>
+              <el-checkbox label="9-5G/6G技術">5G/6G技術</el-checkbox>
+              <el-checkbox label="10-機械手臂">機械手臂</el-checkbox>
+              <el-checkbox label="11-無人機/無人車">無人機/無人車</el-checkbox>
+              <el-checkbox label="12-數位及社群行銷">數位及社群行銷</el-checkbox>
               <el-checkbox label="8-以上皆無">以上皆無</el-checkbox>
             </el-checkbox-group>
           </el-form-item>
@@ -201,6 +226,7 @@ export default {
         b22: "",
         b23: "",
         b24: [],
+        q14: "",
         b25: [],
       },
       b21_other: "",
@@ -216,6 +242,7 @@ export default {
         b22: [{ required: true, message: "請選擇", trigger: "change" }],
         b23: [{ required: true, message: "請選擇", trigger: "change" }],
         b24: [{ required: true, message: "請選擇", trigger: "change" }],
+        q14: [{ required: true, message: "請輸入", trigger: "blur" }],
         b25: [{ required: true, message: "請選擇", trigger: "change" }],
       },
     };
@@ -225,7 +252,7 @@ export default {
       return () => {
         if (this.ruleForm.b24.length > 0) {
           let getOtherAns = this.ruleForm.b24.filter(
-            (txt) => txt == "11-其他，請說明___________"
+            (txt) => txt == "21-其他，請說明___________"
           );
           if (getOtherAns == 0) {
             this.b24_other = "";
@@ -292,6 +319,7 @@ export default {
             b22: this.ruleForm.b22.split("-")[1] || "",
             b23: this.ruleForm.b23.split("-")[1] || "",
             b24: this.ruleForm.b24.map((it) => it.split("-")[1]),
+            q14: this.ruleForm.q14,
             b25: this.ruleForm.b25.map((it) => it.split("-")[1]),
           };
 

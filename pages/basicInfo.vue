@@ -67,12 +67,14 @@
               <el-radio label="塑膠製品製造業"></el-radio>
               <el-radio label="橡膠製品製造業"></el-radio>
               <el-radio label="基本金屬製造業"></el-radio>
-              <el-radio label="扣件及金屬製品製造業"></el-radio>
+              <el-radio label="螺絲、螺帽及鉚釘製造業"></el-radio>
               <el-radio label="電子零組件製造業"></el-radio>
               <el-radio label="電腦、電子產品及光學製品製造業"></el-radio>
               <el-radio label="電力設備及配備製造業"></el-radio>
               <el-radio label="機械設備製造業"></el-radio>
               <el-radio label="化妝品製造業"></el-radio>
+              <el-radio label="金屬製品製造業"></el-radio>
+              <el-radio label="汽車及其零件製造業"></el-radio>
             </el-radio-group>
             <div class="form__question--ansOther" :class="{'active': ruleForm.a6=='其他，請說明___________' || !!a6_other}">
               <el-radio label="其他，請說明___________" v-model="ruleForm.a6" :class="{'is-foces is-checked': !!a6_other}"></el-radio>

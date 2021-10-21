@@ -94,7 +94,7 @@ export default {
       return () => {
         if (
           this.$store.state?.formInfo?.a6 == "紡織業" ||
-          this.$store.state?.formInfo?.a6 == "扣件及金屬製品製造業"
+          this.$store.state?.formInfo?.a6 == "螺絲、螺帽及鉚釘製造業"
         ) {
           return true;
         } else {
@@ -116,7 +116,7 @@ export default {
         this.groupBList = chartList_textile.groupB;
         this.groupCList = chartList_textile.groupC;
         this.groupDList = chartList_textile.groupD;
-      } else if (this.$store.state.formInfo.a6 == "扣件及金屬製品製造業") {
+      } else if (this.$store.state.formInfo.a6 == "螺絲、螺帽及鉚釘製造業") {
         this.groupBList = chartList_metal.groupB;
         this.groupCList = chartList_metal.groupC;
         this.groupDList = chartList_metal.groupD;

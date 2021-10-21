@@ -129,25 +129,40 @@ export default {
       });
 
       if (this.groupBList.length > 0) {
-        const b11Ans = this.$store.state.chartInfo.b11;
-        const b12Ans = this.$store.state.chartInfo.b12;
-        this.groupBList[0].ans = this.$store.state.chartInfo.b11;
-        this.groupBList[1].ans =
-          b11Ans == 1 ? 0 : this.$store.state.chartInfo.b12;
+        // TODO:json檔須先改選項及比例，原始檔在windows那台電腦，做完後再往下做（2021/10/21）
 
-        if (!!this.groupBList[1].ans) {
-          this.groupBList[2].ans = this.$store.state.chartInfo.b13 || 0;
-          this.groupBList[3].ans = this.$store.state.chartInfo.b14 || 0;
-          this.groupBList[4].ans = this.$store.state.chartInfo.b21 || 0;
-          this.groupBList[5].ans = this.$store.state.chartInfo.b22 || 0;
-          this.groupBList[6].ans = this.$store.state.chartInfo.b23 || 0;
-        }
-        this.groupBList[7].ans = this.$store.state.chartInfo.b24?.map(
-          (i) => i - 1
-        );
-        this.groupBList[8].ans = this.$store.state.chartInfo.b25?.map(
-          (i) => i - 1
-        );
+        // TODO:到時候有q8,q10,q14,q15時要開啟（2021/10/21）
+        // const b11Ans = this.$store.state.chartInfo.b11;
+        // TODO:
+        // const b12Ans = this.$store.state.chartInfo.b12;
+        this.groupBList[0].ans = this.$store.state.chartInfo.b11;
+        // TODO:到時候有q8,q10,q14,q15時要開啟（2021/10/21）
+        // this.groupBList[1].ans =
+        //   b11Ans == 1 ? 0 : this.$store.state.chartInfo.b12;
+        // TODO:
+
+        // FIXME:到時候有q8,q10,q14,q15時要刪除（2021/10/21）
+        this.groupBList[1].ans = this.$store.state.chartInfo.b13 || 0;
+        this.groupBList[2].ans = this.$store.state.chartInfo.b21 || 0;
+        this.groupBList[3].ans = this.$store.state.chartInfo.b22 || 0;
+        this.groupBList[4].ans = this.$store.state.chartInfo.b23 || 0;
+        //FIXME:
+
+        // TODO:到時候有q8,q10,q14,q15時要開啟（2021/10/21）
+        // if (!!this.groupBList[1].ans) {
+        //   this.groupBList[2].ans = this.$store.state.chartInfo.b13 || 0;
+        //   this.groupBList[3].ans = this.$store.state.chartInfo.b14 || 0;
+        //   this.groupBList[4].ans = this.$store.state.chartInfo.b21 || 0;
+        //   this.groupBList[5].ans = this.$store.state.chartInfo.b22 || 0;
+        //   this.groupBList[6].ans = this.$store.state.chartInfo.b23 || 0;
+        // }
+        // this.groupBList[7].ans = this.$store.state.chartInfo.b24?.map(
+        //   (i) => i - 1
+        // );
+        // this.groupBList[8].ans = this.$store.state.chartInfo.b25?.map(
+        //   (i) => i - 1
+        // );
+        // TODO:
       }
       if (this.groupCList.length > 0) {
         this.groupCList[0].ans = this.$store.state.chartInfo.cA11;

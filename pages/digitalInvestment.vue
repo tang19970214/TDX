@@ -140,7 +140,7 @@
               <el-checkbox label="7-財務或會計軟體工具">財務或會計軟體工具</el-checkbox>
               <el-checkbox label="8-銷售站點(POS)系統">銷售站點(POS)系統</el-checkbox>
               <el-checkbox label="9-電腦輔助製造(Computer Aided Manufacturing, CAM)">電腦輔助製造(Computer Aided Manufacturing, CAM)</el-checkbox>
-              <el-checkbox label="10-電腦輔助設計(Computer Aided Design, CAD)">CAE(Computer Aided Engineering，電腦輔助工程)</el-checkbox>
+              <el-checkbox label="10-電腦輔助設計(Computer Aided Design, CAD)">電腦輔助設計(Computer Aided Design, CAD)</el-checkbox>
               <el-checkbox label="11-產品資料管理(Product Data Management, PDM)">產品資料管理(Product Data Management, PDM)</el-checkbox>
               <el-checkbox label="12-產品生命週期管理 (Product Life Management, PLM)">產品生命週期管理 (Product Life Management, PLM)</el-checkbox>
               <el-checkbox label="13-生產排程系統(APS)">生產排程系統(APS)</el-checkbox>

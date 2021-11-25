@@ -131,29 +131,29 @@
           <p class="form__question--no">14.</p>
           <el-form-item class="form__question--body" label="請問，貴公司有導入或使用以下哪些數位系統或工具？(複選題)" prop="b24">
             <el-checkbox-group v-model="ruleForm.b24">
-              <el-checkbox label="1-企業資源規劃(ERP)">企業資源規劃(ERP)</el-checkbox>
-              <el-checkbox label="2-製造執行(MES)系統">製造執行(MES)系統</el-checkbox>
-              <el-checkbox label="3-供應鏈管理(SCM)">供應鏈管理(SCM)</el-checkbox>
-              <el-checkbox label="4-知識管理(KM)">知識管理(KM)</el-checkbox>
-              <el-checkbox label="5-顧客關係管理(CRM)">顧客關係管理(CRM)</el-checkbox>
-              <el-checkbox label="6-人力資源或發展管理(HRM&HDM)">人力資源或發展管理(HRM&HDM)</el-checkbox>
-              <el-checkbox label="7-財務或會計軟體工具">財務或會計軟體工具</el-checkbox>
-              <el-checkbox label="8-銷售站點(POS)系統">銷售站點(POS)系統</el-checkbox>
-              <el-checkbox label="9-電腦輔助製造(Computer Aided Manufacturing, CAM)">電腦輔助製造(Computer Aided Manufacturing, CAM)</el-checkbox>
-              <el-checkbox label="10-電腦輔助設計(Computer Aided Design, CAD)">電腦輔助設計(Computer Aided Design, CAD)</el-checkbox>
-              <el-checkbox label="11-產品資料管理(Product Data Management, PDM)">產品資料管理(Product Data Management, PDM)</el-checkbox>
-              <el-checkbox label="12-產品生命週期管理 (Product Life Management, PLM)">產品生命週期管理 (Product Life Management, PLM)</el-checkbox>
-              <el-checkbox label="13-生產排程系統(APS)">生產排程系統(APS)</el-checkbox>
-              <el-checkbox label="14-品管檢測系統">品管檢測系統</el-checkbox>
-              <el-checkbox label="15-軟體開發工具/平台/生命週期管理">軟體開發工具/平台/生命週期管理</el-checkbox>
-              <el-checkbox label="16-視訊或遠距會議平台">視訊或遠距會議平台</el-checkbox>
-              <el-checkbox label="17-雲端託管網站、系統平台或IT環境">雲端託管網站、系統平台或IT環境</el-checkbox>
-              <el-checkbox label="18-雲端主機租用，如AWS、AZURE、GCP">雲端主機租用，如AWS、AZURE、GCP</el-checkbox>
-              <el-checkbox label="19-租用實體IDC(Internet Data Center)機房">租用實體IDC(Internet Data Center)機房</el-checkbox>
-              <el-checkbox label="20-雲端文書處理、檔案儲存或內容管理應用，如office 365、Google雲端">雲端文書處理、檔案儲存或內容管理應用，如office 365、Google雲端</el-checkbox>
+              <el-checkbox label="1-企業資源規劃(ERP)">(1)企業資源規劃(ERP)</el-checkbox>
+              <el-checkbox label="2-製造執行(MES)系統">(2)製造執行(MES)系統</el-checkbox>
+              <el-checkbox label="3-供應鏈管理(SCM)">(3)供應鏈管理(SCM)</el-checkbox>
+              <el-checkbox label="4-知識管理(KM)">(4)知識管理(KM)</el-checkbox>
+              <el-checkbox label="5-顧客關係管理(CRM)">(5)顧客關係管理(CRM)</el-checkbox>
+              <el-checkbox label="6-人力資源或發展管理(HRM&HDM)">(6)人力資源或發展管理(HRM&HDM)</el-checkbox>
+              <el-checkbox label="7-財務或會計軟體工具">(7)財務或會計軟體工具</el-checkbox>
+              <el-checkbox label="8-銷售站點(POS)系統">(8)銷售站點(POS)系統</el-checkbox>
+              <el-checkbox label="9-電腦輔助製造(Computer Aided Manufacturing, CAM)">(9)電腦輔助製造(Computer Aided Manufacturing, CAM)</el-checkbox>
+              <el-checkbox label="10-電腦輔助設計(Computer Aided Design, CAD)">(10)電腦輔助設計(Computer Aided Design, CAD)</el-checkbox>
+              <el-checkbox label="11-產品資料管理(Product Data Management, PDM)">(11)產品資料管理(Product Data Management, PDM)</el-checkbox>
+              <el-checkbox label="12-產品生命週期管理 (Product Life Management, PLM)">(12)產品生命週期管理 (Product Life Management, PLM)</el-checkbox>
+              <el-checkbox label="13-生產排程系統(APS)">(13)生產排程系統(APS)</el-checkbox>
+              <el-checkbox label="14-品管檢測系統">(14)品管檢測系統</el-checkbox>
+              <el-checkbox label="15-軟體開發工具/平台/生命週期管理">(15)軟體開發工具/平台/生命週期管理</el-checkbox>
+              <el-checkbox label="16-視訊或遠距會議平台">(16)視訊或遠距會議平台</el-checkbox>
+              <el-checkbox label="17-雲端託管網站、系統平台或IT環境">(17)雲端託管網站、系統平台或IT環境</el-checkbox>
+              <el-checkbox label="18-雲端主機租用，如AWS、AZURE、GCP">(18)雲端主機租用，如AWS、AZURE、GCP</el-checkbox>
+              <el-checkbox label="19-租用實體IDC(Internet Data Center)機房">(19)租用實體IDC(Internet Data Center)機房</el-checkbox>
+              <el-checkbox label="20-雲端文書處理、檔案儲存或內容管理應用，如office 365、Google雲端">(20)雲端文書處理、檔案儲存或內容管理應用，如office 365、Google雲端</el-checkbox>
             </el-checkbox-group>
             <div class="form__question--ansOther" :class="{'active': !checkB24Disable()}">
-              <el-checkbox v-model="ruleForm.b24" label="21-其他，請說明___________">其他</el-checkbox>
+              <el-checkbox v-model="ruleForm.b24" label="21-其他，請說明___________">(21)其他</el-checkbox>
               <el-input v-model="b24_other" :disabled="checkB24Disable()"></el-input>
             </div>
           </el-form-item>

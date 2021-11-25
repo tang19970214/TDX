@@ -79,7 +79,8 @@ export default {
   components: { PageTitle },
   data() {
     let checkEmail = (rule, value, callback) => {
-      const mail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+      const mail =
+        /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
       if (!value) {
         return callback(new Error("請填寫"));
       }
@@ -127,6 +128,7 @@ export default {
           this.$axios
             .post(
               "https://dtrl.tw/sys/api/UserReply/Add",
+              // "http://tdx.yummydesign.com.tw/sys/api/UserReply/Add",
               this.$store.state.formInfo
             )
             .then((res) => {

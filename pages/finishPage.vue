@@ -107,6 +107,7 @@ export default {
     async getGroupCList() {
       await this.$axios
         .get("https://dtrl.tw/sys/api/QuestionGroupC/Load")
+        // .get("http://tdx.yummydesign.com.tw/sys/api/QuestionGroupC/Load")
         .then((res) => {
           this.groupCApi = res.data.data;
         });

@@ -408,6 +408,7 @@ export default {
     getList() {
       this.$axios
         .get("https://dtrl.tw/sys/api/QuestionGroupC/Load")
+        // .get("http://tdx.yummydesign.com.tw/sys/api/QuestionGroupC/Load")
         .then((res) => {
           this.groupCList = res.data.data;
         });

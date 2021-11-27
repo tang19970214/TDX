@@ -4,6 +4,8 @@
       <PageTitle title="數位成熟度" />
     </div>
 
+    <!-- TODO: 依產業分開兩表 -->
+
     <!-- 數位成熟度架構 -->
     <div class="digitalMaturity__mature">
       <div class="digitalMaturity__mature--title">
@@ -31,227 +33,25 @@
     </div>
 
     <!-- ============================A1.高層共識============================ -->
-    <div class="digitalMaturity__showHeader">
-      <strong>{{getHeader($store.state.explanationNote.groupCNote1).title}}</strong>
-      <p>{{getHeader($store.state.explanationNote.groupCNote1).text}}</p>
-    </div>
     <div class="digitalMaturity__form">
-      <el-form class="form" ref="formCA1" :model="ruleForm" :rules="rules" label-position="top">
-        <!-- 16 cA11 -->
-        <div class="form__question">
-          <p class="form__question--no">16.</p>
-          <el-form-item class="form__question--body" :label="groupCList[0].que" prop="cA11">
-            <div class="introduceText">{{groupCList[0].note}}</div>
-            <el-radio-group v-model="ruleForm.cA11">
-              <el-radio v-for="item in groupCList[0].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
+      <el-form class="form" ref="form" :model="ruleForm" :rules="rules" label-position="top">
+        <div v-for="(item, idx) in groupCList" :key="idx">
+          <div class="digitalMaturity__showHeader">
+            <strong>{{item.group}}</strong>
+            <p v-if="!!item.groupDesc">{{item.groupDesc}}</p>
+          </div>
 
-        <!-- 17 cA12 -->
-        <div class="form__question">
-          <p class="form__question--no">17.</p>
-          <el-form-item class="form__question--body" :label="groupCList[1].que" prop="cA12">
-            <div class="introduceText">{{groupCList[1].note}}</div>
-            <el-radio-group v-model="ruleForm.cA12">
-              <el-radio v-for="item in groupCList[1].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
+          <!-- 16 q16 -->
+          <div class="form__question" v-for="items in item.questions" :key="items.num">
+            <p class="form__question--no">{{items.num}}.</p>
 
-        <!-- 18 cA13 -->
-        <div class="form__question">
-          <p class="form__question--no">18.</p>
-          <el-form-item class="form__question--body" :label="groupCList[2].que" prop="cA13">
-            <div class="introduceText">{{groupCList[2].note}}</div>
-            <el-radio-group v-model="ruleForm.cA13">
-              <el-radio v-for="item in groupCList[2].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-      </el-form>
-    </div>
-
-    <!-- ============================A2.組織能力============================ -->
-    <div class="digitalMaturity__showHeader">
-      <strong>{{getHeader($store.state.explanationNote.groupCNote2).title}}</strong>
-      <p>{{getHeader($store.state.explanationNote.groupCNote2).text}}</p>
-    </div>
-    <div class="digitalMaturity__form">
-      <el-form class="form" ref="formCA2" :model="ruleForm" :rules="rules" label-position="top">
-        <!-- 19 cA21 -->
-        <div class="form__question">
-          <p class="form__question--no">19.</p>
-          <el-form-item class="form__question--body" :label="groupCList[3].que" prop="cA21">
-            <div class="introduceText">{{groupCList[3].note}}</div>
-            <el-radio-group v-model="ruleForm.cA21">
-              <el-radio v-for="item in groupCList[3].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-
-        <!-- 20 cA22 -->
-        <div class="form__question">
-          <p class="form__question--no">20.</p>
-          <el-form-item class="form__question--body" :label="groupCList[4].que" prop="cA22">
-            <div class="introduceText">{{groupCList[4].note}}</div>
-            <el-radio-group v-model="ruleForm.cA22">
-              <el-radio v-for="item in groupCList[4].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-
-        <!-- 21 cA23 -->
-        <div class="form__question">
-          <p class="form__question--no">21.</p>
-          <el-form-item class="form__question--body" :label="groupCList[5].que" prop="cA23">
-            <div class="introduceText">{{groupCList[5].note}}</div>
-            <el-radio-group v-model="ruleForm.cA23">
-              <el-radio v-for="item in groupCList[5].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-      </el-form>
-    </div>
-
-    <!-- ============================B1.內部流程============================ -->
-    <div class="digitalMaturity__showHeader">
-      <strong>{{getHeader($store.state.explanationNote.groupCNote3).title}}</strong>
-      <p>{{getHeader($store.state.explanationNote.groupCNote3).text}}</p>
-    </div>
-    <div class="digitalMaturity__form">
-      <el-form class="form" ref="formCB1" :model="ruleForm" :rules="rules" label-position="top">
-        <!-- 22 cB11 -->
-        <div class="form__question">
-          <p class="form__question--no">22.</p>
-          <el-form-item class="form__question--body" :label="groupCList[6].que" prop="cB11">
-            <div class="introduceText">{{groupCList[6].note}}</div>
-            <el-radio-group v-model="ruleForm.cB11">
-              <el-radio v-for="item in groupCList[6].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-
-        <!-- 23 cB12 -->
-        <div class="form__question">
-          <p class="form__question--no">23.</p>
-          <el-form-item class="form__question--body" :label="groupCList[7].que" prop="cB12">
-            <el-radio-group v-model="ruleForm.cB12">
-              <el-radio v-for="item in groupCList[7].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-      </el-form>
-    </div>
-
-    <!-- ============================B2.外部流程============================ -->
-    <div class="digitalMaturity__showHeader">
-      <strong>{{getHeader($store.state.explanationNote.groupCNote4).title}}</strong>
-      <p>{{getHeader($store.state.explanationNote.groupCNote4).text}}</p>
-    </div>
-    <div class="digitalMaturity__form">
-      <el-form class="form" ref="formCB2" :model="ruleForm" :rules="rules" label-position="top">
-        <!-- 24 cB21 -->
-        <div class="form__question">
-          <p class="form__question--no">24.</p>
-          <el-form-item class="form__question--body" :label="groupCList[8].que" prop="cB21">
-            <div class="introduceText">{{groupCList[8].note}}</div>
-            <el-radio-group v-model="ruleForm.cB21">
-              <el-radio v-for="item in groupCList[8].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-
-        <!-- 25 cB22 -->
-        <div class="form__question">
-          <p class="form__question--no">25.</p>
-          <el-form-item class="form__question--body" :label="groupCList[9].que" prop="cB22">
-            <div class="introduceText">{{groupCList[9].note}}</div>
-            <el-radio-group v-model="ruleForm.cB22">
-              <el-radio v-for="item in groupCList[9].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-      </el-form>
-    </div>
-
-    <!-- ============================C1.基礎架構============================ -->
-    <div class="digitalMaturity__showHeader">
-      <strong>{{getHeader($store.state.explanationNote.groupCNote5).title}}</strong>
-      <p>{{getHeader($store.state.explanationNote.groupCNote5).text}}</p>
-    </div>
-    <div class="digitalMaturity__form">
-      <el-form class="form" ref="formCC1" :model="ruleForm" :rules="rules" label-position="top">
-        <!-- 26 cC11 -->
-        <div class="form__question">
-          <p class="form__question--no">26.</p>
-          <el-form-item class="form__question--body" :label="groupCList[10].que" prop="cC11">
-            <div class="introduceText">{{groupCList[10].note}}</div>
-            <el-radio-group v-model="ruleForm.cC11">
-              <el-radio v-for="item in groupCList[10].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-
-        <!-- 27 cC12 -->
-        <div class="form__question">
-          <p class="form__question--no">27.</p>
-          <el-form-item class="form__question--body" :label="groupCList[11].que" prop="cC12">
-            <el-radio-group v-model="ruleForm.cC12">
-              <el-radio v-for="item in groupCList[11].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-
-        <!-- 28 cC13 -->
-        <div class="form__question">
-          <p class="form__question--no">28.</p>
-          <el-form-item class="form__question--body" :label="groupCList[12].que" prop="cC13">
-            <el-radio-group v-model="ruleForm.cC13">
-              <el-radio v-for="item in groupCList[12].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-      </el-form>
-    </div>
-
-    <!-- ============================C2.數據價值============================ -->
-    <div class="digitalMaturity__showHeader">
-      <strong>{{getHeader($store.state.explanationNote.groupCNote6).title}}</strong>
-      <p>{{getHeader($store.state.explanationNote.groupCNote6).text}}</p>
-    </div>
-    <div class="digitalMaturity__form">
-      <el-form class="form" ref="formCC2" :model="ruleForm" :rules="rules" label-position="top">
-        <!-- 29 cC21 -->
-        <div class="form__question">
-          <p class="form__question--no">29.</p>
-          <el-form-item class="form__question--body" :label="groupCList[13].que" prop="cC21">
-            <div class="introduceText">{{groupCList[13].note}}</div>
-            <el-radio-group v-model="ruleForm.cC21">
-              <el-radio v-for="item in groupCList[13].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-
-        <!-- 30 cC22 -->
-        <div class="form__question">
-          <p class="form__question--no">30.</p>
-          <el-form-item class="form__question--body" :label="groupCList[14].que" prop="cC22">
-            <div class="introduceText">{{groupCList[14].note}}</div>
-            <el-radio-group v-model="ruleForm.cC22">
-              <el-radio v-for="item in groupCList[14].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </div>
-
-        <!-- 31 cC23 -->
-        <div class="form__question">
-          <p class="form__question--no">31.</p>
-          <el-form-item class="form__question--body" :label="groupCList[15].que" prop="cC23">
-            <el-radio-group v-model="ruleForm.cC23">
-              <el-radio v-for="item in groupCList[15].ans" :key="item.id" :label="item.id">{{item.text}}</el-radio>
-            </el-radio-group>
-          </el-form-item>
+            <el-form-item class="form__question--body" :label="items.que" :prop="`q${items.num}`">
+              <div class="introduceText" v-if="!!items.queDesc">{{items.queDesc}}</div>
+              <el-radio-group v-model="ruleForm[`q${items.num}`]">
+                <el-radio v-for="ans in items.options" :key="ans.id" :label="ans.value">{{ans.label}}</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </div>
         </div>
       </el-form>
 
@@ -356,75 +156,61 @@ export default {
         },
       ],
       ruleForm: {
-        cA11: 0,
-        cA12: 0,
-        cA13: 0,
-        cA21: 0,
-        cA22: 0,
-        cA23: 0,
-        cB11: 0,
-        cB12: 0,
-        cB21: 0,
-        cB22: 0,
-        cC11: 0,
-        cC12: 0,
-        cC13: 0,
-        cC21: 0,
-        cC22: 0,
-        cC23: 0,
+        q16: 0, // cA11
+        q17: 0, // cA13
+        q18: 0, // cA13
+        q19: 0, // cA21
+        q20: 0, // cA23
+        q21: 0, // cA23
+        q22: 0, // cB11
+        q23: 0, // cB12
+        q24: 0, // cB21
+        q25: 0, // cB22
+        q26: 0, // cC11
+        q27: 0, // cC12
+        q28: 0, // cC13
+        q29: 0, // cC21
+        q30: 0, // cC22
+        q31: 0, // cC23
       },
+      // FIXME: 加入Regux
       rules: {
-        cA11: [{ required: true, message: "請選擇", trigger: "change" }],
-        cA12: [{ required: true, message: "請選擇", trigger: "change" }],
-        cA13: [{ required: true, message: "請選擇", trigger: "change" }],
-        cA21: [{ required: true, message: "請選擇", trigger: "change" }],
-        cA22: [{ required: true, message: "請選擇", trigger: "change" }],
-        cA23: [{ required: true, message: "請選擇", trigger: "change" }],
-        cB11: [{ required: true, message: "請選擇", trigger: "change" }],
-        cB12: [{ required: true, message: "請選擇", trigger: "change" }],
-        cB21: [{ required: true, message: "請選擇", trigger: "change" }],
-        cB22: [{ required: true, message: "請選擇", trigger: "change" }],
-        cC11: [{ required: true, message: "請選擇", trigger: "change" }],
-        cC12: [{ required: true, message: "請選擇", trigger: "change" }],
-        cC13: [{ required: true, message: "請選擇", trigger: "change" }],
-        cC21: [{ required: true, message: "請選擇", trigger: "change" }],
-        cC22: [{ required: true, message: "請選擇", trigger: "change" }],
-        cC23: [{ required: true, message: "請選擇", trigger: "change" }],
+        q16: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q17: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q18: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q19: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q20: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q21: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q22: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q23: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q24: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q25: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q26: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q27: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q28: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q29: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q30: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q31: [{ required: true, message: "請選擇", trigger: "blur" }],
       },
     };
-  },
-  computed: {
-    getHeader() {
-      return (str) => {
-        let cutStr = str?.split("：");
-        return {
-          title: cutStr ? cutStr[0] : "",
-          text: cutStr ? cutStr[1] : "",
-        };
-      };
-    },
   },
   methods: {
     getList() {
       this.$axios
-        .get("https://dtrl.tw/sys/api/QuestionGroupC/Load")
-        // .get("http://tdx.yummydesign.com.tw/sys/api/QuestionGroupC/Load")
+        // .get(`https://dtrl.tw/sys/api/QuestionC/Load?TypeId=${this.$store.state.formInfo.q6}`)
+        .get(
+          `http://tdx.yummydesign.com.tw/sys/api/QuestionC/Load?TypeId=${this.$store.state.formInfo.q6}`
+        )
         .then((res) => {
-          this.groupCList = res.data.data;
+          const { code, data } = res.data;
+          if (code === 200) {
+            this.groupCList = data;
+          }
         });
     },
     enter() {
-      let list = [];
-      list.push(
-        this.checkForm("formCA1"),
-        this.checkForm("formCA2"),
-        this.checkForm("formCB1"),
-        this.checkForm("formCB2"),
-        this.checkForm("formCC1"),
-        this.checkForm("formCC2")
-      );
-      Promise.all(list)
-        .then(() => {
+      this.$refs["form"].validate((valid) => {
+        if (valid) {
           let chartObj = Object.assign(
             this.$store.state.chartInfo,
             this.ruleForm
@@ -434,30 +220,23 @@ export default {
           let newObj = Object.assign(this.$store.state.formInfo, this.ruleForm);
           this.$store.dispatch("setFormInfo", newObj);
           this.$router.push({ name: "digitalPerformancePage" });
-        })
-        .catch(() => {
+        } else {
           this.$nextTick(() => {
             let isError = document.getElementsByClassName("is-error");
             isError.forEach((el) => {
               el.classList.remove("bg-error");
               el.classList.add("bg-error");
-              el.childNodes[1].childNodes[0].classList.remove("focusRing");
-              el.childNodes[1].childNodes[0].classList.add("focusRing");
+              el.childNodes[1]?.childNodes[0]?.classList?.remove("focusRing");
+              el.childNodes[1]?.childNodes[0]?.classList?.add("focusRing");
             });
+
             isError[0].scrollIntoView({
               block: "center",
               behavior: "smooth",
             });
           });
-        });
-    },
-    checkForm(formName) {
-      return new Promise((resolve, reject) => {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            resolve();
-          } else reject();
-        });
+          return;
+        }
       });
     },
   },
@@ -572,15 +351,16 @@ export default {
 
   &__showHeader {
     width: 100%;
-    padding: 0 16px;
+    padding: 16px;
     box-sizing: border-box;
+    background: #a6d1ea;
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin-bottom: 16px;
 
     strong {
-      margin: 32px 0px 0px;
+      // margin: 32px 0px 0px;
       line-height: 1.2;
       white-space: pre-wrap;
       overflow-wrap: break-word;

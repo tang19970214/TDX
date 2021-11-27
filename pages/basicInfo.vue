@@ -9,29 +9,29 @@
         <!-- 公司名稱 -->
         <div class="form__question">
           <p class="form__question--no">1.</p>
-          <el-form-item class="form__question--body" label="公司名稱" prop="a1">
-            <el-input type="text" v-model="ruleForm.a1" placeholder="XXX股份有限公司"></el-input>
+          <el-form-item class="form__question--body" label="公司名稱" prop="q1">
+            <el-input type="text" v-model="ruleForm.q1" placeholder="XXX股份有限公司"></el-input>
           </el-form-item>
         </div>
         <!-- 統一編號 -->
         <div class="form__question">
           <p class="form__question--no">2.</p>
-          <el-form-item class="form__question--body" label="統一編號" prop="a2">
-            <el-input type="number" v-model="ruleForm.a2" placeholder="12345678"></el-input>
+          <el-form-item class="form__question--body" label="統一編號" prop="q2">
+            <el-input type="number" v-model="ruleForm.q2" placeholder="12345678"></el-input>
           </el-form-item>
         </div>
         <!-- 公司成立年份（西元） -->
         <div class="form__question">
           <p class="form__question--no">3.</p>
-          <el-form-item class="form__question--body" label="公司成立年份（西元）" prop="a3">
-            <el-input type="number" v-model="ruleForm.a3" placeholder="2021"></el-input>
+          <el-form-item class="form__question--body" label="公司成立年份（西元）" prop="q3">
+            <el-input type="number" v-model="ruleForm.q3" placeholder="2021"></el-input>
           </el-form-item>
         </div>
         <!-- 請問，貴公司目前(2021)年正式員工人數？ -->
         <div class="form__question">
           <p class="form__question--no">4.</p>
-          <el-form-item class="form__question--body" label="請問，貴公司目前(2021)年正式員工人數？" prop="a4">
-            <el-radio-group v-model="ruleForm.a4">
+          <el-form-item class="form__question--body" label="請問，貴公司目前(2021)年正式員工人數？" prop="q4">
+            <el-radio-group v-model="ruleForm.q4">
               <el-radio label="10人以下"></el-radio>
               <el-radio label="11~30人"></el-radio>
               <el-radio label="31~50人"></el-radio>
@@ -44,8 +44,8 @@
         <!-- 請問，去(2020)年公司整體營收為何？(新台幣) -->
         <div class="form__question">
           <p class="form__question--no">5.</p>
-          <el-form-item class="form__question--body" label="請問，去(2020)年公司整體營收為何？(新台幣)" prop="a5">
-            <el-radio-group v-model="ruleForm.a5">
+          <el-form-item class="form__question--body" label="請問，去(2020)年公司整體營收為何？(新台幣)" prop="q5">
+            <el-radio-group v-model="ruleForm.q5">
               <el-radio label="未滿1千萬"></el-radio>
               <el-radio label="1千萬以上，未滿5千萬"></el-radio>
               <el-radio label="5千萬以上，未滿1億"></el-radio>
@@ -59,11 +59,12 @@
         <!-- 請問，貴公司屬於以下哪種產業？ -->
         <div class="form__question">
           <p class="form__question--no">6.</p>
-          <el-form-item class="form__question--body" label="請問，貴公司屬於以下哪種產業？" prop="a6">
-            <el-radio-group v-model="ruleForm.a6" @change="getA6">
+          <el-form-item class="form__question--body" label="請問，貴公司屬於以下哪種產業？" prop="q6">
+            <el-radio-group v-model="ruleForm.q6" @change="getQ6">
               <el-radio label="食品及飼品製造業"></el-radio>
               <el-radio label="紡織業"></el-radio>
               <el-radio label="化學材料及肥料製造業"></el-radio>
+              <!-- 額外結果 -->
               <el-radio label="塑膠製品製造業"></el-radio>
               <el-radio label="橡膠製品製造業"></el-radio>
               <el-radio label="基本金屬製造業"></el-radio>
@@ -73,12 +74,13 @@
               <el-radio label="電力設備及配備製造業"></el-radio>
               <el-radio label="機械設備製造業"></el-radio>
               <el-radio label="化妝品製造業"></el-radio>
+              <!-- 額外結果 -->
               <el-radio label="金屬製品製造業"></el-radio>
               <el-radio label="汽車及其零件製造業"></el-radio>
             </el-radio-group>
-            <div class="form__question--ansOther" :class="{'active': ruleForm.a6=='其他，請說明___________' || !!a6_other}">
-              <el-radio label="其他，請說明___________" v-model="ruleForm.a6" :class="{'is-foces is-checked': !!a6_other}"></el-radio>
-              <el-input v-model="a6_other" placeholder="請說明" :disabled="ruleForm.a6 !== '其他，請說明___________'"></el-input>
+            <div class="form__question--ansOther" :class="{'active': ruleForm.a6=='其他，請說明___________' || !!q6_other}">
+              <el-radio label="其他，請說明___________" v-model="ruleForm.a6" :class="{'is-foces is-checked': !!q6_other}"></el-radio>
+              <el-input v-model="q6_other" placeholder="請說明" :disabled="ruleForm.a6 !== '其他，請說明___________'"></el-input>
             </div>
           </el-form-item>
         </div>
@@ -115,46 +117,46 @@ export default {
 
     return {
       ruleForm: {
-        a1: "",
-        a2: "",
-        a3: "",
-        a4: "",
-        a5: "",
-        a6: "",
+        q1: "",
+        q2: "",
+        q3: "",
+        q4: "",
+        q5: "",
+        q6: "",
       },
-      a6_other: "",
+      q6_other: "",
       rules: {
-        a1: [{ required: true, message: "請填寫", trigger: "blur" }],
-        a2: [{ required: true, message: "請填寫", trigger: "blur" }],
-        a3: [
+        q1: [{ required: true, message: "請填寫", trigger: "blur" }],
+        q2: [{ required: true, message: "請填寫", trigger: "blur" }],
+        q3: [
           { required: true, message: "請填寫", trigger: "blur" },
           { validator: checkYear, trigger: "blur" },
         ],
-        a4: [{ required: true, message: "請選擇", trigger: "change" }],
-        a5: [{ required: true, message: "請選擇", trigger: "change" }],
-        a6: [{ required: true, message: "請選擇", trigger: "change" }],
+        q4: [{ required: true, message: "請選擇", trigger: "change" }],
+        q5: [{ required: true, message: "請選擇", trigger: "change" }],
+        q6: [{ required: true, message: "請選擇", trigger: "change" }],
       },
     };
   },
   methods: {
     getUserNo() {
       this.$axios
-        .post("https://dtrl.tw/sys/api/UserReply/GetUserNo")
-        // .post("http://tdx.yummydesign.com.tw/sys/api/UserReply/GetUserNo")
+        // .post("https://dtrl.tw/sys/api/UserReply/GetUserNo")
+        .post("http://tdx.yummydesign.com.tw/sys/api/UserReply/GetUserNo")
         .then((res) => {
           window.localStorage.setItem("userNo", res.data.result);
           this.$store.dispatch("setFormInfo", { userNo: res.data.result });
         });
     },
-    getA6(val) {
+    getQ6(val) {
       /* 若選擇不是其他，就將其他的input值清空 */
-      this.a6_other = "";
+      this.q6_other = "";
     },
     enter() {
       this.$refs["form"].validate((valid) => {
         if (valid) {
           if (this.ruleForm.a6 == "其他，請說明___________") {
-            this.ruleForm.a6 = this.a6_other;
+            this.ruleForm.a6 = this.q6_other;
           }
 
           let newObj = Object.assign(this.$store.state.formInfo, this.ruleForm);

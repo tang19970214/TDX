@@ -73,7 +73,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     vendor: ['element-ui'],
-    // publicPath: "http://tdx.yummydesign.com.tw/",
-    publicPath: "https://dtrl.tw/"
+    publicPath: "http://tdx.yummydesign.com.tw/",
+    // publicPath: "https://dtrl.tw/"
   }
 }

@@ -63,8 +63,8 @@ export default {
   methods: {
     getList() {
       this.$axios
-        .get("https://dtrl.tw/sys/api/ExplanationNote/Get?id=1")
-        // .get("http://tdx.yummydesign.com.tw/sys/api/ExplanationNote/Get?id=1")
+        // .get("https://dtrl.tw/sys/api/ExplanationNote/Get?id=1")
+        .get("http://tdx.yummydesign.com.tw/sys/api/ExplanationNote/Get?id=1")
         .then((res) => {
           this.$store.dispatch("setExplanationNote", res.data.result);
           this.introduction[0].text = res.data.result.subject;

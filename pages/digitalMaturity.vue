@@ -156,41 +156,40 @@ export default {
         },
       ],
       ruleForm: {
-        q16: 0, // cA11
-        q17: 0, // cA13
-        q18: 0, // cA13
-        q19: 0, // cA21
-        q20: 0, // cA23
-        q21: 0, // cA23
-        q22: 0, // cB11
-        q23: 0, // cB12
-        q24: 0, // cB21
-        q25: 0, // cB22
-        q26: 0, // cC11
-        q27: 0, // cC12
-        q28: 0, // cC13
-        q29: 0, // cC21
-        q30: 0, // cC22
-        q31: 0, // cC23
+        q16: "", // cA11
+        q17: "", // cA13
+        q18: "", // cA13
+        q19: "", // cA21
+        q20: "", // cA23
+        q21: "", // cA23
+        q22: "", // cB11
+        q23: "", // cB12
+        q24: "", // cB21
+        q25: "", // cB22
+        q26: "", // cC11
+        q27: "", // cC12
+        q28: "", // cC13
+        q29: "", // cC21
+        q30: "", // cC22
+        q31: "", // cC23
       },
-      // FIXME: 加入Regux
       rules: {
-        q16: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q17: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q18: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q19: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q20: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q21: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q22: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q23: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q24: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q25: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q26: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q27: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q28: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q29: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q30: [{ required: true, message: "請選擇", trigger: "blur" }],
-        q31: [{ required: true, message: "請選擇", trigger: "blur" }],
+        q16: [{ required: true, message: "請選擇", trigger: "change" }],
+        q17: [{ required: true, message: "請選擇", trigger: "change" }],
+        q18: [{ required: true, message: "請選擇", trigger: "change" }],
+        q19: [{ required: true, message: "請選擇", trigger: "change" }],
+        q20: [{ required: true, message: "請選擇", trigger: "change" }],
+        q21: [{ required: true, message: "請選擇", trigger: "change" }],
+        q22: [{ required: true, message: "請選擇", trigger: "change" }],
+        q23: [{ required: true, message: "請選擇", trigger: "change" }],
+        q24: [{ required: true, message: "請選擇", trigger: "change" }],
+        q25: [{ required: true, message: "請選擇", trigger: "change" }],
+        q26: [{ required: true, message: "請選擇", trigger: "change" }],
+        q27: [{ required: true, message: "請選擇", trigger: "change" }],
+        q28: [{ required: true, message: "請選擇", trigger: "change" }],
+        q29: [{ required: true, message: "請選擇", trigger: "change" }],
+        q30: [{ required: true, message: "請選擇", trigger: "change" }],
+        q31: [{ required: true, message: "請選擇", trigger: "change" }],
       },
     };
   },

@@ -73,6 +73,13 @@ export default {
           xaxis: {
             categories: arr,
           },
+          yaxis: {
+            labels: {
+              style: {
+                fontSize: "18px",
+              },
+            },
+          },
           legend: {
             show: false,
           },

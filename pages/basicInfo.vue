@@ -78,9 +78,9 @@
               <el-radio label="金屬製品製造業"></el-radio>
               <el-radio label="汽車及其零件製造業"></el-radio>
             </el-radio-group>
-            <div class="form__question--ansOther" :class="{'active': ruleForm.a6=='其他，請說明___________' || !!q6_other}">
-              <el-radio label="其他，請說明___________" v-model="ruleForm.a6" :class="{'is-foces is-checked': !!q6_other}"></el-radio>
-              <el-input v-model="q6_other" placeholder="請說明" :disabled="ruleForm.a6 !== '其他，請說明___________'"></el-input>
+            <div class="form__question--ansOther" :class="{'active': ruleForm.q6=='其他，請說明___________' || !!q6_other}">
+              <el-radio label="其他，請說明___________" v-model="ruleForm.q6" :class="{'is-foces is-checked': !!q6_other}"></el-radio>
+              <el-input v-model="q6_other" placeholder="請說明" :disabled="ruleForm.q6 !== '其他，請說明___________'"></el-input>
             </div>
           </el-form-item>
         </div>
@@ -155,8 +155,8 @@ export default {
     enter() {
       this.$refs["form"].validate((valid) => {
         if (valid) {
-          if (this.ruleForm.a6 == "其他，請說明___________") {
-            this.ruleForm.a6 = this.q6_other;
+          if (this.ruleForm.q6 == "其他，請說明___________") {
+            this.ruleForm.q6 = this.q6_other;
           }
 
           let newObj = Object.assign(this.$store.state.formInfo, this.ruleForm);

@@ -27,8 +27,12 @@
     </div>
 
     <!-- <div v-if="getIndustry()"> -->
-    <!-- 數位投入 B -->
+    <!-- 大家都有 -->
     <el-row v-if="defaultTab == 1">
+      <AllFinishPage />
+    </el-row>
+    <!-- 數位投入 B -->
+    <el-row v-if="defaultTab == 2">
       <el-col :span="24" v-for="item in groupBList" :key="item.id">
         <ChartPie :title="item.title" :shortTitle="item.shortTitle" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'pie'" />
         <ChartBar :title="item.title" :shortTitle="item.shortTitle" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'bar'" />
@@ -36,21 +40,17 @@
       </el-col>
     </el-row>
     <!-- 數位成熟度 C -->
-    <el-row v-if="defaultTab == 2">
+    <el-row v-if="defaultTab == 3">
       <el-col :span="24">
         <ChartGroupC :data="groupCList" :groupCApi="groupCApi" />
       </el-col>
     </el-row>
     <!-- 數位成效 D -->
-    <el-row v-if="defaultTab == 3">
+    <el-row v-if="defaultTab == 4">
       <el-col :span="24" v-for="item in groupDList" :key="item.id">
         <ChartPie :title="item.title" :shortTitle="item.shortTitle" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'pie'" />
         <ChartBar :title="item.title" :shortTitle="item.shortTitle" :labels="item.labels" :series="item.series" :ans="item.ans" v-if="item.type == 'bar'" />
       </el-col>
-    </el-row>
-    <!-- 大家都有 -->
-    <el-row v-if="defaultTab == 4">
-      <AllFinishPage />
     </el-row>
     <!-- </div> -->
   </div>
@@ -68,10 +68,10 @@ import chartList_textile from "../static/chartList_textile.json";
 import chartList_metal from "../static/chartList_metal.json";
 
 const tabList = [
-  { id: 1, title: "數位投入" },
-  { id: 2, title: "數位成熟度" },
-  { id: 3, title: "數位成效" },
-  { id: 4, title: "量表結果摘要" },
+  { id: 1, title: "量表結果摘要" },
+  { id: 2, title: "數位投入" },
+  { id: 3, title: "數位成熟度" },
+  { id: 4, title: "數位成效" },
 ];
 
 export default {
@@ -221,12 +221,10 @@ export default {
       this.$store.state?.formInfo?.q6 == "紡織業" ||
       this.$store.state?.formInfo?.q6 == "螺絲、螺帽及鉚釘製造業"
     ) {
-      this.defaultTab = 1;
       this.tabList = [...tabList];
     } else {
       // return true;
-      this.defaultTab = 4;
-      this.tabList = [...tabList].filter((i) => i.id === 4);
+      this.tabList = [...tabList].filter((i) => i.id === 1);
     }
 
     await this.getGroupCList();

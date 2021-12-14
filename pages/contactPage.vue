@@ -7,7 +7,7 @@
     <div class="contactPage__form">
       <el-form class="form" ref="form" :model="ruleForm" :rules="rules" label-position="top">
         <!-- 1 e1 -->
-        <div class="form__question">
+        <!-- <div class="form__question">
           <p class="form__question--no">1.</p>
           <el-form-item class="form__question--body" label="請問，您是否需要本次調查結果的摘要分析？" prop="e1">
             <el-radio-group v-model="ruleForm.e1">
@@ -15,11 +15,11 @@
               <el-radio label="不需要"></el-radio>
             </el-radio-group>
           </el-form-item>
-        </div>
+        </div> -->
 
         <!-- 2 e2 -->
         <div class="form__question">
-          <p class="form__question--no">2.</p>
+          <p class="form__question--no">1.</p>
           <el-form-item class="form__question--body" label="姓氏" prop="e2">
             <el-input type="text" v-model="ruleForm.e2" placeholder="王"></el-input>
           </el-form-item>
@@ -27,7 +27,7 @@
 
         <!-- 3 e3 -->
         <div class="form__question">
-          <p class="form__question--no">3.</p>
+          <p class="form__question--no">2.</p>
           <el-form-item class="form__question--body" label="性別" prop="e3">
             <el-radio-group v-model="ruleForm.e3">
               <el-radio label="男"></el-radio>
@@ -38,7 +38,7 @@
 
         <!-- 4 e4 -->
         <div class="form__question">
-          <p class="form__question--no">4.</p>
+          <p class="form__question--no">3.</p>
           <el-form-item class="form__question--body" label="部門/職稱" prop="e4">
             <el-input type="text" v-model="ruleForm.e4" placeholder="執行長"></el-input>
           </el-form-item>
@@ -46,7 +46,7 @@
 
         <!-- 5 e5 -->
         <div class="form__question haveSubTitle">
-          <p class="form__question--no">5.</p>
+          <p class="form__question--no">4.</p>
           <el-form-item class="form__question--body" label="聯絡電話" prop="e5">
             <el-input type="number" v-model="ruleForm.e5" placeholder="範例:0912345678"></el-input>
           </el-form-item>
@@ -54,8 +54,8 @@
 
         <!-- 6 e6 -->
         <div class="form__question">
-          <p class="form__question--no">6.</p>
-          <el-form-item class="form__question--body" label="Email" prop="e6">
+          <p class="form__question--no">5.</p>
+          <el-form-item class="form__question--body" label="工作用Email" prop="e6">
             <el-input type="text" v-model="ruleForm.e6" placeholder="email@mail.com"></el-input>
           </el-form-item>
         </div>
@@ -131,7 +131,7 @@ export default {
               "http://tdx.yummydesign.com.tw/sys/api/UserReply/Add",
               this.$store.state.formInfo
             )
-            .then((res) => {
+            .then(() => {
               this.$router.push({ name: "finishPage" });
             });
         } else {

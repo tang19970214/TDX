@@ -17,7 +17,7 @@
         <label>{{$store.state.explanationNote.thankPage}}</label>
       </div> -->
 
-      <div class="finishPage__header--subTitle" v-if="defaultTab < 4">
+      <div class="finishPage__header--subTitle" v-if="defaultTab > 1">
         <label v-if="defaultTab == 1">圖表中，各題結果的數字是透過前期調查所取得資料。<br>紅色圖例代表您這次選擇的選項，若在圖中沒有紅色，代表這個選項在整體調查樣本中還沒有被選取。</label>
 
         <label v-if="defaultTab == 2">點選分數長條圖中的每個級距，可以看到每個等級分別代表什麼喔！<br>另外點選裡面的箭頭還可以看到自己可以如何前往下一個階段。</label>
@@ -279,7 +279,7 @@ export default {
 
       strong {
         padding: 13px 8px 0 8px;
-        line-height: 1.2;
+        line-height: 1.5;
         white-space: nowrap;
         overflow-wrap: break-word;
         color: #5899c8;

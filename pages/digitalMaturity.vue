@@ -97,7 +97,7 @@ export default {
               child: [
                 { id: 121, title: "技能應用" },
                 { id: 122, title: "培訓計畫" },
-                { id: 123, title: "專賣部門" },
+                { id: 123, title: "專責部門" },
               ],
             },
           ],

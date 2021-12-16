@@ -18,11 +18,20 @@
       </div> -->
 
       <div class="finishPage__header--subTitle" v-if="defaultTab > 1">
-        <label v-if="defaultTab == 1">圖表中，各題結果的數字是透過前期調查所取得資料。<br>紅色圖例代表您這次選擇的選項，若在圖中沒有紅色，代表這個選項在整體調查樣本中還沒有被選取。</label>
+        <div class="desc mt-23" v-if="defaultTab === 2">
+          <p>圖表中，各題結果的數字是透過前期調查所取得資料。</p>
+          <p>紅色圖例代表您這次選擇的選項，若在圖中沒有紅色，代表這個選項在整體調查樣本中還沒有被選取。</p>
+        </div>
 
-        <label v-if="defaultTab == 2">點選分數長條圖中的每個級距，可以看到每個等級分別代表什麼喔！<br>另外點選裡面的箭頭還可以看到自己可以如何前往下一個階段。</label>
+        <div class="desc" v-if="defaultTab === 3">
+          <p>點選分數長條圖中的每個級距，可以看到每個等級分別代表什麼喔！</p>
+          <p>另外點選裡面的箭頭還可以看到自己可以如何前往下一個階段。</p>
+        </div>
 
-        <label v-if="defaultTab == 3">圖表中，各題結果的數字是透過前期調查所取得資料。<br>紅色圖例代表您這次選擇的選項，若在圖中沒有紅色，代表這個選項在整體調查樣本中還沒有被選取。</label>
+        <div class="desc" v-if="defaultTab === 4">
+          <p>圖表中，各題結果的數字是透過前期調查所取得資料。</p>
+          <p>紅色圖例代表您這次選擇的選項，若在圖中沒有紅色，代表這個選項在整體調查樣本中還沒有被選取。</p>
+        </div>
       </div>
     </div>
 
@@ -308,9 +317,28 @@ export default {
       margin-top: 20px;
       font-size: 20px;
       color: rgb(54, 89, 140);
-      line-height: 1.2;
+      // line-height: 1.2;
       white-space: pre-wrap;
       overflow-wrap: break-word;
+
+      .desc {
+        display: flex;
+        flex-direction: column;
+
+        &.mt-23 {
+          margin-top: 23px;
+        }
+
+        p {
+          letter-spacing: 1px;
+          line-height: 1.8;
+          white-space: pre-wrap;
+          overflow-wrap: break-word;
+          font-size: 14px;
+          color: rgb(82, 101, 151);
+          font-weight: 700;
+        }
+      }
 
       .successSend {
         width: 100%;
@@ -325,16 +353,6 @@ export default {
           color: rgb(54, 89, 140);
           font-size: 36px;
         }
-      }
-
-      label {
-        letter-spacing: 1px;
-        line-height: 1.8;
-        white-space: pre-wrap;
-        overflow-wrap: break-word;
-        font-size: 14px;
-        color: rgb(82, 101, 151);
-        font-weight: 700;
       }
     }
   }

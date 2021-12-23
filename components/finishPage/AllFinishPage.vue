@@ -220,10 +220,14 @@
 
           <div class="result">
             <label>{{resultSuggest[3].score[checkScore(getItem(3))].title}}</label>
-            <ul v-if="$store.state.formInfo.q6 === '金屬製品製造業' || $store.state.formInfo.q6 === '塑膠製品製造業'">
-              <li v-for="(item, idx) in resultSuggest[3].score[checkScore(getItem(3))].content" :key="idx">
-                {{item.text}}
-              </li>
+            <ul v-if="$store.state.formInfo.q6 === '塑膠製品製造業'">
+              <li>{{resultSuggest[3].score[checkScore(getItem(3))].content[1].text}}</li>
+            </ul>
+            <ul v-else-if="$store.state.formInfo.q6 === '金屬製品製造業'">
+              <li>{{resultSuggest[3].score[checkScore(getItem(3))].content[2].text}}</li>
+            </ul>
+            <ul v-else>
+              <li>{{resultSuggest[3].score[checkScore(getItem(3))].content[0].text}}</li>
             </ul>
           </div>
         </div>
@@ -381,9 +385,8 @@
           <!-- <strong class="title">專家建議</strong> -->
 
           <div class="content">
-            <p>『雲服務的普及化可加速企業推動數位轉型，但須將資訊安全納入公司組織結構』</p>
-            <p>Dmitry Samartsev, BI.ZONE首席執行官</p>
-            <p>Daniel Dobrygowski, WEF治理與信任執行長</p>
+            <p>『數據對企業數位轉型至關重要，分析數據可瞭解客戶行為和快速做出決策』</p>
+            <p>Saket Sharma, 紐約梅隆銀行(BNY Mellon)首席資訊長</p>
           </div>
         </div>
       </section>
@@ -636,7 +639,7 @@ export default {
               background-color: #007bdf;
             }
             .second {
-              background-color: #008ffb;
+              background-color: #ffd306;
             }
             .third {
               background-color: #00e396;
@@ -756,7 +759,7 @@ export default {
               background-color: #007bdf;
             }
             .second {
-              background-color: #008ffb;
+              background-color: #ffd306;
             }
             .third {
               background-color: #00e396;

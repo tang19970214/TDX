@@ -38,7 +38,7 @@ export default {
     },
     getChartLabel() {
       return (arr) => {
-        let setColor = ["#007BDF", "#008FFB", "#00E396"];
+        let setColor = ["#007BDF", "#FFD306", "#00E396"];
 
         const vm = this;
         let newArr = {
@@ -47,7 +47,9 @@ export default {
               if (!vm.changeColor) {
                 return setColor[seriesIndex];
               } else {
-                return "#26A0FC";
+                // console.log(value, seriesIndex, dataPointIndex, w);
+                // return "#26A0FC";
+                return setColor[dataPointIndex];
               }
             },
           ],

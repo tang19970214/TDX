@@ -37,7 +37,7 @@
               <el-radio label="31~50人"></el-radio>
               <el-radio label="51~100人"></el-radio>
               <el-radio label="101~200人"></el-radio>
-              <el-radio label="200人以上"></el-radio>
+              <el-radio label="201人以上"></el-radio>
             </el-radio-group>
           </el-form-item>
         </div>
@@ -189,11 +189,11 @@ export default {
   mounted() {
     this.getUserNo();
     /* 重整時給提示 */
-    window.onbeforeunload = (e) => {
-      e.preventDefault();
-      e.returnValue = "";
-      window.localStorage.clear();
-    };
+    // window.onbeforeunload = (e) => {
+    //   e.preventDefault();
+    //   e.returnValue = "";
+    //   window.localStorage.clear();
+    // };
   },
 };
 </script>

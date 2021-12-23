@@ -189,11 +189,11 @@ export default {
   mounted() {
     this.getUserNo();
     /* 重整時給提示 */
-    // window.onbeforeunload = (e) => {
-    //   e.preventDefault();
-    //   e.returnValue = "";
-    //   window.localStorage.clear();
-    // };
+    window.onbeforeunload = (e) => {
+      e.preventDefault();
+      e.returnValue = "";
+      window.localStorage.clear();
+    };
   },
 };
 </script>

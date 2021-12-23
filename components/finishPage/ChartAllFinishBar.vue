@@ -38,7 +38,7 @@ export default {
     },
     getChartLabel() {
       return (arr) => {
-        let setColor = ["#007BDF", "#FFD306", "#00E396"];
+        let setColor = ["#007BDF", "#f98104", "#00E396"];
 
         const vm = this;
         let newArr = {

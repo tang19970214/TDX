@@ -111,10 +111,7 @@ export default {
         e2: [{ required: true, message: "請填寫", trigger: "blur" }],
         e3: [{ required: true, message: "請選擇", trigger: "change" }],
         e4: [{ required: true, message: "請填寫", trigger: "blur" }],
-        e5: [
-          { required: true, message: "請填寫", trigger: "blur" },
-          { min: 9, message: "格式錯誤", trigger: "blur" },
-        ],
+        e5: [{ required: true, message: "請填寫", trigger: "blur" }],
         e6: [{ required: true, validator: checkEmail, trigger: "blur" }],
       },
     };

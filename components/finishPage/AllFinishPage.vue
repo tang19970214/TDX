@@ -198,7 +198,7 @@
           </div>
         </div>
 
-        <!-- 外部流程 -->
+        <!-- 內部流程 -->
         <div class="commonPage__secondCard--title">
           <strong>{{getItem(3).subName}}</strong>
         </div>
@@ -232,7 +232,7 @@
           </div>
         </div>
 
-        <!-- 組織能力 -->
+        <!-- 外部流程 -->
         <div class="commonPage__secondCard--title">
           <strong>{{getItem(4).subName}}</strong>
         </div>
@@ -476,7 +476,7 @@ export default {
     checkScore() {
       return (item) => {
         // low, mid, high
-        if (item?.myAvg > 60) {
+        if (item?.myAvg >= 60) {
           return "high";
         } else if (item?.myAvg < 40) {
           return "low";
@@ -639,7 +639,7 @@ export default {
               background-color: #007bdf;
             }
             .second {
-              background-color: #ffd306;
+              background-color: #f98104;
             }
             .third {
               background-color: #00e396;
@@ -759,7 +759,7 @@ export default {
               background-color: #007bdf;
             }
             .second {
-              background-color: #ffd306;
+              background-color: #f98104;
             }
             .third {
               background-color: #00e396;

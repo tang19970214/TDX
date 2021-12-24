@@ -255,13 +255,13 @@
           <div class="result">
             <label>{{resultSuggest[4].score[checkScore(getItem(4))].title}}</label>
             <ul v-if="$store.state.formInfo.q6 === '塑膠製品製造業'">
-              <li>{{resultSuggest[3].score[checkScore(getItem(3))].content[1].text}}</li>
+              <li>{{resultSuggest[4].score[checkScore(getItem(3))].content[1].text}}</li>
             </ul>
             <ul v-else-if="$store.state.formInfo.q6 === '金屬製品製造業'">
-              <li>{{resultSuggest[3].score[checkScore(getItem(3))].content[2].text}}</li>
+              <li>{{resultSuggest[4].score[checkScore(getItem(3))].content[2].text}}</li>
             </ul>
             <ul v-else>
-              <li>{{resultSuggest[3].score[checkScore(getItem(3))].content[0].text}}</li>
+              <li>{{resultSuggest[4].score[checkScore(getItem(3))].content[0].text}}</li>
             </ul>
           </div>
         </div>

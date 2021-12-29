@@ -151,9 +151,10 @@
               <el-checkbox label="18-雲端主機租用，如AWS、AZURE、GCP">(18)雲端主機租用，如AWS、AZURE、GCP</el-checkbox>
               <el-checkbox label="19-租用實體IDC(Internet Data Center)機房">(19)租用實體IDC(Internet Data Center)機房</el-checkbox>
               <el-checkbox label="20-雲端文書處理、檔案儲存或內容管理應用，如office 365、Google雲端">(20)雲端文書處理、檔案儲存或內容管理應用，如office 365、Google雲端</el-checkbox>
+              <el-checkbox label="21-以上皆無">(21)以上皆無</el-checkbox>
             </el-checkbox-group>
             <div class="form__question--ansOther" :class="{'active': !checkQ14Disable()}">
-              <el-checkbox v-model="ruleForm.q14" label="21-其他，請說明___________">(21)其他</el-checkbox>
+              <el-checkbox v-model="ruleForm.q14" label="22-其他，請說明___________">(22)其他</el-checkbox>
               <el-input v-model="q14_other" :disabled="checkQ14Disable()"></el-input>
             </div>
           </el-form-item>
@@ -162,7 +163,7 @@
         <!-- 14.1 q141 -->
         <div class="form__question" v-if="!!ruleForm.q7">
           <p class="form__question--no">14.1.</p>
-          <el-form-item class="form__question--body" label="上述提到已經使用的數位系統或工具中，有哪些採用了雲端的版本?(填入代號即可)" prop="q141">
+          <el-form-item class="form__question--body" label="上述提到已經使用的數位系統或工具中，有哪些採用了雲端的版本?(填入代號或無即可)" prop="q141">
             <el-input type="textarea" :rows="5" v-model="ruleForm.q141">
             </el-input>
           </el-form-item>

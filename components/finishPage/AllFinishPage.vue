@@ -512,7 +512,6 @@ export default {
         .then((res) => {
           const { code, data } = res.data;
           if (code === 200) {
-            console.log(data);
             this.list = data;
           }
         });

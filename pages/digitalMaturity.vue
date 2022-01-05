@@ -196,10 +196,12 @@ export default {
   methods: {
     getList() {
       this.$axios
-        // .get(`https://dtrl.tw/sys/api/QuestionC/Load?TypeId=${this.$store.state.formInfo.q6}`)
         .get(
-          `http://tdx.yummydesign.com.tw/sys/api/QuestionC/Load?TypeId=${this.$store.state.formInfo.q6}`
+          `https://dtrl.tw/sys/api/QuestionC/Load?TypeId=${this.$store.state.formInfo.q6}`
         )
+        // .get(
+        //   `http://tdx.yummydesign.com.tw/sys/api/QuestionC/Load?TypeId=${this.$store.state.formInfo.q6}`
+        // )
         .then((res) => {
           const { code, data } = res.data;
           if (code === 200) {

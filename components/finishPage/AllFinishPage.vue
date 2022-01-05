@@ -506,9 +506,12 @@ export default {
   methods: {
     async getList() {
       await this.$axios
-        .get(`http://tdx.yummydesign.com.tw/sys/api/UserReply/GetResult`, {
+        .get(`https://dtrl.tw/sys/api/UserReply/GetResult`, {
           params: this.$store.state.formInfo,
         })
+        // .get(`http://tdx.yummydesign.com.tw/sys/api/UserReply/GetResult`, {
+        //   params: this.$store.state.formInfo,
+        // })
         .then((res) => {
           const { code, data } = res.data;
           if (code === 200) {

@@ -28,10 +28,12 @@
         <!-- 3 e3 -->
         <div class="form__question">
           <p class="form__question--no">2.</p>
-          <el-form-item class="form__question--body" label="性別" prop="e3">
+          <el-form-item class="form__question--body" label="從哪裡得知產業數位轉型量表(TDX)" prop="e3">
             <el-radio-group v-model="ruleForm.e3">
-              <el-radio label="男"></el-radio>
-              <el-radio label="女"></el-radio>
+              <el-radio label="網路搜尋"></el-radio>
+              <el-radio label="參加數位轉型相關活動或課程"></el-radio>
+              <el-radio label="由服務供給商提供連結"></el-radio>
+              <el-radio label="由軟協推薦"></el-radio>
             </el-radio-group>
           </el-form-item>
         </div>
@@ -79,8 +81,7 @@ export default {
   components: { PageTitle },
   data() {
     let checkEmail = (rule, value, callback) => {
-      const mail =
-        /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+      const mail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
       if (!value) {
         return callback(new Error("請填寫"));
       }
@@ -124,8 +125,8 @@ export default {
           this.$store.dispatch("setFormInfo", newObj);
           this.$axios
             .post(
-              "https://dtrl.tw/sys/api/UserReply/Add",
-              // "http://tdx.yummydesign.com.tw/sys/api/UserReply/Add",
+              // "https://dtrl.tw/sys/api/UserReply/Add",
+              "http://tdx.yummydesign.com.tw/sys/api/UserReply/Add",
               this.$store.state.formInfo
             )
             .then(() => {

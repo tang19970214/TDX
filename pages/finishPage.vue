@@ -1,10 +1,10 @@
 <template>
   <div class="finishPage">
     <div class="finishPage__header">
-      <img src="@/assets/images/finishPage.svg" alt="完成">
+      <img src="@/assets/images/finishPage.svg" alt="完成" />
 
       <div class="finishPage__header--tab">
-        <strong :class="{'active': item.id == defaultTab}" v-for="item in tabList" :key="item.id" @click="defaultTab = item.id">{{item.title}}</strong>
+        <strong :class="{ active: item.id == defaultTab }" v-for="item in tabList" :key="item.id" @click="defaultTab = item.id">{{ item.title }}</strong>
       </div>
 
       <!-- <div class="finishPage__header--subTitle" v-if="!getIndustry()">
@@ -110,10 +110,7 @@ export default {
   computed: {
     getIndustry() {
       return () => {
-        if (
-          this.$store.state?.formInfo?.q6 == "紡織業" ||
-          this.$store.state?.formInfo?.q6 == "螺絲、螺帽及鉚釘製造業"
-        ) {
+        if (this.$store.state?.formInfo?.q6 == "紡織業" || this.$store.state?.formInfo?.q6 == "螺絲、螺帽及鉚釘製造業") {
           return true;
         } else {
           this.tabList = this.tabList.filter((i) => i.id === 4);
@@ -205,31 +202,19 @@ export default {
       if (this.groupDList.length > 0) {
         const d2Ans = this.$store.state.chartInfo.q33;
         this.groupDList[1].ans = this.$store.state.chartInfo.q33;
-        this.groupDList[2].ans =
-          d2Ans == 3 ? 0 : this.$store.state.chartInfo.q34;
-        this.groupDList[3].ans =
-          d2Ans == 3 ? 0 : this.$store.state.chartInfo.q35;
-        this.groupDList[5].ans =
-          d2Ans == 3 ? 0 : this.$store.state.chartInfo.q37;
-        this.groupDList[6].ans =
-          d2Ans == 3 ? 0 : this.$store.state.chartInfo.q38;
-        this.groupDList[7].ans =
-          d2Ans == 3 ? 0 : this.$store.state.chartInfo.q39;
+        this.groupDList[2].ans = d2Ans == 3 ? 0 : this.$store.state.chartInfo.q34;
+        this.groupDList[3].ans = d2Ans == 3 ? 0 : this.$store.state.chartInfo.q35;
+        this.groupDList[5].ans = d2Ans == 3 ? 0 : this.$store.state.chartInfo.q37;
+        this.groupDList[6].ans = d2Ans == 3 ? 0 : this.$store.state.chartInfo.q38;
+        this.groupDList[7].ans = d2Ans == 3 ? 0 : this.$store.state.chartInfo.q39;
         // 複選
-        this.groupDList[0].ans = this.$store.state.chartInfo.q32?.map(
-          (i) => i - 1
-        );
-        this.groupDList[4].ans = this.$store.state.chartInfo.q36?.map(
-          (i) => i - 1
-        );
+        this.groupDList[0].ans = this.$store.state.chartInfo.q32?.map((i) => i - 1);
+        this.groupDList[4].ans = this.$store.state.chartInfo.q36?.map((i) => i - 1);
       }
     },
   },
   async mounted() {
-    if (
-      this.$store.state?.formInfo?.q6 == "紡織業" ||
-      this.$store.state?.formInfo?.q6 == "螺絲、螺帽及鉚釘製造業"
-    ) {
+    if (this.$store.state?.formInfo?.q6 == "紡織業" || this.$store.state?.formInfo?.q6 == "螺絲、螺帽及鉚釘製造業") {
       this.tabList = [...tabList];
     } else {
       // return true;

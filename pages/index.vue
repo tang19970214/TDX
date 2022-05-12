@@ -4,7 +4,7 @@
       <div class="indexPage__title">
         <div class="indexPage__title--imgAndTxt">
           <!-- image -->
-          <img class="img" src="@/assets/images/home-icon.svg" alt="台灣產業數位轉型量表" width="340px">
+          <img class="img" src="@/assets/images/home-icon.svg" alt="台灣產業數位轉型量表" width="340px" />
           <!-- title -->
           <div class="title">
             <p class="title__text">台灣產業</p>
@@ -12,7 +12,7 @@
               <strong class="title__supText--cn">數位轉型量表<strong class="title__supText--en">TDX</strong></strong>
             </div>
             <svg height="10" width="30">
-              <line x1="4" y1="5" x2="30" y2="5" style="stroke: rgb(14, 92, 148); stroke-width: 2;"></line>
+              <line x1="4" y1="5" x2="30" y2="5" style="stroke: rgb(14, 92, 148); stroke-width: 2"></line>
             </svg>
             <p class="title__subject">Taiwan Digtal Transformation Index</p>
           </div>
@@ -29,12 +29,12 @@
                 <path d="M11 13.5C14.3137 13.5 17 10.8137 17 7.5C17 4.18629 14.3137 1.5 11 1.5C7.68629 1.5 5 4.18629 5 7.5C5 10.8137 7.68629 13.5 11 13.5Z" stroke="#5C88C9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
                 <path d="M7.49951 14L6.41602 20.48L10.9993 17.5507L15.5827 20.48L14.4995 14" stroke="#5C88C9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
-              <strong class="introduce__block--title">{{item.title}}</strong>
+              <strong class="introduce__block--title">{{ item.title }}</strong>
             </div>
             <!-- 介紹-內文 -->
-            <p class="introduce__content" v-if="item.title !== '聯絡'">{{item.text}}</p>
+            <p class="introduce__content" v-if="item.title !== '聯絡'">{{ item.text }}</p>
             <div style="margin-top: 12px" v-else>
-              <p class="introduce__content" v-for="items in item.text.split('\n')" :key="items.id">{{items}}</p>
+              <p class="introduce__content" v-for="items in item.text.split('\n')" :key="items.id">{{ items }}</p>
             </div>
           </div>
         </div>

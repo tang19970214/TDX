@@ -1,20 +1,20 @@
 <template>
   <div class="commonPage" v-if="!!list">
     <!-- 總體 -->
-    <div class="commonPage__commonCard commonPage__firstCard" :class="{'flex-row': !checkJob()}">
+    <div class="commonPage__commonCard commonPage__firstCard" :class="{ 'flex-row': !checkJob() }">
       <div class="commonPage__firstCard--title">
         <strong>數位轉型成熟度總分</strong>
       </div>
 
       <div class="commonPage__firstCard--block">
-        <div :class="{'left': checkJob(), 'no-chart': !checkJob()}">
+        <div :class="{ left: checkJob(), 'no-chart': !checkJob() }">
           <div class="score">
-            <strong>{{getItem(0).myAvg}}</strong>
+            <strong>{{ getItem(0).myAvg }}</strong>
             <p>/100</p>
           </div>
 
           <span class="desc">
-            <strong>{{checkRole(getItem(0).myAvg)}}</strong>
+            <strong>{{ checkRole(getItem(0).myAvg) }}</strong>
           </span>
         </div>
 
@@ -33,7 +33,7 @@
               <label>產業高標</label>
             </div>
           </div>
-          <ChartAllFinishBar :labels="['企業分數', '產業平均', '產業高標']" :series="[{data: [getItem(0).myAvg, getItem(0).orgAvg, getItem(0).orgHight]}]" :changeColor="true" />
+          <ChartAllFinishBar :labels="['企業分數', '產業平均', '產業高標']" :series="[{ data: [getItem(0).myAvg, getItem(0).orgAvg, getItem(0).orgHight] }]" :changeColor="true" />
         </div>
       </div>
     </div>
@@ -48,19 +48,19 @@
         <div class="commonPage__secondCard--main">
           <div class="left">
             <div class="left__title">
-              <strong>{{getItem(1).name}}</strong>
+              <strong>{{ getItem(1).name }}</strong>
             </div>
 
             <div class="left__score">
               <div class="left__score--block">
-                <label>{{getItem(1).subName}}</label>
-                <strong>{{getItem(1).myAvg}}</strong>
+                <label>{{ getItem(1).subName }}</label>
+                <strong>{{ getItem(1).myAvg }}</strong>
                 <p>/100</p>
               </div>
 
               <div class="left__score--block">
-                <label>{{getItem(2).subName}}</label>
-                <strong>{{getItem(2).myAvg}}</strong>
+                <label>{{ getItem(2).subName }}</label>
+                <strong>{{ getItem(2).myAvg }}</strong>
                 <p>/100</p>
               </div>
             </div>
@@ -81,13 +81,21 @@
                 <label>產業高標</label>
               </div>
             </div>
-            <ChartAllFinishBar height="250" :labels="[getItem(1).subName, getItem(2).subName]" :series="[{name: '企業分數', data: [getItem(1).myAvg, getItem(2).myAvg]},{name: '產業平均', data: [getItem(1).orgAvg, getItem(2).orgAvg]}, {name: '產業高標', data: [getItem(1).orgHight, getItem(2).orgHight]}]" />
+            <ChartAllFinishBar
+              height="250"
+              :labels="[getItem(1).subName, getItem(2).subName]"
+              :series="[
+                { name: '企業分數', data: [getItem(1).myAvg, getItem(2).myAvg] },
+                { name: '產業平均', data: [getItem(1).orgAvg, getItem(2).orgAvg] },
+                { name: '產業高標', data: [getItem(1).orgHight, getItem(2).orgHight] },
+              ]"
+            />
           </div>
         </div>
 
         <!-- 高層共識 -->
         <div class="commonPage__secondCard--title">
-          <strong>{{getItem(1).subName}}</strong>
+          <strong>{{ getItem(1).subName }}</strong>
         </div>
 
         <div class="commonPage__secondCard--content" v-if="checkJob()">
@@ -96,7 +104,7 @@
           </div>
 
           <div class="result">
-            <p>{{getItem(1).subName}}表現{{getItem(1).result}}</p>
+            <p>{{ getItem(1).subName }}表現{{ getItem(1).result }}</p>
           </div>
         </div>
 
@@ -106,10 +114,10 @@
           </div>
 
           <div class="result">
-            <label>{{resultSuggest[1].score[checkScore(getItem(1))].title}}</label>
+            <label>{{ resultSuggest[1].score[checkScore(getItem(1))].title }}</label>
             <ul>
               <li v-for="(item, idx) in resultSuggest[1].score[checkScore(getItem(1))].content" :key="idx">
-                {{item.text}}
+                {{ item.text }}
               </li>
             </ul>
           </div>
@@ -117,7 +125,7 @@
 
         <!-- 組織能力 -->
         <div class="commonPage__secondCard--title">
-          <strong>{{getItem(2).subName}}</strong>
+          <strong>{{ getItem(2).subName }}</strong>
         </div>
 
         <div class="commonPage__secondCard--content" v-if="checkJob()">
@@ -126,7 +134,7 @@
           </div>
 
           <div class="result">
-            <p>{{getItem(2).subName}}表現{{getItem(2).result}}</p>
+            <p>{{ getItem(2).subName }}表現{{ getItem(2).result }}</p>
           </div>
         </div>
 
@@ -136,10 +144,10 @@
           </div>
 
           <div class="result">
-            <label>{{resultSuggest[2].score[checkScore(getItem(2))].title}}</label>
+            <label>{{ resultSuggest[2].score[checkScore(getItem(2))].title }}</label>
             <ul>
               <li v-for="(item, idx) in resultSuggest[2].score[checkScore(getItem(2))].content" :key="idx">
-                {{item.text}}
+                {{ item.text }}
               </li>
             </ul>
           </div>
@@ -161,19 +169,19 @@
         <div class="commonPage__secondCard--main">
           <div class="left">
             <div class="left__title">
-              <strong>{{getItem(3).name}}</strong>
+              <strong>{{ getItem(3).name }}</strong>
             </div>
 
             <div class="left__score">
               <div class="left__score--block">
-                <label>{{getItem(3).subName}}</label>
-                <strong>{{getItem(3).myAvg}}</strong>
+                <label>{{ getItem(3).subName }}</label>
+                <strong>{{ getItem(3).myAvg }}</strong>
                 <p>/100</p>
               </div>
 
               <div class="left__score--block">
-                <label>{{getItem(4).subName}}</label>
-                <strong>{{getItem(4).myAvg}}</strong>
+                <label>{{ getItem(4).subName }}</label>
+                <strong>{{ getItem(4).myAvg }}</strong>
                 <p>/100</p>
               </div>
             </div>
@@ -194,13 +202,21 @@
                 <label>產業高標</label>
               </div>
             </div>
-            <ChartAllFinishBar height="250" :labels="[getItem(3).subName, getItem(4).subName]" :series="[{name: '企業分數', data: [getItem(3).myAvg, getItem(4).myAvg]},{name: '產業平均', data: [getItem(3).orgAvg, getItem(4).orgAvg]}, {name: '產業高標', data: [getItem(3).orgHight, getItem(4).orgHight]}]" />
+            <ChartAllFinishBar
+              height="250"
+              :labels="[getItem(3).subName, getItem(4).subName]"
+              :series="[
+                { name: '企業分數', data: [getItem(3).myAvg, getItem(4).myAvg] },
+                { name: '產業平均', data: [getItem(3).orgAvg, getItem(4).orgAvg] },
+                { name: '產業高標', data: [getItem(3).orgHight, getItem(4).orgHight] },
+              ]"
+            />
           </div>
         </div>
 
         <!-- 內部流程 -->
         <div class="commonPage__secondCard--title">
-          <strong>{{getItem(3).subName}}</strong>
+          <strong>{{ getItem(3).subName }}</strong>
         </div>
 
         <div class="commonPage__secondCard--content" v-if="checkJob()">
@@ -209,7 +225,7 @@
           </div>
 
           <div class="result">
-            <p>{{getItem(3).subName}}表現{{getItem(3).result}}</p>
+            <p>{{ getItem(3).subName }}表現{{ getItem(3).result }}</p>
           </div>
         </div>
 
@@ -219,22 +235,22 @@
           </div>
 
           <div class="result">
-            <label>{{resultSuggest[3].score[checkScore(getItem(3))].title}}</label>
+            <label>{{ resultSuggest[3].score[checkScore(getItem(3))].title }}</label>
             <ul v-if="$store.state.formInfo.q6 === '塑膠製品製造業'">
-              <li>{{resultSuggest[3].score[checkScore(getItem(3))].content[1].text}}</li>
+              <li>{{ resultSuggest[3].score[checkScore(getItem(3))].content[1].text }}</li>
             </ul>
             <ul v-else-if="$store.state.formInfo.q6 === '金屬製品製造業'">
-              <li>{{resultSuggest[3].score[checkScore(getItem(3))].content[2].text}}</li>
+              <li>{{ resultSuggest[3].score[checkScore(getItem(3))].content[2].text }}</li>
             </ul>
             <ul v-else>
-              <li>{{resultSuggest[3].score[checkScore(getItem(3))].content[0].text}}</li>
+              <li>{{ resultSuggest[3].score[checkScore(getItem(3))].content[0].text }}</li>
             </ul>
           </div>
         </div>
 
         <!-- 外部流程 -->
         <div class="commonPage__secondCard--title">
-          <strong>{{getItem(4).subName}}</strong>
+          <strong>{{ getItem(4).subName }}</strong>
         </div>
 
         <div class="commonPage__secondCard--content" v-if="checkJob()">
@@ -243,7 +259,7 @@
           </div>
 
           <div class="result">
-            <p>{{getItem(4).subName}}表現{{getItem(4).result}}</p>
+            <p>{{ getItem(4).subName }}表現{{ getItem(4).result }}</p>
           </div>
         </div>
 
@@ -253,15 +269,15 @@
           </div>
 
           <div class="result">
-            <label>{{resultSuggest[4].score[checkScore(getItem(4))].title}}</label>
+            <label>{{ resultSuggest[4].score[checkScore(getItem(4))].title }}</label>
             <ul v-if="$store.state.formInfo.q6 === '塑膠製品製造業'">
-              <li>{{resultSuggest[4].score[checkScore(getItem(3))].content[1].text}}</li>
+              <li>{{ resultSuggest[4].score[checkScore(getItem(3))].content[1].text }}</li>
             </ul>
             <ul v-else-if="$store.state.formInfo.q6 === '金屬製品製造業'">
-              <li>{{resultSuggest[4].score[checkScore(getItem(3))].content[2].text}}</li>
+              <li>{{ resultSuggest[4].score[checkScore(getItem(3))].content[2].text }}</li>
             </ul>
             <ul v-else>
-              <li>{{resultSuggest[4].score[checkScore(getItem(3))].content[0].text}}</li>
+              <li>{{ resultSuggest[4].score[checkScore(getItem(3))].content[0].text }}</li>
             </ul>
           </div>
         </div>
@@ -283,19 +299,19 @@
         <div class="commonPage__secondCard--main">
           <div class="left">
             <div class="left__title">
-              <strong>{{getItem(5).name}}</strong>
+              <strong>{{ getItem(5).name }}</strong>
             </div>
 
             <div class="left__score">
               <div class="left__score--block">
-                <label>{{getItem(5).subName}}</label>
-                <strong>{{getItem(5).myAvg}}</strong>
+                <label>{{ getItem(5).subName }}</label>
+                <strong>{{ getItem(5).myAvg }}</strong>
                 <p>/100</p>
               </div>
 
               <div class="left__score--block">
-                <label>{{getItem(6).subName}}</label>
-                <strong>{{getItem(6).myAvg}}</strong>
+                <label>{{ getItem(6).subName }}</label>
+                <strong>{{ getItem(6).myAvg }}</strong>
                 <p>/100</p>
               </div>
             </div>
@@ -316,13 +332,21 @@
                 <label>產業高標</label>
               </div>
             </div>
-            <ChartAllFinishBar height="250" :labels="[getItem(5).subName, getItem(6).subName]" :series="[{name: '企業分數', data: [getItem(5).myAvg, getItem(6).myAvg]},{name: '產業平均', data: [getItem(5).orgAvg, getItem(6).orgAvg]}, {name: '產業高標', data: [getItem(5).orgHight, getItem(6).orgHight]}]" />
+            <ChartAllFinishBar
+              height="250"
+              :labels="[getItem(5).subName, getItem(6).subName]"
+              :series="[
+                { name: '企業分數', data: [getItem(5).myAvg, getItem(6).myAvg] },
+                { name: '產業平均', data: [getItem(5).orgAvg, getItem(6).orgAvg] },
+                { name: '產業高標', data: [getItem(5).orgHight, getItem(6).orgHight] },
+              ]"
+            />
           </div>
         </div>
 
         <!-- 基礎架構 -->
         <div class="commonPage__secondCard--title">
-          <strong>{{getItem(5).subName}}</strong>
+          <strong>{{ getItem(5).subName }}</strong>
         </div>
 
         <div class="commonPage__secondCard--content" v-if="checkJob()">
@@ -331,7 +355,7 @@
           </div>
 
           <div class="result">
-            <p>{{getItem(5).subName}}表現{{getItem(5).result}}</p>
+            <p>{{ getItem(5).subName }}表現{{ getItem(5).result }}</p>
           </div>
         </div>
 
@@ -341,10 +365,10 @@
           </div>
 
           <div class="result">
-            <label>{{resultSuggest[5].score[checkScore(getItem(5))].title}}</label>
+            <label>{{ resultSuggest[5].score[checkScore(getItem(5))].title }}</label>
             <ul>
               <li v-for="(item, idx) in resultSuggest[5].score[checkScore(getItem(5))].content" :key="idx">
-                {{item.text}}
+                {{ item.text }}
               </li>
             </ul>
           </div>
@@ -352,7 +376,7 @@
 
         <!-- 數據價值 -->
         <div class="commonPage__secondCard--title">
-          <strong>{{getItem(6).subName}}</strong>
+          <strong>{{ getItem(6).subName }}</strong>
         </div>
 
         <div class="commonPage__secondCard--content" v-if="checkJob()">
@@ -361,7 +385,7 @@
           </div>
 
           <div class="result">
-            <p>{{getItem(6).subName}}表現{{getItem(6).result}}</p>
+            <p>{{ getItem(6).subName }}表現{{ getItem(6).result }}</p>
           </div>
         </div>
 
@@ -371,10 +395,10 @@
           </div>
 
           <div class="result">
-            <label>{{resultSuggest[6].score[checkScore(getItem(6))].title}}</label>
+            <label>{{ resultSuggest[6].score[checkScore(getItem(6))].title }}</label>
             <ul>
               <li v-for="(item, idx) in resultSuggest[6].score[checkScore(getItem(6))].content" :key="idx">
-                {{item.text}}
+                {{ item.text }}
               </li>
             </ul>
           </div>
@@ -411,16 +435,10 @@
             <a href="https://www.ecos.org.tw/" target="_blank">雲市集工業館數位點數補助計畫</a>
           </li>
           <li>
-            <a href="https://www.citd.moeaidb.gov.tw/CITDWeb/Web/Detail.aspx?p=f03c8085-4e3f-46ac-ad8e-45be4ba0be15" target="_blank">中小製造業接班傳承數位轉型主題式研發計畫</a>
+            <a href="https://www.citd.moeaidb.gov.tw/cloud/web/atotal.aspx" target="_blank">雲世代數位轉型相關補助計畫與資源</a>
           </li>
           <li>
-            <a href="https://www.citd.moeaidb.gov.tw/CITDweb/Web/Detail.aspx?p=abb91b95-0067-40d7-ac5c-92e962cb70d8" target="_blank">消費數據驅動精準研製造(C2M)補助主題式研計畫</a>
-          </li>
-          <li>
-            <a href="https://www.citd.moeaidb.gov.tw/CITDWeb/Web/Detail.aspx?p=20c62055-4b44-490c-8b3c-7930962a8d88" target="_blank">金屬製品數位轉型加值主題式研發計畫</a>
-          </li>
-          <li>
-            <a href="https://www.citd.moeaidb.gov.tw/CITDWeb/Web/Detail03109.aspx?fbclid=IwAR0wquJpjfPq5BoGoqAy6Y4CFdbFxlVDwDHt25oKvt1c-OwVfBVKXEl5_qk" target="_blank">數位轉型服務團(快易通)諮詢</a>
+            <a href="https://tiip.itnet.org.tw/" target="_blank">產業升級創新平台輔導計畫</a>
           </li>
         </ul>
       </div>
@@ -490,12 +508,7 @@ export default {
       return () => {
         const job = this.$store.state.formInfo?.q6;
 
-        if (
-          job === "紡織業" ||
-          job === "螺絲、螺帽及鉚釘製造業" ||
-          job === "塑膠製品製造業" ||
-          job === "金屬製品製造業"
-        ) {
+        if (job === "紡織業" || job === "螺絲、螺帽及鉚釘製造業" || job === "塑膠製品製造業" || job === "金屬製品製造業") {
           return true;
         } else {
           return false;

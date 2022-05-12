@@ -18,14 +18,14 @@
 
       <div class="digitalMaturity__mature--introduce">
         <div class="introduceBlock" v-for="item in matureList" :key="item.id">
-          <div class="introduceBlock__mainTitle" :style="{backgroundColor: item.bgColor}">
-            {{item.title}}
+          <div class="introduceBlock__mainTitle" :style="{ backgroundColor: item.bgColor }">
+            {{ item.title }}
           </div>
 
           <div class="introduceBlock__subTitle">
             <div class="introduceBlock__subTitle--title" v-for="items in item.subTitle" :key="items.id">
-              <div class="subTitle" :style="{backgroundColor: item.supBgColor}">{{items.title}}</div>
-              <div class="context" v-for="text in items.child" :key="text.id">{{text.title}}</div>
+              <div class="subTitle" :style="{ backgroundColor: item.supBgColor }">{{ items.title }}</div>
+              <div class="context" v-for="text in items.child" :key="text.id">{{ text.title }}</div>
             </div>
           </div>
         </div>
@@ -37,18 +37,18 @@
       <el-form class="form" ref="form" :model="ruleForm" :rules="rules" label-position="top">
         <div v-for="(item, idx) in groupCList" :key="idx">
           <div class="digitalMaturity__showHeader">
-            <strong>{{item.group}}</strong>
-            <p v-if="!!item.groupDesc">{{item.groupDesc}}</p>
+            <strong>{{ item.group }}</strong>
+            <p v-if="!!item.groupDesc">{{ item.groupDesc }}</p>
           </div>
 
           <!-- 16 q16 -->
           <div class="form__question" v-for="items in item.questions" :key="items.num">
-            <p class="form__question--no">{{items.num}}.</p>
+            <p class="form__question--no">{{ items.num }}.</p>
 
             <el-form-item class="form__question--body" :label="items.que" :prop="`q${items.num}`">
-              <div class="introduceText" v-if="!!items.queDesc">{{items.queDesc}}</div>
+              <div class="introduceText" v-if="!!items.queDesc">{{ items.queDesc }}</div>
               <el-radio-group v-model="ruleForm[`q${items.num}`]">
-                <el-radio v-for="ans in items.options" :key="ans.id" :label="ans.value">{{ans.label}}</el-radio>
+                <el-radio v-for="ans in items.options" :key="ans.id" :label="ans.value">{{ ans.label }}</el-radio>
               </el-radio-group>
             </el-form-item>
           </div>
@@ -196,12 +196,8 @@ export default {
   methods: {
     getList() {
       this.$axios
-        .get(
-          `https://dtrl.tw/sys/api/QuestionC/Load?TypeId=${this.$store.state.formInfo.q6}`
-        )
-        // .get(
-        //   `http://tdx.yummydesign.com.tw/sys/api/QuestionC/Load?TypeId=${this.$store.state.formInfo.q6}`
-        // )
+        .get(`https://dtrl.tw/sys/api/QuestionC/Load?TypeId=${this.$store.state.formInfo.q6}`)
+        // .get(`http://tdx.yummydesign.com.tw/sys/api/QuestionC/Load?TypeId=${this.$store.state.formInfo.q6}`)
         .then((res) => {
           const { code, data } = res.data;
           if (code === 200) {
@@ -212,10 +208,7 @@ export default {
     enter() {
       this.$refs["form"].validate((valid) => {
         if (valid) {
-          let chartObj = Object.assign(
-            this.$store.state.chartInfo,
-            this.ruleForm
-          );
+          let chartObj = Object.assign(this.$store.state.chartInfo, this.ruleForm);
           this.$store.dispatch("setChartInfo", chartObj);
 
           let newObj = Object.assign(this.$store.state.formInfo, this.ruleForm);
